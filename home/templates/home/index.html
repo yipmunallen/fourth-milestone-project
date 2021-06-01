@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}
+    Home
+{% endblock %}
+
+{% block content %}
+<section id="hero-section">
+    <div id="hero-image">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-center" id="hero-text">
+                    <h1 id="hero-title"><span id="hero-brand-title">neat</span></h1>
+                    <h3 id="hero-text">Making organisation stylish</h3>
+                    <a class="btn button" href="">SHOP</a>
+                </div>
+            </div>
+        </div>            
+    </div>
+</section>
+<section id="membership-section">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="index-header"><span>Become a member</span></h1>
+                <h4 id="membership-description">Join our exclusive club, designed to help you be your best self.</h4>
+            </div>
+        </div>            
+        <div class="row" id="membership-details">
+            <div class="col-12 col-lg-5">
+                <div class="membership-image-div text-center">
+                    <img src="/media/membershipimage.jpg" alt="A birdseye image of a desk with a journal on it" id="membership-image">
+                </div>
+            </div>                
+            <div class="col-12 col-lg-5">
+                <div class="d-flex justify-content-center">
+                    <ul class="membership-text">
+                        <li><i class="fas fa-gift fa-lg"></i>Access to exclusive content</li>
+                        <li><i class="fas fa-gift fa-lg"></i>Early product access</li>
+                        <li><i class="fas fa-gift fa-lg"></i>Referral program</li>
+                        <li><i class="fas fa-gift fa-lg"></i>Productivity playlists</li>
+                        <li><i class="fas fa-gift fa-lg"></i>Free downloadables</li>
+                        <li><i class="fas fa-gift fa-lg"></i>Co-create products & content</li>
+                        <li><a class="btn button d-flex justify-content-center" href="">Learn More</a>   </li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <h4 class="mx-auto" id="membership-summary">
+                    Let us help you become your best, and most organized self. We are dedicated to empowering and 
+                    encouraging you for success – and we want to ensure you have the right resources to succeed. 
+                    Our membership options bring organization to your fingers with exclusive content, member's only 
+                    offers, and access to an entire community of people who want to get stuff done.
+                </h4>                
+            </div>
+        </div>           
+    </div>
+</section>
+<section id="top-picks-section">
+    <div class="container top-picks">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="index-header" id="top-picks-header"><span>Our top picks</span></h1>
+            </div>
+        </div>
+        <div class="row top-picks-items">
+            <div class="col-md-4">
+                <a class="white-underline" href="#">
+                    <div class="top-picks-image mx-auto">
+                        <img src="/media/twelve-month-planner.jpg" alt="twelve month planner">
+                    </div>
+                    <h3 class="top-picks-name text-center">12 Month Planner</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a class="white-underline" href="#">
+                    <div class="top-picks-image mx-auto">
+                        <img src="/media/get-it-done-planner.jpg" alt="get it done planner">
+                    </div>
+                    <h3 class="top-picks-name text-center">Get It Done Planner</h3>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a class="white-underline" href="#">
+                    <div class="top-picks-image mx-auto">
+                        <img src="/media/wellness-planner.jpg" alt="wellness-planner">
+                    </div>
+                    <h3 class="top-picks-name text-center">Wellness Planner</h3>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <a class="btn button" id="top-picks-button" href="#">See more</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
