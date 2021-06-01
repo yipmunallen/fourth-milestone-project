@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Bodoni+Moda:ital,wght@0,600;1,600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size: 10px;
+}
+
+body,html {
+  height: 100%;
+}
+
+body{
+    font-family: 'Arimo', sans-serif;
+    color: #433E3F;
+}
+
+h1{
+    font-family: 'Bodoni Moda', sans-serif;
+    text-transform: uppercase;
+}
+
+.white-underline:hover{
+    text-decoration-color: #E9ECEC;
+}
+
+/* ------ Navbar ------ */
+
+#brand-title{
+    font-family: 'Bodoni Moda', sans-serif;
+    font-size: 3rem;
+}
+
+.nav-link{
+    margin-left: 1rem;
+}
+
+.nav-text{
+    font-size: 1.5rem;
+}
