@@ -25,6 +25,29 @@ h1{
     text-decoration-color: #E9ECEC;
 }
 
+/* ------ Buttons ------ */
+
+.btn{
+    background-color: #BBA0B0;
+    border-style: none;
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+    color: #433E3F;
+    padding: 0 3rem;
+    box-shadow: 0rem 0.8rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.button{
+    margin-top: 1rem;
+}
+
+.button:hover{
+    background: #A08F7E;
+    outline: 0;
+    color: #E9ECEC;
+    box-shadow: 0rem 0.3rem 1rem #E9ECEC;
+}
+
 /* ------ Navbar ------ */
 
 #brand-title{
@@ -38,4 +61,126 @@ h1{
 
 .nav-text{
     font-size: 1.5rem;
+}
+
+/* ------ Hero Section ------ */
+
+#hero-image {
+    background: url('/media/heroimage.jpg') no-repeat center;
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    padding: 30rem 0;
+}
+
+#hero-title{
+    font-size: 7rem;
+    border-bottom: 0.3rem solid;
+    border-color: #A08F7E;
+    color: #E9ECEC;
+}
+
+#hero-brand-title{
+    color: black;
+    font-size: 7rem;
+    font-style: italic;
+}
+
+#hero-text{
+    margin-top: 1rem;
+}
+
+/* ------ Membership Section ------ */
+
+.index-header{
+    margin-top: 4rem;
+    letter-spacing: 0.3rem;
+}
+
+.index-header span{
+    font-size: 2.8rem;
+}
+
+#membership-description{
+    margin-top: 2rem;
+}
+
+.membership-image-div img {
+    padding: 1rem;
+    border: 1px solid #CDB7C4;
+}
+
+#membership-image{
+    width: 70%;
+    border-radius: 50em;
+}
+
+#membership-details{
+    margin-top: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.membership-text .fas{
+    margin-right: 1rem;
+}
+
+.membership-text li{
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    list-style: none;
+}
+
+#membership-summary{
+    margin-top: 4rem;
+    width: 80vw;
+    max-width: 70rem;
+}
+
+/* ------ Top Picks Section ------ */
+
+#top-picks-section{
+    margin-top: 3rem;
+    background-color: #A08F7E;
+}
+
+#top-picks-header{
+    color:#E9ECEC;
+}
+
+.top-picks-items{
+    margin-top: 6rem;
+}
+
+.top-picks-image{
+    overflow: hidden;
+    width: 80%;
+    border: 2px solid #CDB7C4;
+}
+
+.top-picks-image img{
+    transition: all 0.3s;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+}
+
+.top-picks-image:hover img {
+	transform: scale(1.5);
+}
+
+.top-picks-name{
+    margin: 2rem 0;
+}
+
+.top-picks-name{
+    font-size: 1.1rem;
+    letter-spacing: 0.2rem;
+    color: #E9ECEC;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#top-picks-button{
+    margin-bottom: 3rem;
 }
