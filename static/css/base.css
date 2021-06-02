@@ -50,6 +50,9 @@ h1{
 
 /* ------ Navbar ------ */
 
+.navbar{
+    padding: 0.2rem 1rem;
+}
 #brand-title{
     font-family: 'Bodoni Moda', sans-serif;
     font-size: 3rem;
@@ -60,14 +63,16 @@ h1{
 }
 
 .nav-text{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
 }
 
 /* ------ Hero Section ------ */
 
 #hero-image {
     background: url('/media/heroimage.jpg') no-repeat center;
-    height: 90vh;
+    height: 75vh;
     width: 100%;
     background-size: cover;
     padding: 30rem 0;
