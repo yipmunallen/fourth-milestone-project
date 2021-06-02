@@ -1,0 +1,142 @@
+[
+  {
+    "pk": 1,
+    "model": "products.product",
+    "fields": {
+      "product_code": "p001",
+      "name": "Wellness Planner",
+      "description": "This 6 month planner is designed to help you discover what wellness looks like for you from a place of curiosity and self compassion. Focus on specific areas of your wellness so that the journey doesn’t feel so overwhelming. Soft-touch laminate cover, finished with a high-quality gold foil. Size: 5.5\" x 8.125\" " ,
+      "price": 21.85,
+      "category": 1,
+      "rating": 5,
+      "image": "wellness-planner.jpg",
+      "image_2": "wellness-planner-2.jpg"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+      "product_code": "p002",
+      "name": "Academic Planner",
+      "description": "With this 12 month planner, you can finally look stylish sitting at your desk...you might even get a little jealousy. Soft-touch lamination on a hardcover, finished with a high-quality gold foil. Size: 6\" W x 8\" H",
+      "price": 38.76,
+      "category": 1,
+      "rating": 5,
+      "image": "academic-planner.jpg",
+      "image_2": "academic-planner-2.jpg"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.product",
+    "fields": {
+      "product_code": "p003",
+      "name": "12-Month Weekly Planner ",
+      "description": "This 12 Month Planner is an undated, weekly planner designed to make your task planning as easy and seamless as possible. This planner is perfect for anyone looking for some structure throughout their week but that doesn't want to feel restricted by dates. Soft-touch lamination on a hardcover, finished with a high-quality gold foil. Size: 6\" W x 8\" H",
+      "price": 38.76,
+      "category": 1,
+      "rating": 5,
+      "image": "twelve-month-planner.jpg",
+      "image_2": "twelve-month-planner-2.jpg"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.product",
+    "fields": {
+      "product_code": "p004",
+      "name": "Get It Done Planner",
+      "description": "The Get It Done Planner is designed to make your task planning as easy and seamless as possible so that you can focus on being your best self. Built for a 90-day achievement cycle, the GID Planner gives you a quarter of a year so you aren’t overwhelmed by having to take on 12 months at a time. Finished with soft touch laminate. Size: 6\" W x 8\" H",
+      "price": 27.48,
+      "category": 1,
+      "rating": 4,
+      "image": "get-it-done-planner.jpg",
+      "image_2": "get-it-done-planner-2.jpg"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.product",
+    "fields": {
+      "product_code": "p005",
+      "name": "Academic Stickers",
+      "description": "The stickers comes a pack of 2 that will give you a healthy daily dose of neatly looking study sessions, tests, exams, homework and so much more.",
+      "price": 8.49,
+      "category": 2,
+      "rating": 5,
+      "image": "academic-stickers.jpg",
+      "image_2": "academic-stickers-2.jpg"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "products.product",
+    "fields": {
+      "product_code": "p006",
+      "name": "Planner Stickers",
+      "description": "Each pack comes with 4 sticker sheets that will give you a healthy daily dose of neatly looking appointments, meetings, coffees, brunches, vacation planning and so much more.",
+      "price": 15.99,
+      "category": 2,
+      "rating": 5,
+      "image": "planner-stickers.jpg",
+      "image_2": "planner-stickers-2.jpg"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "products.product",
+    "fields": {
+      "product_code": "p007",
+      "name": "Task Sticky Notes",
+      "description": "Our task sticky is great for managing your important daily tasks and really just staying on top of things. It's a simple and clean staple with an area for quick checkmarks when things are done and done! It's perfect for sticking in your planner for all those extra little things you need to get done.",
+      "price": 5.64,
+      "category": 3,
+      "rating": 5,
+      "image": "task-sticky-notes.jpg",
+      "image_2": "task-sticky-notes-2.jpg"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "products.product",
+    "fields": {
+      "product_code": "p007",
+      "name": "Water Sticky Notes",
+      "description": "Drink more water. We want you to take care of yourself, so we made a handy little sticky note whose sole purpose is to help you track your daily water intake. You can use a pen or one of our new mini highlighters to shade in those little water glasses. Now go and stay hydrated!",
+      "price": 5.64,
+      "category": 3,
+      "rating": 4,
+      "image": "water-sticky-notes.jpg",
+      "image_2": "water-sticky-notes-2.jpg"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "products.product",
+    "fields": {
+      "product_code": "p008",
+      "name": "Grid Sticky Notes",
+      "description": "Our brand new Sticky Notes are a sleek, modern take on an every day tool you all know and love. They can be used anywhere and everywhere. Use them with your Planner, Desk Calendar, Journal, Weekly Planner Pad, or wherever more space is needed.",
+      "price": 5.64,
+      "category": 3,
+      "rating": 4,
+      "image": "grid-sticky-notes.jpg",
+      "image_2": "grid-sticky-notes-2.jpg"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "products.product",
+    "fields": {
+      "product_code": "p009",
+      "name": "Desk Mat",
+      "description": "Made from pebbled vegan leather, we designed our desk mat to clean and minimal. It will protect your desk while also making it easier for you to use your mouse. Also, the mat rolls up easily so you can even travel with it. Size: 60 x 30 cm",
+      "price": 32.49,
+      "category": 4,
+      "rating": 4,
+      "image": "desk-mat.jpg",
+      "image_2": "desk-mat-2.jpg"
+    }
+  }
+]
