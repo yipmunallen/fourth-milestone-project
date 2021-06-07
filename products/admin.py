@@ -28,14 +28,5 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-class UserAdmin(admin.ModelAdmin):
-    list_display = (..., 'get_author')
-
-    def get_author(self, obj):
-        return obj.book.author
-    get_author.short_description = 'Author'
-    get_author.admin_order_field = 'book__author'
-
-
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
