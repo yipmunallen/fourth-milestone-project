@@ -16,6 +16,14 @@ body{
     color: #433E3F;
 }
 
+.main-content{
+    margin-top: 5rem;
+}
+
+a:link {
+  text-decoration: none;
+}
+
 h1{
     font-family: 'Bodoni Moda', sans-serif;
     text-transform: uppercase;
@@ -53,6 +61,7 @@ h1{
 .navbar{
     padding: 0.2rem 1rem;
 }
+
 #brand-title{
     font-family: 'Bodoni Moda', sans-serif;
     font-size: 3rem;
@@ -188,4 +197,82 @@ h1{
 
 #top-picks-button{
     margin-bottom: 3rem;
+}
+
+/* ------ Products Hero ------ */
+
+.products-hero{
+    padding: 5rem;
+    background-color: #A08F7E;
+    color: #E9ECEC;
+}
+
+.products-hero-breadcrumbs{
+    background-color: #A08F7E;
+}
+
+.products-hero-breadcrumbs li
+, .products-hero-breadcrumbs a{
+    font-size: 1.5rem;
+}
+
+.products-hero-breadcrumbs a{
+    color: #E9ECEC;
+    text-decoration: none;
+}
+
+.breadcrumb{
+    padding: 0;
+}
+
+/* ------ Products Header ------ */
+
+.products-header{
+    margin: 2rem 0;
+}
+
+#products-results-number{
+    font-size: 1.4rem;
+}
+
+#products-sorting
+,#products-sorting option{
+    font-size: 1.4rem;
+}
+
+#products-sorting{
+    border: 1px solid #A08F7E;
+}
+
+/* ------ Products ------ */
+
+.products{
+    font-size: 1.3rem;
+}
+
+.product-name{
+    margin-top: 1.3rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: #433E3F;
+}
+
+.product-image{
+    border: 2px solid #CDB7C4;
+}
+
+/* https://sirv.com/help/articles/hover-change-image/ */
+img.img-hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+img.img-hover:hover {
+  opacity: 1;
 }
