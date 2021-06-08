@@ -33,6 +33,15 @@ h1{
     text-decoration-color: #E9ECEC;
 }
 
+.dropdown-item{
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+.dropdown-item:hover, .dropdown-item:active  {
+    background-color: #BBA0B0;
+}
+
 /* ------ Buttons ------ */
 
 .btn{
@@ -62,7 +71,7 @@ h1{
     padding: 0.2rem 1rem;
 }
 
-#brand-title{
+.brand-title{
     font-family: 'Bodoni Moda', sans-serif;
     font-size: 3rem;
 }
@@ -75,6 +84,56 @@ h1{
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
+}
+
+/* ------ Footer ------ */
+
+.social-text{
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+.footer-social{
+    background-color: #433E3F;
+    color: #E9ECEC;
+    padding: 3rem 0;
+}
+
+.social-icon{
+    margin-right: 4rem;
+    color: #E9ECEC;
+}
+
+.social-icon:hover, .social-icon:active {
+    color: #BBA0B0;
+}
+
+.footer-main-row{
+    margin-bottom: 4rem;
+}
+
+.footer-info{
+    margin-top: 4rem;
+}
+
+.footer-text{
+    font-size: 1.1rem;
+    color: #433E3F;
+}
+
+p .footer-text:hover{
+    color: #BBA0B0;
+}
+
+.footer-text i{
+    margin-right: 1rem;
+}
+
+.heading{
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 /* ------ Hero Section ------ */
