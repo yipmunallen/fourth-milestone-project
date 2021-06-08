@@ -93,8 +93,8 @@
       "price": 5.64,
       "category": 3,
       "rating": 5,
-      "image": "task-sticky-notes.jpg",
-      "image_2": "task-sticky-notes-2.jpg"
+      "image": "task-notes-1.jpg",
+      "image_2": "task-notes-2.jpg"
     }
   },
   {
@@ -107,8 +107,8 @@
       "price": 5.64,
       "category": 3,
       "rating": 4,
-      "image": "water-sticky-notes.jpg",
-      "image_2": "water-sticky-notes-2.jpg"
+      "image": "water-notes-1.jpg",
+      "image_2": "water-notes-2.jpg"
     }
   },
   {
@@ -121,8 +121,8 @@
       "price": 5.64,
       "category": 3,
       "rating": 4,
-      "image": "grid-sticky-notes.jpg",
-      "image_2": "grid-sticky-notes-2.jpg"
+      "image": "grid-notes-1.jpg",
+      "image_2": "grid-notes-2.jpg"
     }
   },
   {
@@ -135,7 +135,7 @@
       "price": 32.49,
       "category": 4,
       "rating": 4,
-      "image": "desk-mat.jpg",
+      "image": "desk-mat-1.jpg",
       "image_2": "desk-mat-2.jpg"
     }
   }
