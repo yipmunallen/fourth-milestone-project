@@ -335,3 +335,131 @@ img.img-hover {
 img.img-hover:hover {
   opacity: 1;
 }
+
+/* ------ Product Detail ------ */
+
+.product-detail-main{
+    margin-top: 10rem;
+}
+
+.carousel-indicators{
+    padding-bottom: 3rem;
+}
+
+.product-detail-carousel{
+    max-width: 40rem;
+}
+
+.product-information{
+    margin-top: 2rem;
+}
+
+#product-description{
+    max-width: 30rem;
+}
+
+.quantity-form{
+    margin-top: 3rem;
+}
+
+#quantity-text{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    margin-right: 2rem;
+}
+
+.quantity {
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.quantity-input{
+    text-align: center;
+    width: 5rem;
+    border: 1px solid #433E3F;
+}
+
+.quantity button {
+  background: none;
+  border: none;
+  width: 1rem;
+  outline: none;
+}
+
+.product-detail-btn{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    padding: 1rem 3rem;
+    background-color: #A08F7E;
+    color: #E9ECEC;
+}
+
+.product-detail-btn:hover{
+    background: #CDB7C4;
+    outline: 0;
+    color: #433E3F;
+}
+
+.category-header
+, .category-link{
+    text-transform: uppercase;
+    margin-right: 1rem;
+    font-size: 1.1rem;
+}
+
+.category-link{
+    color:#A08F7E;
+}
+
+.category-link:hover{
+    color:#433E3F;
+}
+
+/* ------ Reviews ------ */
+
+.tab-header{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    background-color: #A08F7E;
+    color: #E9ECEC;
+}
+
+.tab-header:hover{
+    color: #E9ECEC;
+    background-color: #CDB7C4;
+}
+
+.review{
+    padding: 0.5rem 2rem;
+}
+
+.tab-content{
+    margin-top: 2rem;
+}
+
+.review-author{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.review-date{
+    text-transform: uppercase;
+}
+
+.badge{
+    font-size: 1.1rem;
+    background-color: #A08F7E;
+    color: #E9ECEC;
+}
+
+.review-form{
+    font-size: 1.3rem;
+}
+
+.form-check{
+    margin-top: 2rem;
+}
+
+.review-submit{
+    margin: 3rem 0;
+}
