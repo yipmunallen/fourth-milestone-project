@@ -86,6 +86,18 @@ h1{
     letter-spacing: 0.2rem;
 }
 
+.form-control:focus {
+    box-shadow: none;
+    border-color: #A08F7E;
+}
+
+.form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+}
+
 /* ------ Footer ------ */
 
 .social-text{
@@ -463,3 +475,5 @@ img.img-hover:hover {
 .review-submit{
     margin: 3rem 0;
 }
+
+
