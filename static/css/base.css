@@ -278,22 +278,9 @@ p .footer-text:hover{
     color: #E9ECEC;
 }
 
-.products-hero-breadcrumbs{
-    background-color: #A08F7E;
-}
-
-.products-hero-breadcrumbs li
-, .products-hero-breadcrumbs a{
-    font-size: 1.5rem;
-}
-
-.products-hero-breadcrumbs a{
-    color: #E9ECEC;
-    text-decoration: none;
-}
-
-.breadcrumb{
-    padding: 0;
+.category-name{
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
 }
 
 /* ------ Products Header ------ */
