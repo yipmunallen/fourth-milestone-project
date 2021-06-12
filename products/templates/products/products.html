@@ -30,7 +30,12 @@
     <div class="container">
         <div class="row products-header">
             <div class="col-lg-6">
-              <p id="products-results-number">Results</p>
+                <p id="products-results-number">
+                    {{ products|length }} Results 
+                    {% if search_term %} 
+                        found for "{{ search_term }}"
+                    {% endif %}
+                </p>
             </div>
             <div class="col-lg-6 d-flex justify-content-lg-end" >             
               <ul class="list-inline d-flex justify-content-lg-end" >
