@@ -77,7 +77,12 @@
                         </div>
                     </div>
                 </form>
-                <p class="quantity-form"><strong class="category-header">See other:</strong><a class="category-link" href="#">{{ product.category.friendly_name }}</a></p>
+                <p class="quantity-form">
+                    <strong class="category-header">See other:</strong>
+                    <a class="category-link" href="{% url 'products' %}?category={{ product.category.name }}">
+                        {{ product.category.friendly_name }}
+                    </a>
+                </p>
             </div>
         </div>
         
