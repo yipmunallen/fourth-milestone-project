@@ -33,6 +33,12 @@ h1{
     text-decoration-color: #E9ECEC;
 }
 
+.page-banner{
+    padding: 5rem;
+    background-color: #A08F7E;
+    color: #E9ECEC;
+}
+
 .dropdown-item{
     font-size: 1.3rem;
     text-transform: uppercase;
@@ -41,6 +47,35 @@ h1{
 .dropdown-item:hover, .dropdown-item:active  {
     background-color: #BBA0B0;
 }
+
+.brown-btn{
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    padding: 1rem 3rem;
+    background-color: #A08F7E;
+    color: #E9ECEC;
+}
+
+.brown-btn:hover{
+    background: #CDB7C4;
+    outline: 0;
+    color: #433E3F;
+}
+
+.white-btn{
+    border: 1px solid #433E3F;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    padding: 1rem 3rem;
+    color: #433E3F;
+}
+
+.white-btn:hover{
+    background: #433E3F;
+    outline: 0;
+    color:#E9ECEC;
+}
+
 
 /* ------ Buttons ------ */
 
@@ -272,12 +307,6 @@ p .footer-text:hover{
 
 /* ------ Products Hero ------ */
 
-.products-hero{
-    padding: 5rem;
-    background-color: #A08F7E;
-    color: #E9ECEC;
-}
-
 .category-name{
     text-transform: uppercase;
     letter-spacing: 0.2rem;
@@ -385,20 +414,6 @@ img.img-hover:hover {
   outline: none;
 }
 
-.product-detail-btn{
-    text-transform: uppercase;
-    font-size: 1.3rem;
-    padding: 1rem 3rem;
-    background-color: #A08F7E;
-    color: #E9ECEC;
-}
-
-.product-detail-btn:hover{
-    background: #CDB7C4;
-    outline: 0;
-    color: #433E3F;
-}
-
 .category-header
 , .category-link{
     text-transform: uppercase;
@@ -411,7 +426,7 @@ img.img-hover:hover {
 }
 
 .category-link:hover{
-    color:#433E3F;
+    color:#CDB7C4;
 }
 
 /* ------ Reviews ------ */
@@ -463,4 +478,41 @@ img.img-hover:hover {
     margin: 3rem 0;
 }
 
+/* ------ Cart ------ */
 
+.cart-items-total{
+    margin: 3rem 0;
+    text-transform: uppercase;
+}
+
+.cart-product-icon img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.cart-text
+,.cart-text th
+,.cart-text span{
+    color: #433E3F;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+.cart-product-icon a:hover{
+    color: #CDB7C4;
+}
+
+.cart-card-header{
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.cart-footer{
+    padding: 2rem 1rem;
+}
+
+.cart-footer-row{
+    margin: 2rem 0;
+}
