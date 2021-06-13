@@ -7,24 +7,29 @@
 
 {% block content %}
 <section id="products-hero">
-  <div class="container main-content page-banner">
-    <div class="row">
-        <div class="col-lg-6">
-            <h1>Shop</h1>
-        </div>        
-        <div class="col-lg-6">
-            <div class="d-flex justify-content-lg-end">
-            {% if current_category == None %}
-                <h3 class="category-name">All Products</h3>
-            {% else %}
-                {% for category in current_category %}
-                    <h3 class="category-name">{{ category.friendly_name }}</h3>
-                {% endfor %}
-            {% endif %}
+    <div class="container main-content">
+        <div class="row page-banner">
+            <div class="col-lg-6">
+                <h1>Shop</h1>
+            </div>        
+            <div class="col-lg-6">
+                <div class="d-flex justify-content-lg-end">
+                {% if current_category == None %}
+                    <h3 class="category-name">All Products</h3>
+                {% else %}
+                    {% for category in current_category %}
+                        <h3 class="category-name">{{ category.friendly_name }}</h3>
+                    {% endfor %}
+                {% endif %}
+                </div>
+            </div>        
+        </div>
+        <div class="row bg-light">
+            <div class="col-12 text-center">
+                <h5><i class="fas fa-truck mr-2 mt-2 mb-2"></i>Free delivery on orders over £{{ free_delivery_threshold }}!</h5>
             </div>
-        </div>        
+        </div>
     </div>
-  </div>
 </section>
 <section id="products-section">
     <div class="container">
