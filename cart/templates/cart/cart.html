@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}
+    Cart
+{% endblock %}
+
+{% block content %}
+<section id="cart-hero">
+  <div class="container main-content page-banner">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>Cart</h1>
+        </div>       
+    </div>
+  </div>
+</section>
+<section id="cart-main">
+    <div class="container">
+        {% if cart_items %}
+            <div class="row cart-items-total">
+                <h2>2 Items</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="table-responsive">
+                        <table class="table">
+                        <thead>
+                            <tr class="cart-text bg-light">
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="media cart-product-icon d-flex align-items-center">
+                                        <img class="mr-3" src="/media/desk-mat-1.jpg" alt="Generic placeholder image">
+                                        <div class="media-body align-middle">
+                                            <a class="cart-text" href="">Product Name</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="align-middle cart-text">£2000</td>
+                                <td class="align-middle cart-text">1</td>
+                                <td class="align-middle cart-text">£2000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="media cart-product-icon d-flex align-items-center">
+                                        <img class="mr-3" src="/media/desk-mat-1.jpg" alt="Generic placeholder image">
+                                        <div class="media-body align-middle">
+                                            <a class="cart-text" href="">Product Name</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="align-middle cart-text">£2000</td>
+                                <td class="align-middle cart-text">1</td>
+                                <td class="align-middle cart-text">£2000</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>          
+                </div>
+                <div class="col-lg-4">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h2 class="cart-card-header text-center">Cart total</h2>
+                            <ul class="list-unstyled">
+                                <li class="d-flex align-items-center justify-content-between cart-text">Subtotal<span>$250</span></li>
+                                <li class="d-flex align-items-center justify-content-between cart-text">Delivery<span>$100</span></li>
+                                <li class="border-bottom my-2"></li>
+                                <li class="d-flex align-items-center justify-content-between mb-4 cart-text">Total<span>$250</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>              
+            </div>
+            <div class="row cart-footer-row">
+                <div class="col-lg-8">
+                    <div class="row bg-light align-items-center text-center">
+                        <div class="col-md-6 text-md-left cart-footer">
+                            <a class="white-btn" href="{% url 'products' %}"><i class="fas fa-long-arrow-alt-left mr-4"></i>Continue shopping</a>
+                        </div>
+                        <div class="col-md-6 text-md-right cart-footer">
+                            <a class="brown-btn" href="checkout.html">Secure Checkout<i class="fas fa-lock ml-4"></i></a>
+                        </div>
+                    </div>                 
+                </div>
+            </div>
+        {% else %}
+        <div class="row cart-items-total">
+            <h2>Your cart is currently empty</h2>
+        </div>
+        <div class="row cart-footer-row">
+            <div class="col-lg-12">
+                <div class="row bg-light align-items-center text-center">
+                    <div class="col-md-6 text-md-left cart-footer">
+                        <a class="white-btn" href="{% url 'products' %}"><i class="fas fa-long-arrow-alt-left mr-4"></i>Continue shopping</a>
+                    </div>
+                </div>                 
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>        
+{% endblock %}
