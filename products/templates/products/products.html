@@ -7,12 +7,12 @@
 
 {% block content %}
 <section id="products-hero">
-  <div class="container main-content products-hero">
+  <div class="container main-content page-banner">
     <div class="row">
-      <div class="col-lg-6">
-        <h1>Shop</h1>
-      </div>        
-      <div class="col-lg-6">
+        <div class="col-lg-6">
+            <h1>Shop</h1>
+        </div>        
+        <div class="col-lg-6">
             <div class="d-flex justify-content-lg-end">
             {% if current_category == None %}
                 <h3 class="category-name">All Products</h3>
@@ -22,7 +22,7 @@
                 {% endfor %}
             {% endif %}
             </div>
-      </div>        
+        </div>        
     </div>
   </div>
 </section>
