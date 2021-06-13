@@ -37,15 +37,15 @@
                 </div>
             </div>
             <div class="col-lg-6">
+                <h1 class="product-information">{{ product.name }}</h1>
                 <ul class="list-inline mb-2">
                     <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
                     <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
                     <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
                     <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
                     <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
-                </ul>
-                <h1 class="product-information">{{ product.name }}</h1>
-                <h5 class="product-information">£{{ product.price}}</h5>
+                </ul>                
+                <h3 class="product-information">£{{ product.price}}</h3>
                 <h5 class="product-information" id="product-description">{{ product.description }}</h5>
                 <form class="form" action="" method="POST">
                     {% csrf_token %}
@@ -70,19 +70,21 @@
                     </div>
                     <div class="row quantity-form">
                         <div class="col-sm-6">
-                            <button type="submit" class="product-detail-btn">
+                            <button type="submit" class="brown-btn">
                                 Add to cart <i class="fas fa-shopping-cart"></i>
                             </button>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                     </div>
                 </form>
-                <p class="quantity-form">
-                    <strong class="category-header">See other:</strong>
-                    <a class="category-link" href="{% url 'products' %}?category={{ product.category.name }}">
-                        {{ product.category.friendly_name }}
-                    </a>
-                </p>
+                {% if product.category %}
+                    <p class="quantity-form">
+                        <strong class="category-header">See other:</strong>
+                        <a class="category-link" href="{% url 'products' %}?category={{ product.category.name }}">
+                            {{ product.category.friendly_name }}
+                        </a>
+                    </p>
+                {% endif %}
             </div>
         </div>
         
@@ -135,7 +137,7 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label review-form" for="exampleCheck1">&nbsp;I would recommend this product</label>
                     </div>
-                    <button type="submit" class="review-submit product-detail-btn">Submit</button>
+                    <button type="submit" class="review-submit brown-btn">Submit</button>
                 </form>
             </div>
         </div>
