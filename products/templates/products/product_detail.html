@@ -47,7 +47,7 @@
                 </ul>                
                 <h3 class="product-information">£{{ product.price}}</h3>
                 <h5 class="product-information" id="product-description">{{ product.description }}</h5>
-                <form class="form" action="" method="POST">
+                <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="row quantity-form">
                         <div class="col-sm-5">
