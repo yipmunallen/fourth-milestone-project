@@ -31,6 +31,8 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Qty</th>
                                 <th scope="col">Subtotal</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,8 +47,40 @@
                                         </div>
                                     </td>
                                     <td class="align-middle cart-text">£{{ item.product.price }}</td>
-                                    <td class="align-middle cart-text">{{ item.quantity }}</td>
+                                    <td class="align-middle cart-text">
+                                        <form class="form" action="" method="POST">
+                                            {% csrf_token %}
+                                                <div class="quantity input-group">
+                                                    <div class="input-group-prepend">
+                                                        <button class="decrement-qty"
+                                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                            <i class="fas fa-caret-left"></i>
+                                                        </button>
+                                                    </div>
+                                                    <input class="quantity-input" type="number"
+                                                        name="quantity" value="{{ item.quantity }}" min="1" max="20"
+                                                        data-item_id="{{ item.item_id }}"
+                                                        id="id_qty_{{ item.item_id }}"> 
+                                                    <div class="input-group-append">
+                                                        <button class="increment-qty"
+                                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                            <i class="fas fa-caret-right"></i>
+                                                        </button>
+                                                    </div>                                                                                                        
+                                                </div>
+                                        </form>
+                                    </td>                                    
                                     <td class="align-middle cart-text">£2000</td>
+                                    <td class="align-middle cart-text">
+                                        <a class="update-cart" id="update_{{ item.item_id }}">
+                                            Update
+                                        </a>
+                                    </td>                                    
+                                    <td class="align-middle cart-text">
+                                        <a class="remove-item" id="remove_{{ item.item_id }}">
+                                            <i class="fas fa-trash-alt fa-lg"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -100,4 +134,10 @@
         {% endif %}
     </div>
 </section>        
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+    <script src="{% static 'js/quantity_input_script.js' %}"></script>
+    <script src="{% static 'js/update_cart.js' %}"></script>
 {% endblock %}
