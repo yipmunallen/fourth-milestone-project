@@ -521,3 +521,12 @@ img.img-hover:hover {
 .cart-footer-row{
     margin: 2rem 0;
 }
+
+.update-cart
+, .remove-item {
+    cursor: pointer;
+}
+
+.fa-trash-alt{
+    color: #764E35;
+}
