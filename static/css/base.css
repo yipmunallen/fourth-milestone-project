@@ -509,6 +509,11 @@ img.img-hover:hover {
     font-weight: 600;
 }
 
+.card-footer-text{
+    font-size: 1.3rem;
+    color: #764E35;
+}
+
 .cart-footer{
     padding: 2rem 1rem;
 }
