@@ -76,6 +76,37 @@ h1{
     color:#E9ECEC;
 }
 
+/* ------ Toasts ------ */
+
+.message-container{
+    position: fixed;
+    top: 7.2rem;
+    right: 1.5rem;
+    z-index: 99999999999;
+}
+
+.custom-toast{
+    overflow: visible;
+}
+
+.toast-header{
+    background-color: #A08F7E;
+}
+
+.toast-negative{
+    background-color: #E9ECEC;
+}
+
+.toast-message-header
+, .toast-header button{
+    text-transform: uppercase;
+    color: #E9ECEC;
+}
+
+.toast-message-header
+, .toast-message-body{
+    font-size: 1.3rem;
+}
 
 /* ------ Buttons ------ */
 
