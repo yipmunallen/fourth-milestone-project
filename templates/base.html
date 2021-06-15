@@ -72,16 +72,16 @@
                                     <input id="exampleFormControlInput1" type="text" 
                                         name="search" placeholder="Search..." 
                                         class="form-control form-control-underlined bg-light">
-                                    <button class="icon-button bg-light" type="submit">
-                                        <i class="fas fa-search fa-lg"></i>
-                                    </button>
                                 </div>
+                                <button class="nav-link icon-button bg-light" type="submit">
+                                    <i class="fas fa-search fa-2x"></i>
+                                </button>
                             </form>
                         </li>
 			            <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
-                                    <div><i class="fas fa-user fa-lg"></i></div>
+                                    <div><i class="fas fa-user fa-2x"></i></div>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right border-0" aria-labelledby="user-options">
@@ -101,9 +101,9 @@
 			            <li class="nav-item">
                             <a class="nav-link" href="{% url 'view_cart' %}">
                                 <div class="text-center">
-                                    <i class="fas fa-shopping-bag fa-lg{% if item_count > 0 %}highlight-color{% endif %}"></i>
+                                    <i class="fas fa-shopping-bag fa-2x{% if item_count > 0 %}highlight-color{% endif %}"></i>
                                     {% if cart_items %}
-                                        <span>({{ product_count }})</span>
+                                        <span class="cart-text">({{ product_count }})</span>
                                     {% endif %}
                                 </div>
                             </a>                       
