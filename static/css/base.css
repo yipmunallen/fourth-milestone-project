@@ -80,8 +80,8 @@ h1{
 
 .message-container{
     position: fixed;
-    top: 7.2rem;
-    right: 1.5rem;
+    top: 5rem;
+    right: 7rem;
     z-index: 99999999999;
 }
 
@@ -90,7 +90,7 @@ h1{
 }
 
 .toast-header{
-    background-color: #A08F7E;
+    background-color: #CDB7C4;
 }
 
 .toast-negative{
@@ -100,12 +100,18 @@ h1{
 .toast-message-header
 , .toast-header button{
     text-transform: uppercase;
-    color: #E9ECEC;
+    color: #433E3F;
 }
 
 .toast-message-header
 , .toast-message-body{
     font-size: 1.3rem;
+}
+
+.bag-notification-wrapper {
+    height: 15rem;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* ------ Buttons ------ */
@@ -414,7 +420,7 @@ img.img-hover:hover {
 }
 
 #product-description{
-    max-width: 30rem;
+    max-width: 40rem;
 }
 
 .quantity-form{
