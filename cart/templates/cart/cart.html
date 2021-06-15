@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block extra_title %}
     Cart
@@ -39,16 +40,16 @@
                             {% for item in cart_items %}
                                 <tr>
                                     <td>
-                                        <div class="media cart-product-icon d-flex align-items-center">
+                                        <div class="media cart-product-icon">
                                             <img class="mr-3" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                                            <div class="media-body align-middle">
+                                            <div class="media-body">
                                                 <a class="cart-text" href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="align-middle cart-text">£{{ item.product.price }}</td>
-                                    <td class="align-middle cart-text">
-                                        <form class="form update-form" action="" method="POST">
+                                    <td class="cart-text">£{{ item.product.price }}</td>
+                                    <td class="cart-text">
+                                        <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
                                             {% csrf_token %}
                                                 <div class="quantity input-group">
                                                     <div class="input-group-prepend">
@@ -69,14 +70,15 @@
                                                     </div>                                                                                                        
                                                 </div>
                                         </form>
-                                    </td>                                    
-                                    <td class="align-middle cart-text">£2000</td>
-                                    <td class="align-middle cart-text">
-                                        <a class="update-cart" id="update_{{ item.item_id }}">
+                                        <a class="update-link">
                                             Update
                                         </a>
                                     </td>                                    
-                                    <td class="align-middle cart-text">
+                                    <td class="cart-text">£{{ item.product.price | calc_subtotal:item.quantity }}</td>
+                                    <td class="cart-text">
+
+                                    </td>                                    
+                                    <td class="cart-text">
                                         <a class="remove-item" id="remove_{{ item.item_id }}">
                                             <i class="fas fa-trash-alt fa-lg"></i>
                                         </a>
@@ -139,5 +141,25 @@
 {% block postloadjs %}
 {{ block.super }}
     <script src="{% static 'js/quantity_input_script.js' %}"></script>
-    <script src="{% static 'js/update_cart.js' %}"></script>
+    <script type="text/javascript">
+        // Update quantity on click
+        $('.update-link').click(function(e) {
+            var form = $(this).prev('.update-form');
+            form.submit();
+        })
+
+        // Remove item and reload on click
+        $('.remove-item').click(function(e) {
+            var csrfToken = "{{ csrf_token }}";
+            var itemId = $(this).attr('id').split('remove_')[1];
+            // variables like "product_size" should be consistent with views
+            var url = `/cart/remove/${itemId}/`;
+            var data = {'csrfmiddlewaretoken': csrfToken};
+
+            $.post(url, data)
+             .done(function() {
+                 location.reload();
+             });
+        })
+    </script>    
 {% endblock %}
