@@ -94,10 +94,10 @@
                         <div class="card-body">
                             <h2 class="cart-card-header text-center">Cart total</h2>
                             <ul class="list-unstyled">
-                                <li class="d-flex align-items-center justify-content-between cart-text">Subtotal<span>${{ subtotal|floatformat:2 }}</span></li>
-                                <li class="d-flex align-items-center justify-content-between cart-text">Delivery<span>${{ delivery|floatformat:2 }}</span></li>
+                                <li class="d-flex align-items-center justify-content-between cart-text">Subtotal<span>£{{ subtotal|floatformat:2 }}</span></li>
+                                <li class="d-flex align-items-center justify-content-between cart-text">Delivery<span>£{{ delivery|floatformat:2 }}</span></li>
                                 <li class="border-bottom my-2"></li>
-                                <li class="d-flex align-items-center justify-content-between mb-4 cart-text">Total<span>${{ total|floatformat:2 }}</span></li>                               
+                                <li class="d-flex align-items-center justify-content-between mb-4 cart-text">Total<span>£{{ total|floatformat:2 }}</span></li>                               
                             </ul>
                             {% if free_delivery_delta > 0 %}
                                 <div class="card-footer text-center">
@@ -115,7 +115,7 @@
                             <a class="white-btn" href="{% url 'products' %}"><i class="fas fa-long-arrow-alt-left mr-4"></i>Continue shopping</a>
                         </div>
                         <div class="col-md-6 text-md-right cart-footer">
-                            <a class="brown-btn" href="checkout.html">Secure Checkout<i class="fas fa-lock ml-4"></i></a>
+                            <a class="brown-btn" href="{% url 'checkout' %}">Secure Checkout<i class="fas fa-lock ml-4"></i></a>
                         </div>
                     </div>                 
                 </div>
