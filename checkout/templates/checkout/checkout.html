@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cart_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block extra_title %}
+    Checkout
+{% endblock %}
+
+{% block content %}
+<section id="checkout-hero">
+  <div class="container main-content page-banner">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>Checkout</h1>
+        </div>       
+    </div>
+  </div>
+</section>
+<section id="checkout-main">
+    <div class="container">
+        <div class="row checkout-form">
+                <div class="col-lg-4 order-lg-last mb-5">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h2 class="cart-card-header text-center">Order Summary</h2>
+                            {% for item in cart_items %}
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-sm-4">
+                                        <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <p><strong class="checkout-text">{{ item.product.name }}</strong></p>
+                                        <p class="checkout-text">Qty: {{ item.quantity }}</p>
+                                    </div>
+                                    <div class="col-sm-3 text-right">
+                                        <p class="checkout-text">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <hr>
+                                    </div>
+                                </div>
+                            {% endfor %}                           
+                            <ul class="list-unstyled">
+                                <li class="d-flex align-items-center justify-content-between cart-text">Subtotal<span>£{{ subtotal|floatformat:2 }}</span></li>
+                                <li class="d-flex align-items-center justify-content-between cart-text">Delivery<span>£{{ delivery|floatformat:2 }}</span></li>
+                                <li class="border-bottom my-2"></li>
+                                <li class="d-flex align-items-center justify-content-between mb-4 cart-text">Total<span>£{{ total|floatformat:2 }}</span></li>                       
+                            </ul>                           
+                        </div>
+                    </div>
+                </div>            
+                <div class="col-lg-8">
+                    <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                        {% csrf_token %}
+                        <fieldset class="rounded px-3 mb-5">
+                            <legend class="fieldset-label w-auto"><strong class="cart-text">Contact Details</strong></legend>
+                            {{ order_form.email | as_crispy_field }}
+                            {{ order_form.phone_number | as_crispy_field }}
+                        </fieldset>
+                        <fieldset class="rounded px-3 mb-5">
+                            <legend class="fieldset-label w-auto"><strong class="cart-text">Delivery Details</strong></legend>
+                            {{ order_form.full_name | as_crispy_field }}
+                            {{ order_form.street_address1 | as_crispy_field }}
+                            {{ order_form.street_address2 | as_crispy_field }}
+                            {{ order_form.town_or_city | as_crispy_field }}
+                            {{ order_form.county | as_crispy_field }}
+                            {{ order_form.postcode | as_crispy_field }}
+                            {{ order_form.country | as_crispy_field }}
+                            <div class="form-check form-check-inline float-right mr-0">
+				    			{% if user.is_authenticated %}
+				    				<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                                    <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+				    			{% else %}
+				    				<label class="form-check-label" for="id-save-info">
+                                        <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                                        <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                    </label>
+				    			{% endif %}
+				    		</div>
+                        </fieldset>
+                        <fieldset class="px-3">
+                            <legend class="fieldset-label w-auto cart-text">Payment</legend>
+                            <!-- A Stripe card element will go here -->
+                            <div class="mb-3" id="card-element"></div>
+                            <!-- Used to display form errors -->
+                            <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                            <!-- Pass the client secret to the view so we can get the payment intent id -->
+                            <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                        </fieldset>
+                        <div class="row bg-light align-items-center text-center">
+                            <div class="col-md-6 text-md-left cart-footer">                   
+				    		    <a href="{% url 'view_cart' %}" class="white-btn">
+				    		    	<i class="fas fa-long-arrow-alt-left mr-4"></i>Adjust Cart
+                                </a>
+                            </div>
+                            <div class="col-md-6 text-md-right cart-footer">
+				    		    <button id="submit-button" class="brown-btn">
+				    		    	Place Order<i class="fas fa-lock ml-4"></i>
+				    		    </button>
+				    		    <p class="small text-danger my-0">
+				    		    	<span class="icon">
+				    		    		<i class="fas fa-exclamation-circle"></i>
+				    		    	</span>
+				    		    	<span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                                </p>
+                            </div>
+                        </div>           
+                    </form> 
+                </div>            
+        </div>
+    </div>
+</section>        
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+    <script src="{% static 'js/quantity_input_script.js' %}"></script>
+    <script type="text/javascript">
+        // Update quantity on click
+        $('.update-cart').click(function(e) {
+            var form = $(this).prev('.update-form');
+            form.submit();
+        })
+
+        // Remove item and reload on click
+        $('.remove-item').click(function(e) {
+            var csrfToken = "{{ csrf_token }}";
+            var itemId = $(this).attr('id').split('remove_')[1];
+            // variables like "product_size" should be consistent with views
+            var url = `/cart/remove/${itemId}/`;
+            var data = {'csrfmiddlewaretoken': csrfToken};
+
+            $.post(url, data)
+             .done(function() {
+                 location.reload();
+             });
+        })
+    </script>    
+{% endblock %}
