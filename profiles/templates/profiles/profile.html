@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/profile.css' %}">
+{% endblock %}
+
+{% block extra_title %}
+    Profile
+{% endblock %}
+
+{% block content %}
+<section id="checkout-hero">
+  <div class="container main-content page-banner">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>Profile</h1>
+        </div>       
+    </div>
+  </div>
+</section>
+<section id="profile-main">
+    <div class="container">
+        <div class="row">        
+        </div>
+    </div>
+</section>        
+{% endblock %}
+
