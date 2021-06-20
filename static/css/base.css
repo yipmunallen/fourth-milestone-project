@@ -24,6 +24,10 @@ a:link {
   text-decoration: none;
 }
 
+p{
+    font-size: 1.2rem;
+}
+
 h1{
     font-family: 'Bodoni Moda', sans-serif;
     text-transform: uppercase;
