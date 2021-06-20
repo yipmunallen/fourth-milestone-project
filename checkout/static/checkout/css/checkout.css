@@ -34,8 +34,15 @@
     font-size: 1.3rem;
 }
 
-.order-header{
-    font-weight: 600;
+select,
+select option {
+    color: #000000;
+    font-size: 1.3rem;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
 }
 
 #loading-overlay {
@@ -57,3 +64,8 @@
     height: 100%;
 }
 
+/* Order confirmation */
+
+.order-header{
+    font-weight: 600;
+}
