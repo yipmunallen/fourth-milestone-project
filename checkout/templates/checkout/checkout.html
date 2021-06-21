@@ -37,7 +37,7 @@
                                         <p class="checkout-text">Qty: {{ item.quantity }}</p>
                                     </div>
                                     <div class="col-sm-3 text-right">
-                                        <p class="checkout-text">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                        <p class="checkout-text">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </div>
                                     <div class="col-12">
                                         <hr>
@@ -105,7 +105,7 @@
 				    		    	<span class="icon">
 				    		    		<i class="fas fa-exclamation-circle"></i>
 				    		    	</span>
-				    		    	<span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+				    		    	<span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
                                 </p>
                             </div>
                         </div>           
