@@ -1,0 +1,20 @@
+#profile-update-form .form-control {
+    font-size: 1.3rem;
+    color: #433E3F;
+}
+
+#profile-update-form input::placeholder {
+    font-size: 1.3rem;
+    color: #aab7c4;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    font-size: 1.3rem;
+    color: #433E3F;
+}
+
+#id_default_country option:first-child {
+    font-size: 1.3rem;
+    color: #aab7c4;
+}
