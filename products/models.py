@@ -24,8 +24,8 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=2, decimal_places=1, default=0, null=True, blank=True)
-    image = models.ImageField(default='default.jpg')
-    image_2 = models.ImageField(default='default.jpg')
+    image = models.ImageField(default='')
+    image_2 = models.ImageField(default='')
 
     def __str__(self):
         return self.name
