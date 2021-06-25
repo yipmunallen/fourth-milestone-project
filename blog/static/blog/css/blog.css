@@ -1,3 +1,5 @@
+/* --- Blog Page --- */
+
 .blog-card {
     width: 25rem;
     height: 52rem;
@@ -24,6 +26,26 @@
 
 .blog-card-title:hover{
     color: #CDB7C4;
+}
+
+/* --- Blog Post Page --- */
+
+.blog-post-header {
+    height: 40rem;
+    overflow: hidden;
+}
+
+.blog-post-header img {
+    width: 100%;
+}
+
+.blog-post-content .row{
+    margin-top: 2rem;
+}
+
+
+.post-summary{
+    font-weight: 600;
 }
 
 
