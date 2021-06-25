@@ -22,27 +22,26 @@
 <section id="blog-main">
     <div class="container my-5">
         <div class="row">
-        {% for post in posts %}
-        <div class="col-lg-4 col-md-6 my-5">
-            <div class="blog-card">
-                <div class="blog-card-img">
-                    <a href="">
-                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
-                    </a>
+            {% for post in posts %}
+                <div class="col-lg-4 col-md-6 my-5">
+                    <div class="blog-card">
+                        <div class="blog-card-img">
+                            <a href="{% url 'post_detail' post.slug %}">
+                                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                            </a>
+                        </div>
+                        <p class="blog-card-date mt-2">
+                            {{ post.created_on }}
+                        </p>
+                        <h2 class="text-center">
+                            <a href="{% url 'post_detail' post.slug %}" class="blog-card-title">{{ post.title }}</a>
+                        </h2>
+                        <p>{{ post.summary|truncatechars:180 }}</p>
+                        <hr>
+                        <p>{{ post.author }}</p>
+                    </div>            
                 </div>
-                <p class="blog-card-date mt-2">
-                    {{ post.created_on }}
-                </p>
-                <h2 class="text-center">
-                    <a href="" class="blog-card-title">{{ post.title }}</a>
-                </h2>
-                <p>{{ post.summary|truncatechars:180 }}</p>
-                <hr>
-                <p>{{ post.author }}</p>
-            </div>            
-        </div>
-        
-        {% endfor %}
+            {% endfor %}
         </div>
     </div>
 </section>        
