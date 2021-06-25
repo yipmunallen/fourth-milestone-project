@@ -101,59 +101,7 @@
         </div>
     </div>
 </section>
-<section id="product-detail-review">
-    <div class="container main-content">
-        <div class="row">
-            <h1 class="index-header mx-auto">Reviews</h1>
-        </div>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item"><a class="nav-link tab-header active" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="true">Reviews</a></li>
-            <li class="nav-item"><a class="nav-link tab-header" id="write-review-tab" data-toggle="tab" href="#writereviews" role="tab" aria-controls="write-reviews" aria-selected="false">Write a review</a></li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                <div class="row review">
-                    <div class="col-12">
-                        <h5 class="review-author">Jason Doe</h5>
-                        <p class="review-date">20 May 2020</p>
-                        <ul class="list-inline">
-                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                            <li class="list-inline-item m-0"><i class="fas fa-star-half-alt text-warning"></i></li>
-                        </ul>
-                        <p class="recommend-badge badge">I recommend this product</p>
-                        <p class="text-small mb-0 text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-                        <hr>
-                    </div>
-                </div>              
-            </div>            
-            <div class="tab-pane fade" id="writereviews" role="tabpanel" aria-labelledby="write-review-tab">
-                <form class="form" action="" method="POST">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1" class="review-form">Write your review..</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label review-form" for="exampleCheck1">&nbsp;I would recommend this product</label>
-                    </div>
-                    <button type="submit" class="review-submit brown-btn">Submit</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
+{% include 'reviews/includes/reviews.html' %}
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
