@@ -1,0 +1,10 @@
+{% if widget.is_initial %}
+    <a class="mt-2" href="{{ widget.value.url }}">
+        <img width="96" height="96" class="rounded shadow-sm" src="{{ widget.value.url }}">
+    </a>
+    {{ widget.input_text }}
+{% endif %}
+<span class="form-btn">
+    Select Image <input id="new-image-2" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+</span>
+<strong><p class="text-danger" id="filename-2"></p></strong>
