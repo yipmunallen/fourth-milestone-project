@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Post
 
 
-def post(request):
+def all_posts(request):
     """ A view to return the blog page """
 
     posts = Post.objects.filter(status=1)
@@ -14,3 +14,4 @@ def post(request):
     }
 
     return render(request, 'blog/blog.html', context)
+
