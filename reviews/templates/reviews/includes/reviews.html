@@ -13,7 +13,46 @@
                     {% for review in reviews %}
                         <div class="row review">
                             <div class="col-12">
-                                <span class="review-date">{{ review.date_created }}</span>
+                                <div class="row">
+                                    <div class="col-6 text-left">                   
+				    		            <span class="review-date">{{ review.date_created }}</span>
+                                    </div>
+                                    {% if request.user.username == review.user.user.username %}
+                                        <div class="col-6 text-right">
+                                            <div class="review-dropdown">
+                                                <a href="#" id="review-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-h fa-2x"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="review-options">
+                                                    <a href="" data-toggle="modal" data-target="#editReview" class="dropdown-item">Edit</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteReview" class="dropdown-item">Delete</a>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                        <div class="modal fade" id="editReview" tabindex="-1" role="dialog" aria-labelledby="editReviewLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" id="editReviewLabel">Edit Review</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form action="{% url 'edit_review' review.pk %}" method="POST">
+                                                        <div class="modal-body">
+                                                            {% csrf_token %}
+                                                            {{ edit_review_form|crispy }}
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="white-btn" data-dismiss="modal" data-target="#editReview">Cancel</button>
+                                                            <button type="submit" class="brown-btn ml-2">Submit</button>
+                                                      </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>                                            
+                                    {% endif %}                                    
+                                </div>                              
                                 <ul class="list-inline">
                                     <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
                                     <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
@@ -26,10 +65,10 @@
                                 {% if review.would_recommend == True %}
                                     <p class="recommend-badge badge">I recommend this product</p>
                                 {% endif %} 
-                                <p>{{ review.description }}</p>
+                                <p>{{ review.description }}</p>                    
                                 <hr>
                             </div>
-                        </div>
+                        </div>                    
                     {% endfor %}
                 {% else %}    
                     <div class="row review">
@@ -63,3 +102,24 @@
         </div>
     </div>
 </section>
+<!-- Modal -->
+
+<div class="modal fade" id="deleteReview" tabindex="-1" role="dialog" aria-labelledby="deleteReviewLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="deleteReviewLabel">Delete review</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h5>Are you sure you want to delete your review?</h5>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="white-btn" data-dismiss="modal" data-target="#deleteReview">Cancel</a>
+            <a class="brown-btn ml-2" href="">Delete</a>
+        </div>
+    </div>
+  </div>
+</div>
