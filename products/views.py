@@ -72,15 +72,16 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product)
     review_form = ReviewForm()
-
+    
     if request.user.is_authenticated:
         user = UserProfile.objects.get(user=request.user)
         try:
             product_review = Review.objects.get(user=user, product=product)
             edit_review_form = ReviewForm(instance=product_review)
+            review_form = None
 
         except Review.DoesNotExist:
-            edit_review_form = None  
+            edit_review_form = None
 
     context = {
         'product': product,
