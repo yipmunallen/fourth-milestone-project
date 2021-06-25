@@ -5,6 +5,7 @@ from .models import Product, Category
 
 
 class ProductForm(forms.ModelForm):
+    """ A form for admin to add a product """
 
     class Meta:
         model = Product
