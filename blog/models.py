@@ -18,7 +18,7 @@ class Post(models.Model):
     author = models.CharField(max_length=60)
     summary = models.TextField(max_length=300)
     content = models.TextField()
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(default='')
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
 
