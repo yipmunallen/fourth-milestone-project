@@ -80,6 +80,14 @@ h1{
     color:#E9ECEC;
 }
 
+.fa-ellipsis-h{
+    color: #BBA0B0;
+}
+
+.fa-ellipsis-h:hover{
+    color: #433E3F;
+}
+
 
 /* ------ AllAuth ------ */
 
