@@ -23,7 +23,7 @@ class Review(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
     rating = models.IntegerField(choices=RATING)
-    would_recommend = models.BooleanField(default=False, null=True, blank=True)
+    would_recommend = models.BooleanField(default=False, null=False, blank=False)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
