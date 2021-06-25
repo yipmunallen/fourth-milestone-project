@@ -80,6 +80,7 @@ h1{
     color:#E9ECEC;
 }
 
+
 /* ------ AllAuth ------ */
 
 .allauth-hero {
@@ -611,6 +612,39 @@ img.img-hover:hover {
     cursor: pointer;
 }
 
-.fa-trash-alt{
-    color: #764E35;
+/* ------ Product Form ------ */
+
+.form-group{
+    font-weight: 600;
+}
+
+.form-group * {
+    font-size: 1.3rem;
+}
+
+.form-btn {
+    border: 1px solid #433E3F;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 0.3rem 0.3rem;
+    margin-left: 2rem;
+    color: #433E3F;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-btn:hover{
+    background: #433E3F;
+    outline: 0;
+    color:#E9ECEC;
+}
+
+.form-btn input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 10rem;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }
