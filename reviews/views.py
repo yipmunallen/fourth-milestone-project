@@ -59,3 +59,23 @@ def edit_review(request, review_id):
             'Failed to edit review. Please ensure the form is valid.')
 
     return redirect(reverse('product_detail', args=(review.product.id,)))
+
+
+@login_required
+def delete_review(request, review_id):
+    """ Allows users to delete their review """
+
+    review = get_object_or_404(Review, pk=review_id)
+    product = Product.objects.get(name=review.product)
+
+    try:
+        review.delete()
+        product.save()
+
+        messages.success(request, 'Your review has been successfully deleted')
+
+    except Exception as e:
+        messages.error(request, "An error occured whilst trying to delete your review: "
+                                f" error:{e}. Please try again later.")
+
+    return redirect(reverse('product_detail', args=(review.product.id,)))
