@@ -70,18 +70,22 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = Review.objects.filter(product=product)
+    reviews_raw = Review.objects.filter(product=product)
+    reviews = reviews_raw.order_by('-date_created')
     review_form = ReviewForm()
     
     if request.user.is_authenticated:
         user = UserProfile.objects.get(user=request.user)
         try:
+            # Check if the user has already left a review
             product_review = Review.objects.get(user=user, product=product)
             edit_review_form = ReviewForm(instance=product_review)
+            # If so they will not be able to leave another
             review_form = None
-
         except Review.DoesNotExist:
             edit_review_form = None
+    else:
+        edit_review_form = None
 
     context = {
         'product': product,
