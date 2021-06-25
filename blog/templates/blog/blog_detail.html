@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+{% block extra_title %}
+    Blog
+{% endblock %}
+
+{% block content %}
+<section id="blog-post-hero">
+    <div class="blog-post-header">
+        <img src="{{ post.image.url }}" class="blog-header-image" alt="{{ post.title }}">
+    </div>
+</section>
+<section id="blog-post-main">
+    <div class="container my-5 blog-post-content">       
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mb-4">{{ post.title }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center post-summary">{{ post.summary }}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h3 class="">{{ post.content|safe }}</h3>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <h5>Published on {{ post.created_on }} by {{ post.author }}</h5>
+            </div>
+        </div>                           
+    </div>
+</section>        
+{% endblock %}
