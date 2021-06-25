@@ -23,11 +23,10 @@
                                 </ul>              
                                 <h4 class="review-bold">{{ review.title }}</h4>
                                 <p class="review-bold">{{ review.user }}</p>
-                                 
-                                <p>{{ review.description }}</p>
                                 {% if review.would_recommend == True %}
                                     <p class="recommend-badge badge">I recommend this product</p>
-                                {% endif %}                                  
+                                {% endif %} 
+                                <p>{{ review.description }}</p>
                                 <hr>
                             </div>
                         </div>
@@ -42,17 +41,12 @@
             </div>            
             <div class="tab-pane fade" id="writereviews" role="tabpanel" aria-labelledby="write-review-tab">
                 {% if request.user.is_authenticated %}
-                    <form class="form" action="" method="POST">
+                    <form class="form" action="{% url 'add_review' product.pk %}" method="POST">
                         {% csrf_token %}
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1" class="review-form">Write your review..</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label review-form" for="exampleCheck1">&nbsp;I would recommend this product</label>
-                        </div>
-                        <button type="submit" class="review-submit brown-btn">Submit</button>
+                        {{ review_form|crispy }}
+                            <button id="submit-review-button" class="brown-btn mb-5">
+			    	    	    Submit
+			    	    	</button>                    
                     </form>
                 {% else %}
                     <div class="row">
