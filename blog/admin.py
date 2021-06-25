@@ -15,7 +15,7 @@ class PostAdmin(admin.ModelAdmin):
     )
     prepopulated_fields = {
         'slug': ('title',)
-    }   
+    }
 
 
 class CommentAdmin(admin.ModelAdmin):
