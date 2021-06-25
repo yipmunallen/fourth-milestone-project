@@ -6,6 +6,7 @@ from django.db.models.functions import Lower
 
 from .models import Product, Category
 from reviews.models import Review
+from profiles.models import UserProfile
 
 from .forms import ProductForm
 from reviews.forms import ReviewForm
@@ -72,10 +73,20 @@ def product_detail(request, product_id):
     reviews = Review.objects.filter(product=product)
     review_form = ReviewForm()
 
+    if request.user.is_authenticated:
+        user = UserProfile.objects.get(user=request.user)
+        try:
+            product_review = Review.objects.get(user=user, product=product)
+            edit_review_form = ReviewForm(instance=product_review)
+
+        except Review.DoesNotExist:
+            edit_review_form = None  
+
     context = {
         'product': product,
         'reviews': reviews,
         'review_form': review_form,
+        'edit_review_form': edit_review_form,
     }
 
     return render(request, 'products/product_detail.html', context)
