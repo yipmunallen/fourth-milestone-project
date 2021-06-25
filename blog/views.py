@@ -9,9 +9,22 @@ def all_posts(request):
 
     posts = Post.objects.filter(status=1)
 
+    template = 'blog/blog.html'
     context = {
         'posts': posts,
     }
 
-    return render(request, 'blog/blog.html', context)
+    return render(request, template, context)
 
+
+def post_detail(request, slug):
+    """ A view to return a blog post page """
+
+    post = Post.objects.get(slug=slug)
+
+    template = 'blog/blog_detail.html'
+    context = {
+        'post': post,
+    }
+
+    return render(request, template, context)
