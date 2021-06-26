@@ -27,7 +27,11 @@ def all_posts(request):
 def post_detail(request, slug):
     """ A view to return a blog post page """
 
-    post = Post.objects.get(slug=slug)
+    # Drafts can only be seen by admin
+    if request.user.is_superuser:
+        post = get_object_or_404(Post, slug=slug)
+    else:
+        post = get_object_or_404(Post, slug=slug, status=1)
 
     template = 'blog/blog_detail.html'
     context = {
