@@ -64,3 +64,34 @@ def add_post(request):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def edit_post(request, slug):
+    """ A view that allows admin to edit a blog post """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save(commit=False)
+            slugify(post.title)
+            form.save()
+            messages.success(request, 'Successfully updated blog post!')
+            return redirect(reverse('post_detail', args=[post.slug]))
+        else:
+            messages.error(request, 'Failed to update blog post. Please ensure the form is valid.')
+    else:
+        form = PostForm(instance=post)
+        messages.info(request, f'You are editing {post.title}')
+
+    template = 'blog/edit_blog.html'
+    context = {
+        'form': form,
+        'post': post,
+    }
+
+    return render(request, template, context)
