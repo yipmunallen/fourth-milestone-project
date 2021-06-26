@@ -432,7 +432,7 @@ In order to set up a database in MongoDB:
 
 - [Stack Overflow](https://stackoverflow.com/questions/7643308/how-to-automatically-close-alerts-using-twitter-bootstrap) - Used for automatically closing flash messages.
 
--[Sirv](https://sirv.com/help/articles/hover-change-image/) - Change image on hover on product detail page
+- [Sirv](https://sirv.com/help/articles/hover-change-image/) - Change image on hover on product detail page
 
 ### Acknowledgements
 - Spencer Barriball - Mentor at Code Institute
