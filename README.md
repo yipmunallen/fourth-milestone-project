@@ -149,23 +149,110 @@ This project consists of the following 7 Django apps:
         name = models.CharField(max_length=100)
         friendly_name = models.CharField(max_length=100, null=True, blank=True)
         ```
+    - Product Model - Stores individual product information
 
+    	```
+        category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+        sku = models.CharField(max_length=150, null=True, blank=True)
+        name = models.CharField(max_length=254)
+        description = models.TextField()
+        price = models.DecimalField(max_digits=6, decimal_places=2)
+        rating = models.DecimalField(max_digits=2, decimal_places=1, default=0, null=True, blank=True)
+        image = models.ImageField(default='')
+        image_2 = models.ImageField(default='')
+        ```        
 
-Their structures are as follows:
+- **Cart** - Handles CRUD operations for items in cart
 
+- **Checkout** - Display checkout page and handles payments
+    - Order Model - Stores order information
 
-1. When a user signs up, a new document is added to the users collection. It contains an id, username, password, and empty watched stocks array
-2. When a user adds a new comment, a new document is added to the comments collection. It contains an id, their username, the date created and the comment. That comment id is then added to the corresponding stock's comment array in the stocks collection.
-3. When a user adds a stock to their watchlist, the id of the stock is added to the user's watched stocks array in the users collection
+    	```
+        order_number = models.CharField(max_length=32, null=False, editable=False)
+        user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                         null=True, blank=True, related_name='orders')    
+        full_name = models.CharField(max_length=50, null=False, blank=False)
+        email = models.EmailField(max_length=254, null=False, blank=False)
+        phone_number = models.CharField(max_length=20, null=False, blank=False)
+        country = CountryField(blank_label='Country *', null=False, blank=False)
+        postcode = models.CharField(max_length=20, null=True, blank=True)
+        town_or_city = models.CharField(max_length=40, null=False, blank=False)
+        street_address1 = models.CharField(max_length=80, null=False, blank=False)
+        street_address2 = models.CharField(max_length=80, null=True, blank=True)
+        county = models.CharField(max_length=80, null=True, blank=True)
+        date = models.DateTimeField(auto_now_add=True)
+        delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+        order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+        grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+        original_cart = models.TextField(null=False, blank=False, default='')
+        stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+        ```
+    - Order Line Model - Stores individual items within an order
+
+    	```
+        order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+        product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
+        quantity = models.IntegerField(null=False, blank=False, default=0)
+        lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+        ```    
+- **Profiles** - Displays user profile and stores user profile information and order history
+    - UserProfile Model - Stores user profile information
+
+    	```
+        user = models.OneToOneField(User, on_delete=models.CASCADE)
+        default_full_name = models.CharField(max_length=50, null=True, blank=True)
+        default_phone_number = models.CharField(max_length=20, null=True, blank=True)
+        default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
+        default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
+        default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
+        default_county = models.CharField(max_length=80, null=True, blank=True)
+        default_postcode = models.CharField(max_length=20, null=True, blank=True)
+        default_country = CountryField(blank_label='Country', null=True, blank=True)
+        ```
+- **Reviews** - Handles CRUD operations for product reviews
+    - Review Model - Stores the review for the product
+
+    	```
+        product = models.ForeignKey(Product, on_delete=models.CASCADE)
+        user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+        title = models.CharField(max_length=50)
+        description = models.TextField()
+        rating = models.IntegerField(choices=RATING)
+        would_recommend = models.BooleanField(default=False, null=False, blank=False)
+        date_created = models.DateTimeField(auto_now_add=True)
+        ```
+
+- **Blog** - Displays blog posts and handles CRUD operations for posts and comments form
+    - Review Model - Stores blog post
+
+    	```
+        title = models.CharField(max_length=100, unique=True)
+        slug = models.SlugField(max_length=200, unique=True)
+        author = models.CharField(max_length=60)
+        summary = models.TextField(max_length=300)
+        content = models.TextField()
+        image = models.ImageField(default='')
+        created_on = models.DateTimeField(auto_now_add=True)
+        status = models.IntegerField(choices=STATUS, default=0)
+        ```
+
+    - Comment Model - Stores comment relating to blog post
+
+    	```
+        post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
+        user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+        comment = models.TextField()
+        date_added = models.DateTimeField(auto_now_add=True)
+        ```        
 
 -   #### Colour Scheme
-    -   The main colours used for the site are centered around blue and white:
-        1. #1A8A94 for heading text
-        2. #324B4E for body text
-        3. #fff for buttons text
+    -   The colour scheme for this site rendered on [__Coolor__](https://coolors.co/) and can be seen below:
+
+    ![alt text](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/colour-scheme.png "Colour Scheme")
+
 
  -   #### Typography
-      -   The font used for headings throughout the site is "Rubik". "Roboto" is used for the remainder of text. Sans-serif has been used as the fallback font throughout. These fonts are chosen as they are easy to read.
+      -   The font used for headings throughout the site is "Bodoni Moda". "Arimo" is used for the remainder of text. Sans-serif has been used as the fallback font throughout.
 
 ## Technologies Used
 
@@ -178,25 +265,21 @@ Their structures are as follows:
 
 ### Frameworks, Libraries & Programs
 
-- [__Jinja__](https://en.wikipedia.org/wiki/Jinja_(template_engine)) - Templating engine used.
-
-- [__MongoDB__](https://www.mongodb.com/) - Database used for storing and retrieving information.
-
-- [__Cloudinary__](https://cloudinary.com/) - Used to store all stock icons.
+- [__Django__](https://www.djangoproject.com/) - Framework used to build the site
 
 - [__Heroku__](https://heroku.com/) - Used to deploy the site.
 
-- [__Flask__](https://en.wikipedia.org/wiki/Flask_(web_framework)) - Used to provide libraries and tools for the site such as Werkzeug.
+- [__Stripe__](https://stripe.com/en-gb) - Used to handle payments
 
-- [__Yfinance__](https://pypi.org/project/yfinance/) - API used for stock price information.
+- [__PostgreSQL__](https://www.postgresql.org/) - Database used for deployed site
 
 - [__Mockflow__](https://www.mockflow.com/) - Used to create the wireframes during the planning stage of the project.
 
-- [__Bootstrap Framework__](https://getbootstrap.com/docs/4.5/getting-started/introduction/) - Used for the site design, forms, modals and dropdowns.
+- [__Bootstrap Framework__](https://getbootstrap.com/docs/4.5/getting-started/introduction/) - Used for the site design, forms, modals, toasts and dropdowns.
 
 - [__JQuery__](https://jquery.com/) - Used to manipulate HTML and CSS properties.
 
-- [__Google Fonts__](https://fonts.google.com/) - Used to import the "Rubik" and "Roboto" fonts used throughout the site.
+- [__Google Fonts__](https://fonts.google.com/) - Used to import the "Bodoni Moda" and "Arimo" fonts used throughout the site.
 
 - [__Font Awesome__](https://fontawesome.com/) - Used to import the icons used for the watchlists.
 
@@ -334,17 +417,23 @@ In order to set up a database in MongoDB:
 
 ## Credits
 
+### Content
+
+- [STIL](https://stilclassics.com/) - All of the products, product details and blog posts have been taken from STIL
+- [Unsplash](https://unsplash.com/@stilclassics) - Some images used on the site are from Unsplash
+    1. [STIL](https://unsplash.com/@stilclassics) - Product images
+    1. [NORTHFOLK](https://unsplash.com/photos/RR6LG44RCgc) - Hero image used on home page
+    1. [Joanna Kosinska](https://unsplash.com/photos/RE-8WswW95o) - Background image used on allauth pages
+
 ### Code
 
-- [Code Institute](https://www.codeinstitute.net/) - Code learnt during the Full Stack Web Developer course has been implemented in this project.
+- [Code Institute](https://www.codeinstitute.net/) - Code learnt during the Full Stack Web Developer course (specifically the Boutique-Ado project) has been implemented in this project.
 
-- [Bootdey](https://www.bootdey.com/snippets/view/General-Search-Results) - Used for basic template of browse/watchlist pages.
-
-- [MDBootstrap](https://mdbootstrap.com/snippets/jquery/mdbootstrap/949080#css-tab-view) - Used for filter dropdown on browse page.
+- [MDBootstrap](https://mdbootstrap.com/snippets/jquery/ascensus/135500) - Used for product detail pages image carousel
 
 - [Stack Overflow](https://stackoverflow.com/questions/7643308/how-to-automatically-close-alerts-using-twitter-bootstrap) - Used for automatically closing flash messages.
 
-- [Pixabay](https://pixabay.com/photos/business-chart-graph-graphic-5475664/) - Hero Image downloaded from here.
+-[Sirv](https://sirv.com/help/articles/hover-change-image/) - Change image on hover on product detail page
 
 ### Acknowledgements
 - Spencer Barriball - Mentor at Code Institute
