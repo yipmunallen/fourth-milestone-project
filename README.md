@@ -165,7 +165,7 @@ This project consists of the following 7 Django apps:
         name = models.CharField(max_length=254)
         description = models.TextField()
         price = models.DecimalField(max_digits=6, decimal_places=2)
-        rating = models.DecimalField(max_digits=2, decimal_places=1, default=0, null=True, blank=True)
+        recommended = models.IntegerField(default=0, null=True, blank=True)
         image = models.ImageField(default='')
         image_2 = models.ImageField(default='')
         ```        
@@ -225,7 +225,6 @@ This project consists of the following 7 Django apps:
         user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
         title = models.CharField(max_length=50)
         description = models.TextField()
-        rating = models.IntegerField(choices=RATING)
         would_recommend = models.BooleanField(default=False, null=False, blank=False)
         date_created = models.DateTimeField(auto_now_add=True)
         ```
