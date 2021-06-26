@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}
+    Edit Blog Post
+{% endblock %}
+
+{% block content %}
+<section id="edit-blog-post-hero">
+  <div class="container main-content page-banner">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>Edit blog post</h1>
+        </div>       
+    </div>
+  </div>
+</section>
+<section id="edit-blog-post-main">
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-12">
+                <form method="POST" action="{% url 'edit_post' post.slug %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="row bg-light align-items-center text-center">
+                        <div class="col-md-6 text-md-left cart-footer">                   
+			    		    <a href="{% url 'posts' %}" class="white-btn">
+			    		    	Cancel
+                            </a>
+                        </div>
+                        <div class="col-md-6 text-md-right cart-footer">
+			    		    <button id="submit-button" class="brown-btn">
+			    		    	Edit Post<i class="fas fa-plus ml-4"></i>
+			    		    </button>
+                        </div>
+                    </div>           
+                </form> 
+            </div>           
+        </div>
+    </div>
+</section>       
+{% endblock %}
