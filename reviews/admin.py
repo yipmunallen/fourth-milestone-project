@@ -8,7 +8,6 @@ class ReviewAdmin(admin.ModelAdmin):
         'title',
         'product',
         'user',
-        'rating',
         'would_recommend',
         'date_created'
     )
