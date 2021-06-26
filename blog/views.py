@@ -4,8 +4,10 @@ from django.contrib.auth.decorators import login_required
 from django.template.defaultfilters import slugify
 
 from .models import Post
+from profiles.models import UserProfile
 
 from .forms import PostForm
+from .forms import CommentForm
 
 
 def all_posts(request):
@@ -32,10 +34,30 @@ def post_detail(request, slug):
         post = get_object_or_404(Post, slug=slug)
     else:
         post = get_object_or_404(Post, slug=slug, status=1)
+   
+    comment_raw = post.comments.all()
+    comments = comment_raw.order_by('-date_added')
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        user = UserProfile.objects.get(user=request.user)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.user = user
+            comment.post = post
+            comment.comment = request.POST["comment"]
+            comment.save()
+
+            messages.success(request, 'Successfully added comment!')
+            return redirect('post_detail', slug=post.slug)
+    else:
+        comment_form = CommentForm()
 
     template = 'blog/blog_detail.html'
     context = {
         'post': post,
+        'comments': comments,
+        'comment_form': comment_form,
     }
 
     return render(request, template, context)
