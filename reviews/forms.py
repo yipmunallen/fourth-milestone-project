@@ -15,7 +15,6 @@ class ReviewForm(forms.ModelForm):
         fields = [
             'title',
             'description',
-            'rating',
             'would_recommend']
 
         labels = {
@@ -35,7 +34,7 @@ class ReviewForm(forms.ModelForm):
         # Add placeholders and classes to input fields
         self.fields['title'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'rating' and field != 'would_recommend':
+            if field != 'would_recommend':
                 placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
                 self.fields[field].label = False
