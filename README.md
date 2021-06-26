@@ -144,13 +144,12 @@ This project consists of the following 7 Django apps:
 
 - **Products** - Handles product display and individual product views
     - Category Model - Stores the product categories
-        'name = models.CharField(max_length=100)
-        friendly_name = models.CharField(max_length=100, null=True, blank=True)'
+    	`name = models.CharField(max_length=100)
+        friendly_name = models.CharField(max_length=100, null=True, blank=True)`
 
 
 Their structures are as follows:
 
-![alt text](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/datastructure.png "Ticker Data Structure")
 
 1. When a user signs up, a new document is added to the users collection. It contains an id, username, password, and empty watched stocks array
 2. When a user adds a new comment, a new document is added to the comments collection. It contains an id, their username, the date created and the comment. That comment id is then added to the corresponding stock's comment array in the stocks collection.
