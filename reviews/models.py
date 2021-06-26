@@ -10,19 +10,10 @@ class Review(models.Model):
     CRUD operations on product reviews
     """
 
-    RATING = [
-        (1, '1'),
-        (2, '2'),
-        (3, '3'),
-        (4, '4'),
-        (5, '5'),
-    ]
-
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     description = models.TextField()
-    rating = models.IntegerField(choices=RATING)
     would_recommend = models.BooleanField(default=False, null=False, blank=False)
     date_created = models.DateTimeField(auto_now_add=True)
 
