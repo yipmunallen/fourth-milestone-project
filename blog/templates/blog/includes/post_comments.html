@@ -1,0 +1,58 @@
+<section id="post-comments">
+    <div class="container main-content">
+        <div class="row">
+            <h1 class="index-header mx-auto">Comments</h1>
+        </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item"><a class="nav-link tab-header active" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="comments" aria-selected="true">Comments</a></li>
+            <li class="nav-item"><a class="nav-link tab-header" id="write-comment-tab" data-toggle="tab" href="#writecomment" role="tab" aria-controls="write-comment" aria-selected="false">Write a comment</a></li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="comments" role="tabpanel" aria-labelledby="comments-tab">
+                {% if comments.count > 0 %}
+                    {% for comment in comments %}
+                        <div class="row custom-tab">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 text-left">                   
+				    		            <span class="tab-date">{{ comment.date_added }}</span>
+                                    </div>
+                                </div>             
+                                <p class="tab-bold">{{ comment.user }}</p>
+                                <p>{{ comment.comment }}</p>                    
+                                <hr>
+                            </div>
+                        </div>                    
+                    {% endfor %}
+                {% else %}
+                    <div class="row custom-tab">
+                        <div class="col-12">
+                            <h4 class="text-center my-5">There are no comments for this post yet</h4>
+                        </div>
+                    </div>
+                {% endif %}               
+            </div>            
+            <div class="tab-pane fade" id="writecomment" role="tabpanel" aria-labelledby="write-comment-tab">
+                {% if request.user.is_authenticated %}
+                    <form class="form" method="POST">
+                        {% csrf_token %}
+                        {{ comment_form|crispy }}
+                            <button id="submit-comment-button" class="brown-btn mb-5">
+			    	    	    Submit
+			    	    	</button>                    
+                    </form>               
+                {% else %}
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center mt-5">
+                            <h4>Please log in or sign up to leave a comment</h4>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center my-5">
+                            <a class="white-btn mr-2" href="{% url 'account_login' %}">Log In</a>
+                            <a class="white-btn ml-2" href="{% url 'account_signup' %}">Sign Up</a>
+                        </div>
+                    </div>                
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
