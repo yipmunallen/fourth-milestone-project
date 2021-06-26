@@ -19,13 +19,14 @@ def add_review(request, product_id):
     if review_form.is_valid():
         review = review_form.save(commit=False)
         review.user = user
-        review.product = product        
+        review.product = product    
         review.title = request.POST["title"]
         review.description = request.POST["description"]
-        review.rating = request.POST["rating"]
 
         if 'would_recommend' in request.POST:
             review.would_recommend = True
+            product.recommended += 1
+            product.save()
         else:
             review.would_recommend = False
 
