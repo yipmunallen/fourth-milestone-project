@@ -144,6 +144,7 @@ This project consists of the following 7 Django apps:
 
 - **Products** - Handles product display and individual product views
     - Category Model - Stores the product categories
+    
     	`name = models.CharField(max_length=100)
         friendly_name = models.CharField(max_length=100, null=True, blank=True)`
 
