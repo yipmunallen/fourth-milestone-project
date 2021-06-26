@@ -43,7 +43,7 @@ def post_detail(request, slug):
 
 @login_required
 def add_post(request):
-    """ A view that allows admin to add a blog post """
+    """ Allows admin to add a blog post """
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
@@ -72,7 +72,7 @@ def add_post(request):
 
 @login_required
 def edit_post(request, slug):
-    """ A view that allows admin to edit a blog post """
+    """ Allows admin to edit a blog post """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -99,3 +99,18 @@ def edit_post(request, slug):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_post(request, slug):
+    """ Allows admin to delete a blog post """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    post = get_object_or_404(Post, slug=slug)
+    post.delete()
+
+    messages.success(request, 'Successfully deleted blog post!')
+    return redirect(reverse('posts'))
