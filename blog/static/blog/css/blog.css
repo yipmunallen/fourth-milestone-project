@@ -28,10 +28,14 @@
     color: #CDB7C4;
 }
 
-.badge {
-    position: absolute;
+.badge-overlay{
+    position:absolute;
     top: 1rem;
     right: 1rem;
+}
+
+.badge {
+    
     color: #433E3F;
     background-color: #CDB7C4;
     text-transform: uppercase;
@@ -39,6 +43,7 @@
     letter-spacing: 0.3rem;
     padding: 0.35rem 0.5rem;
 }
+
 
 /* --- Blog Post Page --- */
 
