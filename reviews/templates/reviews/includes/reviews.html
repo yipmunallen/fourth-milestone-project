@@ -11,11 +11,11 @@
             <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                 {% if reviews.count > 0 %}
                     {% for review in reviews %}
-                        <div class="row review">
+                        <div class="row custom-tab">
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-6 text-left">                   
-				    		            <span class="review-date">{{ review.date_created }}</span>
+				    		            <span class="tab-date">{{ review.date_created }}</span>
                                     </div>
                                     {% if request.user.username == review.user.user.username %}
                                         <div class="col-6 text-right">
@@ -79,8 +79,8 @@
                                     <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
                                     <li class="list-inline-item m-0"><i class="fas fa-star-half-alt text-warning"></i></li>
                                 </ul>              
-                                <h4 class="review-bold">{{ review.title }}</h4>
-                                <p class="review-bold">{{ review.user }}</p>
+                                <h4 class="tab-bold">{{ review.title }}</h4>
+                                <p class="tab-bold">{{ review.user }}</p>
                                 {% if review.would_recommend == True %}
                                     <p class="recommend-badge badge">I recommend this product</p>
                                 {% endif %} 
@@ -90,7 +90,7 @@
                         </div>                    
                     {% endfor %}
                 {% else %}    
-                    <div class="row review">
+                    <div class="row custom-tab">
                         <div class="col-12">
                             <h4 class="text-center my-5">There are no reviews for this product yet</h4>
                         </div>
