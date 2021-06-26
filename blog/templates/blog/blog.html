@@ -27,7 +27,7 @@
                     <div class="blog-card">
                         <div class="blog-card-img position-relative">
                             {% if post.status == 0 %}
-                                <div class="badge">Draft</div>
+                                <div class="badge badge-overlay">Draft</div>
                             {% endif %}
                             <a href="{% url 'post_detail' post.slug %}">
                                 <img src="{{ post.image.url }}" alt="{{ post.title }}">
