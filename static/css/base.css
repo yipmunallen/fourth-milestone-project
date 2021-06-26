@@ -522,7 +522,7 @@ img.img-hover:hover {
     color:#CDB7C4;
 }
 
-/* ------ Reviews ------ */
+/* ------ Reviews and Comments ------ */
 
 .tab-header{
     font-size: 1.2rem;
@@ -536,7 +536,7 @@ img.img-hover:hover {
     background-color: #CDB7C4;
 }
 
-.review{
+.custom-tab{
     padding: 0.5rem 2rem;
 }
 
@@ -544,12 +544,12 @@ img.img-hover:hover {
     margin-top: 2rem;
 }
 
-.review-bold{
+.tab-bold{
     text-transform: uppercase;
     font-weight: bold;
 }
 
-.review-date{
+.tab-date{
     text-transform: uppercase;
 }
 
