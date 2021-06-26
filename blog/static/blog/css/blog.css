@@ -28,6 +28,18 @@
     color: #CDB7C4;
 }
 
+.badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #433E3F;
+    background-color: #CDB7C4;
+    text-transform: uppercase;
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+    padding: 0.35rem 0.5rem;
+}
+
 /* --- Blog Post Page --- */
 
 .blog-post-header {
@@ -35,60 +47,19 @@
     overflow: hidden;
 }
 
-.blog-post-header img {
-    width: 100%;
-}
-
 .blog-post-content .row{
     margin-top: 2rem;
 }
-
 
 .post-summary{
     font-weight: 600;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.blog-post-header {
-    overflow: hidden;
-}
-
 .blog-post-header img {
     width: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
 }
-
-
-
-.blogs-row {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-
-
 
 .blog-card-img > a > img {
     width: 100%;
-    min-height: 250px;
-    -o-object-fit: cover;
-       object-fit: cover;
 }
 
