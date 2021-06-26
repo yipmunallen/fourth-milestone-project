@@ -129,14 +129,22 @@ Show blog posts
   - [Amount](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/feedpagescreenshot.png) -
 Shows information about the site
 
+-  #### Colour Scheme
+    -   The colour scheme for this site rendered on [__Coolor__](https://coolors.co/) and can be seen below:
 
-- #### Architecture
+    ![alt text](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/colour-scheme.png "Colour Scheme")
 
-- ##### Database
+
+ -   #### Typography
+      -   The font used for headings throughout the site is "Bodoni Moda". "Arimo" is used for the remainder of text. Sans-serif has been used as the fallback font throughout.
+
+## Architecture
+
+### Database
 
 The database used for the deployed project is [__PostgreSQL__](https://www.postgresql.org/), but during development used [__SQLite__](https://www.sqlite.org/index.html) 
 
-- ##### Structure
+### Structure
 
 This project consists of the following 7 Django apps:
 
@@ -244,15 +252,6 @@ This project consists of the following 7 Django apps:
         comment = models.TextField()
         date_added = models.DateTimeField(auto_now_add=True)
         ```        
-
--   #### Colour Scheme
-    -   The colour scheme for this site rendered on [__Coolor__](https://coolors.co/) and can be seen below:
-
-    ![alt text](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/colour-scheme.png "Colour Scheme")
-
-
- -   #### Typography
-      -   The font used for headings throughout the site is "Bodoni Moda". "Arimo" is used for the remainder of text. Sans-serif has been used as the fallback font throughout.
 
 ## Technologies Used
 
