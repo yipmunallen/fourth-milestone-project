@@ -18,9 +18,18 @@
 <section id="blog-post-main">
     <div class="container my-5 blog-post-content">
         {% if request.user.is_superuser %}
+            {% if post.status == 0 %}
             <div class="row">
+                <div class="col-12 text-center">
+                    <div class="badge">Draft</div>
+                </div>
+            </div>
+            {% endif %}                
+            <div class="row">
+                <div class="col-12 text-center">
                 <a class="cart-text white-btn mr-2" href="{% url 'edit_post' post.slug %}"><i class="fas fa-edit fa-lg"></i></a>
-                <a class="cart-text white-btn" href="#" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash-alt fa-lg"></i></a>
+                <a class="cart-text white-btn" href="#" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash-alt fa-lg"></i></a> 
+                </div>           
             </div>
         {% endif %}               
         <div class="row">
