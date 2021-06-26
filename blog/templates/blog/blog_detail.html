@@ -56,7 +56,9 @@
         </div>                           
     </div>
 </section>
-{% include 'blog/includes/post_comments.html' %}
+{% if post.status == 1 %}
+    {% include 'blog/includes/post_comments.html' %}
+{% endif %}
 <!-- Modal -->
 <div class="modal fade" id="deletepostModal" tabindex="-1" role="dialog" aria-labelledby="deletepostModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
