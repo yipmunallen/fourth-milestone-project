@@ -6,7 +6,7 @@ Neat is an e-commerce site, built using HTML, CSS, JavaScript, Python, and Djang
 
 DISCLAIMER: This website is for educational purposes only and uses products and content from an existing brand. Please see the credits section for full information.
 
-The live project can be viewed [here](https://fourth-milestone-project-neat.herokuapp.com).
+The live project can be viewed [here](https://fourth-milestone-project-neat.herokuapp.com/).
 
 ## Table of Contents
 1. [Ux](#ux)
@@ -420,7 +420,7 @@ In order to set up a database in MongoDB:
 - [STIL](https://stilclassics.com/) - All of the products, product details and blog posts have been taken from STIL
 - [Unsplash](https://unsplash.com/@stilclassics) - Some images used on the site are from Unsplash
     1. [STIL](https://unsplash.com/@stilclassics) - Product images
-    1. [NORTHFOLK](https://unsplash.com/photos/RR6LG44RCgc) - Hero image used on home page
+    1. [Jess Bailey](https://unsplash.com/photos/q10VITrVYUM) - Hero image used on home page
     1. [Joanna Kosinska](https://unsplash.com/photos/RE-8WswW95o) - Background image used on allauth pages
 
 ### Code
