@@ -9,7 +9,7 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = '__all__'
+        exclude = ('recommend_percentage',)
 
     image = forms.ImageField(label='Image 1', required=True, widget=CustomClearableFileInput)
     image_2 = forms.ImageField(label='Image 2', required=True, widget=CustomClearableFileInput2)
