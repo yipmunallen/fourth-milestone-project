@@ -230,7 +230,7 @@ This project consists of the following 7 Django apps:
         ```
 
 - **Blog** - Displays blog posts and handles CRUD operations for posts and comments form
-    - Review Model - Stores blog post
+    - Post Model - Stores blog post
 
     	```
         title = models.CharField(max_length=100, unique=True)
@@ -291,7 +291,7 @@ This project consists of the following 7 Django apps:
 
 ## Testing
 
-In order for the website to pass testing, the following have been tested both whilst in development and on the live website:
+<!-- In order for the website to pass testing, the following have been tested both whilst in development and on the live website:
 
 1. Functionality in line with user stories
 1. Additional functionality required for website
@@ -357,7 +357,7 @@ In addition:
 
   - __404 Error__- This has been tested to ensure that the custom 404 error page will show if the error occurs, with a link that redirects to the home page.
 
-  - __405 Error__- This has been tested to ensure that the custom 405 error page will show if the error occurs, with a link that redirects to the home page.
+  - __405 Error__- This has been tested to ensure that the custom 405 error page will show if the error occurs, with a link that redirects to the home page. -->
 
 ### Compatibility
 
