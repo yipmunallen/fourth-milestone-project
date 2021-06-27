@@ -60,6 +60,15 @@ h1{
     color: #433E3F;
 }
 
+.index-header{
+    margin-top: 4rem;
+    letter-spacing: 0.3rem;
+    font-size: 3rem;
+}
+
+.index-header span{
+    font-size: 2.8rem;
+}
 
 /* ------ AllAuth ------ */
 
@@ -324,41 +333,34 @@ p .footer-text:hover{
 
 /* ------ Hero Section ------ */
 
-#hero-image {
+.hero-image{
+    /* https://unsplash.com/photos/q10VITrVYUM Hero Image */
     background: url('/media/heroimage.jpg') no-repeat center;
+    background-size: cover;
     height: 75vh;
     width: 100%;
-    background-size: cover;
-    padding: 30rem 0;
 }
 
-#hero-title{
-    font-size: 7rem;
-    border-bottom: 0.3rem solid;
-    border-color: #A08F7E;
-    color: #E9ECEC;
+.hero-image, .hero {
+    position: relative;
 }
 
 #hero-brand-title{
-    color: black;
     font-size: 7rem;
-    font-style: italic;
+    color: black;
+    font-size: 8rem;
 }
 
 #hero-text{
-    margin-top: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #A08F7E;
 }
 
-/* ------ Index About Section ------ */
+/* ------ Index Sections ------ */
 
-.index-header{
-    margin-top: 4rem;
-    letter-spacing: 0.3rem;
-}
 
-.index-header span{
-    font-size: 2.8rem;
-}
+
 .index-about-image-div img {
     padding: 1rem;
     border: 1px solid #CDB7C4;
@@ -366,52 +368,42 @@ p .footer-text:hover{
 
 .index-about-image{
     width: 70%;
-    border-radius: 50em;
 }
 
-.index-about-details{
-    margin-top: 3rem;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ------ Top Picks Section ------ */
-
-#top-picks-section{
-    margin-top: 3rem;
+#index-staples-section{
     background-color: #A08F7E;
 }
 
-#top-picks-header{
+#index-staples-header{
     color:#E9ECEC;
 }
 
-.top-picks-items{
+.index-staples-items{
     margin-top: 6rem;
 }
 
-.top-picks-image{
+.index-staples-image{
     overflow: hidden;
     width: 80%;
     border: 2px solid #CDB7C4;
 }
 
-.top-picks-image img{
+.index-staples-image img{
     transition: all 0.3s;
     width: 100%;
     height: auto;
     transform: scale(1);
 }
 
-.top-picks-image:hover img {
+.index-staples-image:hover img {
 	transform: scale(1.5);
 }
 
-.top-picks-name{
+.index-staples-name{
     margin: 2rem 0;
 }
 
-.top-picks-name{
+.index-staples-name{
     font-size: 1.1rem;
     letter-spacing: 0.2rem;
     color: #E9ECEC;
@@ -419,9 +411,28 @@ p .footer-text:hover{
     text-transform: uppercase;
 }
 
-#top-picks-button{
+#index-staples-button{
     margin-bottom: 3rem;
 }
+
+.index-blog-banner {
+    min-height: 20rem;
+    background: url('/media/get-it-done-planner-2.jpg') no-repeat center;
+    background-size: cover;   
+    height: 50vh; 
+}
+
+.index-blog-text {
+    max-width: 60rem;
+}
+
+@media (max-width: 991px) {
+
+  .index-blog-text {
+    max-width: 40rem;
+  }
+}
+
 
 /* ------ Products Hero ------ */
 
