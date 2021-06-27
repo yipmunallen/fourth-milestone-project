@@ -511,15 +511,20 @@ img.img-hover:hover {
     margin-top: 2rem;
 }
 
-#product-description{
+.product-description{
     max-width: 40rem;
+}
+
+.product-recommendation{
+    color:#A08F7E; 
+    font-weight: 600;
 }
 
 .quantity-form{
     margin-top: 3rem;
 }
 
-#quantity-text{
+.quantity-text{
     text-transform: uppercase;
     font-size: 1.3rem;
     margin-right: 2rem;
@@ -619,9 +624,9 @@ img.img-hover:hover {
     height: 10rem;
 }
 
-.cart-text
-,.cart-text th
-,.cart-text span{
+.upper-text
+,.upper-text th
+,.upper-text span{
     color: #433E3F;
     font-size: 1.3rem;
     text-transform: uppercase;
