@@ -6,95 +6,97 @@
 {% endblock %}
 
 {% block content %}
-<section id="hero-section">    
-    <div id="hero-image">
-        <div class="container">
+<section id="hero-section">
+    <div class="hero-image py-5 d-flex align-items-center">
+        <div class="container py-5 my-5 text-center">
+            <h1>
+                <span id="hero-brand-title">neat</span>
+            </h1>
             <div class="row">
-                <div class="col-md-8 offset-md-2 text-center" id="hero-text">
-                    <h1 id="hero-title"><span id="hero-brand-title">neat</span></h1>
-                    <h3 id="hero-text">Making organisation stylish</h3>
+                <div class="col-5 col-lg-7 mx-auto">
+                    <h3 id="hero-text">Organisation never looked so good</h3>
                     <a class="btn button" href="{% url 'products' %}">SHOP</a>
                 </div>
             </div>
-        </div>            
+        </div>
     </div>
 </section>
-<section id="membership-section">
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-                <h1 class="index-header"><span>Become a member</span></h1>
-                <h4 id="membership-description">Join our exclusive club, designed to help you be your best self.</h4>
-            </div>
-        </div>            
-        <div class="row" id="membership-details">
-            <div class="col-12 col-lg-5">
-                <div class="membership-image-div text-center">
-                    <img src="/media/membershipimage.jpg" alt="A birdseye image of a desk with a journal on it" id="membership-image">
+<section id="index-about-section">
+    <div class="container px-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <h1 class="index-header">Just for you...</h1>
+                    <h4>
+                        If you can dream it, you can do it and we help you get it done.
+                        We offer organizational products to inspire you to take charge of your busy days and 
+                        buzzing social life to make room for little moments that are just for you.
+                    </h4>
                 </div>
-            </div>                
-            <div class="col-12 col-lg-5">
-                <div class="d-flex justify-content-center">
-                    <ul class="membership-text">
-                        <li><i class="fas fa-gift fa-lg"></i>Access to exclusive content</li>
-                        <li><i class="fas fa-gift fa-lg"></i>Early product access</li>
-                        <li><i class="fas fa-gift fa-lg"></i>Referral program</li>
-                        <li><i class="fas fa-gift fa-lg"></i>Productivity playlists</li>
-                        <li><i class="fas fa-gift fa-lg"></i>Free downloadables</li>
-                        <li><i class="fas fa-gift fa-lg"></i>Co-create products & content</li>
-                        <li><a class="btn button d-flex justify-content-center" href="">Learn More</a>   </li>
-                    </ul> 
+            </div>            
+            <div class="col-lg-6">
+                <div class="p-5 index-about-image-div text-center">
+                    <img src="/media/indexaboutimage.jpg" alt="A birdseye image of a desk with a journal on it" class="index-about-image">
                 </div>
             </div>
+
         </div>
-        <div class="row">
-            <div class="col text-center">
-                <h4 class="mx-auto" id="membership-summary">
-                    Let us help you become your best, and most organized self. We are dedicated to empowering and 
-                    encouraging you for success – and we want to ensure you have the right resources to succeed. 
-                    Our membership options bring organization to your fingers with exclusive content, member's only 
-                    offers, and access to an entire community of people who want to get stuff done.
-                </h4>                
-            </div>
-        </div>           
     </div>
 </section>
-<section id="top-picks-section">
-    <div class="container top-picks">
+<section id="index-staples-section">
+    <div class="container index-staples">
         <div class="row">
             <div class="col text-center">
-                <h1 class="index-header" id="top-picks-header"><span>Our top picks</span></h1>
+                <h1 class="index-header" id="index-staples-header"><span>Our Staples</span></h1>
             </div>
         </div>
-        <div class="row top-picks-items">
+        <div class="row index-staples-items">
             <div class="col-md-4">
-                <a class="white-underline" href="#">
-                    <div class="top-picks-image mx-auto">
+                <a class="white-underline" href="{% url 'product_detail' 3 %}">
+                    <div class="index-staples-image mx-auto">
                         <img src="/media/twelve-month-planner.jpg" alt="twelve month planner">
                     </div>
-                    <h3 class="top-picks-name text-center">12 Month Planner</h3>
+                    <h3 class="index-staples-name text-center">12 Month Planner</h3>
                 </a>
             </div>
             <div class="col-md-4">
-                <a class="white-underline" href="#">
-                    <div class="top-picks-image mx-auto">
+                <a class="white-underline" href="{% url 'product_detail' 4 %}">
+                    <div class="index-staples-image mx-auto">
                         <img src="/media/get-it-done-planner.jpg" alt="get it done planner">
                     </div>
-                    <h3 class="top-picks-name text-center">Get It Done Planner</h3>
+                    <h3 class="index-staples-name text-center">Get It Done Planner</h3>
                 </a>
             </div>
             <div class="col-md-4">
-                <a class="white-underline" href="#">
-                    <div class="top-picks-image mx-auto">
+                <a class="white-underline" href="{% url 'product_detail' 1 %}">
+                    <div class="index-staples-image mx-auto">
                         <img src="/media/wellness-planner.jpg" alt="wellness-planner">
                     </div>
-                    <h3 class="top-picks-name text-center">Wellness Planner</h3>
+                    <h3 class="index-staples-name text-center">Wellness Planner</h3>
                 </a>
             </div>
         </div>
         <div class="row">
             <div class="col text-center">
-                <a class="btn button" id="top-picks-button" href="{% url 'products' %}">See more</a>
+                <a class="btn button" id="index-staples-button" href="{% url 'products' %}">See more</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="index-blog-section">
+    <div class="container-fluid bg-light px-0">
+      <div class="row align-items-center">
+            <div class="col-lg-6 index-blog-banner"></div>
+            <div class="col-lg-6 py-lg-5">
+                <div class="h-100 d-flex flex-column p-5 justify-content-center index-blog-text">
+                    <h1>Let's do some manifesting...</h1>
+                    <h4>
+                        Let us help you become your best, and most organized self. 
+                        We're always trying to find ways to re-inspire and reinvigorate you and your planning journey.
+                        Check out our blog for our top tips on how to use your planners and organise your day
+                    </h4>
+                    <span><a class="btn button"  href="{% url 'posts' %}">Latest blog post</a>  </span>         
+                </div>       
             </div>
         </div>
     </div>
