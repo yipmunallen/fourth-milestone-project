@@ -165,7 +165,7 @@ This project consists of the following 7 Django apps:
         name = models.CharField(max_length=254)
         description = models.TextField()
         price = models.DecimalField(max_digits=6, decimal_places=2)
-        recommended = models.PositiveIntegerField(default=0, null=True, blank=True)
+        recommend_percentage = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=0, null=True, blank=True)
         image = models.ImageField(default='')
         image_2 = models.ImageField(default='')
         ```        
