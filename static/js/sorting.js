@@ -1,16 +1,31 @@
 $('.sort-selector').change(function () {
     var selector = $(this);
     var currentUrl = new URL(window.location);
+    console.log("here erjekrjekrj");
 
     var selectedVal = selector.val();
-    if (selectedVal != "default") {
-        var sort = selectedVal.split("_")[0];
-        var direction = selectedVal.split("_")[1];
+    if (selectedVal != "default" ) {
+        if (selectedVal == "recommend_percentage_desc" ) {
 
-        currentUrl.searchParams.set("sort", sort);
-        currentUrl.searchParams.set("direction", direction);
+            var split = selectedVal.split('_');
+            var sort = split.slice(0, 2).join('_');
+            var direction = split.slice(2);
 
-        window.location.replace(currentUrl);
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        }
+        else {
+            console.log("I'M HERE INSTEAD");
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        }   
     } else {
         currentUrl.searchParams.delete("sort");
         currentUrl.searchParams.delete("direction");
