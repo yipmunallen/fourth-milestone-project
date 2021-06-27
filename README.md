@@ -1,6 +1,6 @@
 # Neat
 
-![alt text](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/websitemockup.png "Neat Screenshot")
+![alt text](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/mockup.png "Neat Screenshot")
 
 Neat is an e-commerce site, built using HTML, CSS, JavaScript, Python, and Django. The shop sells a range of planners and accessories. 
 
@@ -422,6 +422,7 @@ In order to set up a database in MongoDB:
     1. [STIL](https://unsplash.com/@stilclassics) - Product images
     1. [Jess Bailey](https://unsplash.com/photos/q10VITrVYUM) - Hero image used on home page
     1. [Joanna Kosinska](https://unsplash.com/photos/RE-8WswW95o) - Background image used on allauth pages
+- [Techsini](https://techsini.com/multi-mockup/index.php) - Used to create the website mockup at the top of the ReadMe file
 
 ### Code
 
