@@ -39,26 +39,22 @@
             <div class="col-lg-6">
                 {% if request.user.is_superuser %}
                 <div class="mt-5">
-                    <a class="cart-text white-btn mr-2" href="{% url 'edit_product' product.id %}"><i class="fas fa-edit fa-lg"></i></a>
-                    <a class="cart-text white-btn" href="#" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash-alt fa-lg"></i></a>
+                    <a class="upper-text white-btn mr-2" href="{% url 'edit_product' product.id %}"><i class="fas fa-edit fa-lg"></i></a>
+                    <a class="upper-text white-btn" href="#" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash-alt fa-lg"></i></a>
                 </div>
                 {% endif %}                                
                 <h1 class="product-information">{{ product.name }}</h1>
-                {% if product.recommended > 0 %}
-                    {% if product.recommended == 1 %}
-                        <h6>{{ product.recommended }} person recommended this</h6>
-                    {% elif product.recommended != 1 %}
-                        <h6>{{ product.recommended }} people recommended this</h6>
-                    {% endif %}  
-                {% endif %}                   
                 <h3 class="product-information">£{{ product.price}}</h3>
-                <h5 class="product-information" id="product-description">{{ product.description }}</h5>
+                {% if product.recommend_percentage != None %}
+                    <h5 class="product-information product-recommendation"><i class="fas fa-thumbs-up"></i> {{ product.recommend_percentage }}% of reviewers recommended this</h5>
+                {% endif %}                  
+                <h5 class="product-information product-description">{{ product.description }}</h5>
                 <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="row quantity-form">
                         <div class="col-sm-5">
                             <div class="d-flex align-items-center">
-                                <span id="quantity-text">Quantity</span>
+                                <span class="quantity-text">Quantity</span>
                                 <div class="quantity input-group">
                                     <div class="input-group-prepend">
                                         <button class="decrement-qty"
