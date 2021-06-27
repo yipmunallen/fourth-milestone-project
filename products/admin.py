@@ -9,7 +9,7 @@ class ProductAdmin(admin.ModelAdmin):
         'name',
         'get_category',
         'price',
-        'recommended',
+        'recommend_percentage',
         'image',
         'image_2'
     )
