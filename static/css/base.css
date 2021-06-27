@@ -336,7 +336,7 @@ p .footer-text:hover{
     /* https://unsplash.com/photos/q10VITrVYUM Hero Image */
     background: url('/media/heroimage.jpg') no-repeat center;
     background-size: cover;
-    height: 75vh;
+    height: 80vh;
     width: 100%;
 }
 
