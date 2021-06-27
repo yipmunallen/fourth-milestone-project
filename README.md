@@ -1,6 +1,6 @@
 # Neat
 
-![alt text](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/mockup.png "Neat Screenshot")
+![alt text](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/websitemockup.png "Neat Screenshot")
 
 Neat is an e-commerce site, built using HTML, CSS, JavaScript, Python, and Django. The shop sells a range of planners and accessories. 
 
