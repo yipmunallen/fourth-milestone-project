@@ -43,27 +43,29 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <nav class="navbar navbar-light navbar-expand-md fixed-top bg-light">
             <div class="search-overlay">
-          <div class="search-overlay-inner d-flex align-items-center justify-content-center">
-            <div class="close-btn">
-                <i class="fas fa-times fa-2x"></i>
-            </div>
-            <div class="row d-flex justify-content-center">
-              <div class="col-md-8">
-                <form method="GET" action="{% url 'products' %}">
-                    <div class="form-group">
-                        <input type="search" name="search" id="search" class="form-control" placeholder="What are you looking for?">
-                        <button type="submit" class="submit"><i class="fas fa-search fa-2x"></i></button>
+                <div class="search-overlay-inner d-flex align-items-center justify-content-center">
+                    <div class="close-btn">
+                        <i class="fas fa-times fa-2x"></i>
                     </div>
-                </form>
-              </div>
-            </div>
-          </div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-8">
+                            <form method="GET" action="{% url 'products' %}">
+                                <div class="form-group">
+                                    <input type="search" name="search" id="search" class="form-control" placeholder="What are you looking for?">
+                                    <button type="submit" class="submit"><i class="fas fa-search fa-2x"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="container">
                 <a class="navbar-brand brand-title mr-auto" href="{% url 'home' %}">NEAT</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
         		        <li class="nav-item dropdown">
@@ -154,16 +156,16 @@
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col-md-6 col-lg-5 text-center text-md-left">
-                      <h6 class="social-text">Connect with us</h6>
+                        <h6 class="social-text">Connect with us</h6>
                     </div>
                     <div class="col-md-6 col-lg-7 text-center text-md-right">
-                        <a class="social-icon" href="https://www.facebook.com/" target="_blank">
+                        <a class="social-icon mr-5" href="https://www.facebook.com/" target="_blank">
                             <i class="fab fa-facebook-f fa-2x"> </i>
                         </a>
                         <a class="social-icon" href="https://twitter.com/" target="_blank">
                             <i class="fab fa-twitter fa-2x"> </i>
                         </a>
-                        <a class="social-icon" href="https://www.instagram.com/" target="_blank">
+                        <a class="social-icon ml-5" href="https://www.instagram.com/" target="_blank">
                             <i class="fab fa-instagram fa-2x"> </i>
                         </a>
                     </div>
@@ -174,27 +176,27 @@
             <div class="container text-center">           
                 <div class="row footer-main-row">  
                     <div class="col-md-2 mx-auto footer-info">
-                      <h1 class="brand-title">NEAT</h1>
-                      <h5>Making organisation stylish</h5>           
+                        <h1 class="brand-title">NEAT</h1>
+                        <h5>Making organisation stylish</h5>           
                     </div>
                     <div class="col-md-2 mx-auto footer-info">     
-                      <h6 class="heading">Information</h6>
-                      <hr>
-                      <p>
-                        <a class="footer-text" href="{% url 'posts' %}">Blog</a>
-                      </p>
-                      <p>
-                        <a class="footer-text" href="#!">About</a>
-                      </p>     
+                        <h6 class="heading">Information</h6>
+                        <hr>
+                        <p>
+                            <a class="footer-text" href="{% url 'posts' %}">Blog</a>
+                        </p>
+                        <p>
+                            <a class="footer-text" href="#!">About</a>
+                        </p>     
                     </div>
                     <div class="col-md-2 mx-auto footer-info">           
                         <h6 class="heading">Contact</h6>
                         <hr>
                         <p class="text-md-left footer-text">
-                          <i class="fas fa-home"></i> London, UK
+                            <i class="fas fa-home"></i> London, UK
                         </p>
                         <p class="text-md-left footer-text">
-                          <i class="fas fa-envelope"></i> contact.neat@gmail.com
+                            <i class="fas fa-envelope"></i> contact.neat@gmail.com
                         </p>
                     </div>    
                 </div>     
@@ -204,21 +206,21 @@
     </footer>
 
     {% block postloadjs %}
-    <script type="text/javascript">
-        $('.toast').toast('show');
-        $('.search-btn').on('click', function (e) {
-            e.preventDefault();
-            $('.search-overlay').fadeIn();
-        });
-        $('.search-overlay .close-btn').on('click', function () {
-            $('.search-overlay').fadeOut();
-        });
-        $(document).keyup(function(e) {
-            if (e.keyCode == 27) { 
+        <script type="text/javascript">
+            $('.toast').toast('show');
+            $('.search-btn').on('click', function (e) {
+                e.preventDefault();
+                $('.search-overlay').fadeIn();
+            });
+            $('.search-overlay .close-btn').on('click', function () {
                 $('.search-overlay').fadeOut();
-            }
-        });        
-    </script>    
+            });
+            $(document).keyup(function(e) {
+                if (e.keyCode == 27) { 
+                    $('.search-overlay').fadeOut();
+                }
+            });        
+        </script>    
     {% endblock %}
     
 </body>
