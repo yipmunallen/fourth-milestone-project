@@ -341,6 +341,12 @@ p .footer-text:hover{
     width: 100%;
 }
 
+@media (max-width: 769px) {
+  .hero-image {
+    height: 90vh;
+  }
+}
+
 .hero-image, .hero {
     position: relative;
 }
@@ -416,10 +422,9 @@ p .footer-text:hover{
 }
 
 .index-blog-banner {
-    min-height: 20rem;
     background: url('/media/get-it-done-planner-2.jpg') no-repeat center;
-    background-size: cover;   
-    height: 50vh; 
+    background-size: cover;
+    height: 50vh;
 }
 
 .index-blog-text {
@@ -427,7 +432,6 @@ p .footer-text:hover{
 }
 
 @media (max-width: 991px) {
-
   .index-blog-text {
     max-width: 40rem;
   }
