@@ -23,8 +23,8 @@ class Product(models.Model):
     sku = models.CharField(max_length=150, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    recommend_percentage = models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(100)],default=0, null=True, blank=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(0.00)])
+    recommend_percentage = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=0, null=True, blank=True)
     image = models.ImageField(default='')
     image_2 = models.ImageField(default='')
 
