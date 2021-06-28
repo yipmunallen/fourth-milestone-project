@@ -48,7 +48,7 @@ The site should have a responsive design so that it can be viewed easily on mobi
 
 ### User Stories
 
-- #### Site Owner Goals
+#### Site Owner Goals
 As a site owner I want to be able to:
 
 1. Create a visually appealing site with a strong brand identity.
@@ -60,7 +60,7 @@ As a site owner I want to be able to:
 1. Delete blog posts if I no longer what them on the site
 1. Have links that direct users to our social sites for further engagement
 
-- #### Site User Goals
+#### Site User Goals
 As a site user I want to be able to:
 
 *Viewing and Navigation*
