@@ -1,0 +1,98 @@
+/* ------ Index Sections ------ */
+
+.index-about-image-div img {
+    padding: 1rem;
+    border: 1px solid #CDB7C4;
+}
+
+.index-about-image{
+    width: 70%;
+}
+
+#index-staples-section{
+    background-color: #A08F7E;
+}
+
+#index-staples-header{
+    color:#E9ECEC;
+}
+
+.index-staples-items{
+    margin-top: 6rem;
+}
+
+.index-staples-image{
+    overflow: hidden;
+    width: 80%;
+    border: 2px solid #CDB7C4;
+}
+
+.index-staples-image img{
+    transition: all 0.3s;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+}
+
+.index-staples-image:hover img {
+	transform: scale(1.5);
+}
+
+.index-staples-name{
+    margin: 2rem 0;
+}
+
+.index-staples-name{
+    font-size: 1.1rem;
+    letter-spacing: 0.2rem;
+    color: #E9ECEC;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#index-staples-button{
+    margin-bottom: 3rem;
+}
+
+.index-blog-banner {
+    background: url('/media/get-it-done-planner-2.jpg') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+}
+
+.index-blog-text {
+    max-width: 60rem;
+}
+
+@media (max-width: 991px) {
+  .index-blog-text {
+    max-width: 40rem;
+  }
+}
+
+/* ------ About ------ */
+
+.about-header-image {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-header-image::before {    
+    content: "";
+    background: url('/media/aboutbackground.jpg') no-repeat center;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+}
+
+.about-container{
+    background-color: #E9ECEC;
+}
