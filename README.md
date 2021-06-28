@@ -9,8 +9,8 @@ DISCLAIMER: This website is for educational purposes only and uses products and 
 The live project can be viewed [here](https://fourth-milestone-project-neat.herokuapp.com/).
 
 Test card details:
-* **credit card:** 4242 4242 4242 4242
-* **expiration date:** 04 / 24
+* **Card Number:** 4242 4242 4242 4242
+* **Expiration Date:** 04 / 24
 * **CVC:** 111
 * **ZIP:** 1111
 
@@ -25,9 +25,12 @@ Test card details:
         1. [Final Pages](#final-pages)
         1. [Colour Scheme](#colour-scheme)
         1. [Typography](#typography)
-    1. [Architecture](#architecture)
-        1. [Database](#database)
-        1. [Structure](#structure)      
+1. [Features](#features)
+    1. [Common features](#common-features)
+    1. [App Features](#app-features)    
+1. [Architecture](#architecture)
+    1. [Database](#database)
+    1. [Structure](#structure)    
 1. [Technologies](#technologies-used)
    1. [Languages](#languages)
    1. [Frameworks, Libraries & Programs](#frameworks-libraries-programs)
@@ -172,6 +175,60 @@ Pages for user authentication and profile creation
 
  -   #### Typography
       -   The font used for headings throughout the site is "Bodoni Moda". "Arimo" is used for the remainder of text. Sans-serif has been used as the fallback font throughout.
+
+
+## Features
+
+### Common Features
+
+- **Navigation**
+    - The navigation bar is sticky to the top of the window so that it can be accessed at all times
+    - All of the main pages (other than the individual product and blog pages) can be accessed from the navigation links
+    - On smaller screen sizes, all of the navigation links can be accessed via the hamburger button
+    - The brand logo will redirect the user back to the homepage when clicked
+    - The search icon in the navigation bar opens a full page search bar overlay when clicked. This can be exited using either the close button in the top right of the screen
+        or the escape key
+
+- **Footer**
+    - The footer is displayed at the bottom of the page for all content sizes
+    - It contains links to socials, however these will just redirect to the website home pages for this project. The links open in 
+    a new page so as not the close the site page.
+
+- **Toasts**
+    - Toasts have been used to provide feedback to users, displaying success, error, info and warning messages. 
+    - A toast is also used to display the current cart to the user when items are added to it.
+    - The cart toast will fade out automatically or can be dismissed using the close button
+
+- **Product Filtering**
+    - Users can select to view specific categories of products from the navigation bar's "SHOP" dropdown link
+    - The "All Products" and Product category pages also contain a dropdown that allow users to sort by:
+        - Name (A-Z)
+        - Name (Z-A)
+        - Price (Low - High)
+        - Price (High - Low)
+        - Recommended
+
+- **Admin** - Features that are only available to admin accounts
+    - Admin's have two additional options available from the user icon dropdown in the navigation bar:
+        - Product Management (used to add a product to the site)
+        - Blog Management (user to add a blog post to the site) 
+    - On individual product pages, buttons to edit and delete a product from the UI appear for admin users only
+    - On individual blog pages, buttons to edit and delete a blog from the UI appear for admin users only
+    - Access to all the following are available via the Django admin site:
+        - User Profiles
+        - Product categories
+        - Products
+        - Orders
+        - Product reviews
+        - Blog posts
+        - Blog comments
+
+- **AllAuth**
+    - The Django AllAuth package provides all the authentication and registration features for signing up, logging in, logging out, changing passwords etc.
+    - The links to these features can be found under the user icon dropdown in the navigation bar at all times or under "My Profile"
+
+### App Features
+
 
 ## Architecture
 
@@ -326,7 +383,7 @@ This project consists of the following 7 Django apps:
 
 ## Testing
 
-<!-- In order for the website to pass testing, the following have been tested both whilst in development and on the live website:
+In order for the website to pass testing, the following have been tested both whilst in development and on the live website:
 
 1. Functionality in line with user stories
 1. Additional functionality required for website
@@ -392,7 +449,7 @@ In addition:
 
   - __404 Error__- This has been tested to ensure that the custom 404 error page will show if the error occurs, with a link that redirects to the home page.
 
-  - __405 Error__- This has been tested to ensure that the custom 405 error page will show if the error occurs, with a link that redirects to the home page. -->
+  - __405 Error__- This has been tested to ensure that the custom 405 error page will show if the error occurs, with a link that redirects to the home page.
 
 ### Compatibility
 
