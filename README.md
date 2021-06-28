@@ -199,15 +199,6 @@ Pages for user authentication and profile creation
     - A toast is also used to display the current cart to the user when items are added to it.
     - The cart toast will fade out automatically or can be dismissed using the close button
 
-- **Product Filtering**
-    - Users can select to view specific categories of products from the navigation bar's "SHOP" dropdown link
-    - The "All Products" and Product category pages also contain a dropdown that allow users to sort by:
-        - Name (A-Z)
-        - Name (Z-A)
-        - Price (Low - High)
-        - Price (High - Low)
-        - Recommended
-
 - **Admin** - Features that are only available to admin accounts
     - Admin's have two additional options available from the user icon dropdown in the navigation bar:
         - Product Management (used to add a product to the site)
@@ -228,6 +219,32 @@ Pages for user authentication and profile creation
     - The links to these features can be found under the user icon dropdown in the navigation bar at all times or under "My Profile"
 
 ### App Features
+
+- **Products Page**
+    - Users can select to view specific categories of products from the navigation bar's "SHOP" dropdown link
+    - The "All Products" and Product category pages also contain a dropdown that allow users to sort by:
+        - Name (A-Z)
+        - Name (Z-A)
+        - Price (Low - High)
+        - Price (High - Low)
+        - Recommended
+    - The products page will also show any valid product search results
+    - The number of results showing on the page will be displayed in the top left of the screen
+    - A banner stating the free delviery threshold is at the top of the screen
+    - Each product has the product name and product price under it, and an alternative image of the product shows on hover
+
+- **Product Details Page**
+    - Users can select to view specific categories of products from the navigation bar's "SHOP" dropdown link
+    - The "All Products" and Product category pages also contain a dropdown that allow users to sort by:
+        - Name (A-Z)
+        - Name (Z-A)
+        - Price (Low - High)
+        - Price (High - Low)
+        - Recommended
+    - The products page will also show any valid product search results
+    - The number of results showing on the page will be displayed in the top left of the screen
+    - A banner stating the free delviery threshold is at the top of the screen
+    - Each product has the product name and product price under it, and an alternative image of the product shows on hover
 
 
 ## Architecture
