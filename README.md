@@ -231,7 +231,7 @@ Pages for user authentication and profile creation
         - Recommended
     - The products page will also show any valid product search results
     - The number of results showing on the page will be displayed in the top left of the screen
-    - A banner stating the free delviery threshold is at the top of the screen
+    - A banner stating the free delivery threshold is at the top of the screen
     - Each product has the product name and product price under it, and an alternative image of the product shows on hover
 
 - **Product Details Page**
@@ -421,7 +421,8 @@ In addition:
 #### Site Owner Goals
 
 1. Create a visually appealing site with a strong brand identity
-    - 
+    - The brand logo is in the navigation bar at all times
+    - The same fonts, colours and image types have been used throughout the site to maintain a consistent brand identity
 1. Add products on the website so I can add new items to my stores
     - Admin users can access the "add product" form from the "Product Management" selection in the navbar at all times
     - Mandatory fields are marked with a *
