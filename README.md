@@ -27,7 +27,7 @@ Test card details:
         1. [Typography](#typography)
 1. [Features](#features)
     1. [Common features](#common-features)
-    1. [App Features](#app-features)    
+    1. [Page Features](#page-features)    
 1. [Architecture](#architecture)
     1. [Database](#database)
     1. [Structure](#structure)    
@@ -62,7 +62,7 @@ The site has a responsive design so that it can be viewed easily on mobile and d
 #### Site Owner Goals
 As a site owner I want to be able to:
 
-1. Create a visually appealing site with a strong brand identity.
+1. Create a visually appealing site with a strong brand identity
 1. Add products on the website so I can add new items to my stores
 1. Edit existing products in my store so I can change product prices, descriptions, iamges and other product information.
 1. Delete products on the website so I can remove items from my store
@@ -176,7 +176,6 @@ Pages for user authentication and profile creation
  -   #### Typography
       -   The font used for headings throughout the site is "Bodoni Moda". "Arimo" is used for the remainder of text. Sans-serif has been used as the fallback font throughout.
 
-
 ## Features
 
 ### Common Features
@@ -218,7 +217,7 @@ Pages for user authentication and profile creation
     - The Django AllAuth package provides all the authentication and registration features for signing up, logging in, logging out, changing passwords etc.
     - The links to these features can be found under the user icon dropdown in the navigation bar at all times or under "My Profile"
 
-### App Features
+### Page Features
 
 - **Products Page**
     - Users can select to view specific categories of products from the navigation bar's "SHOP" dropdown link
@@ -234,18 +233,19 @@ Pages for user authentication and profile creation
     - Each product has the product name and product price under it, and an alternative image of the product shows on hover
 
 - **Product Details Page**
-    - Users can select to view specific categories of products from the navigation bar's "SHOP" dropdown link
-    - The "All Products" and Product category pages also contain a dropdown that allow users to sort by:
-        - Name (A-Z)
-        - Name (Z-A)
-        - Price (Low - High)
-        - Price (High - Low)
-        - Recommended
-    - The products page will also show any valid product search results
-    - The number of results showing on the page will be displayed in the top left of the screen
-    - A banner stating the free delviery threshold is at the top of the screen
-    - Each product has the product name and product price under it, and an alternative image of the product shows on hover
-
+    - Product details including the product name, price and description are shown, as well as the percentage of reviewers
+        that have recommended the product
+    - The quantity selector allow users to select 1-20 of a product
+    - An "Add to Cart" button adds the product (with quantity) to the cart
+    - There is a link to other products in the product category next to "See more:"
+    - The reviews section at the bottom of the page has two tabs:
+        - Reviews 
+            - Shows the number of reviews that have been left as well as the reviews themselves
+            - Each review shows the date created, review title, username of reviewer, the review subject and a badge containing
+            "I recommend this product", if the user selected that option when leaving their review
+        - Write a review
+            - If the site user is not signed in, they will be prompted to log in or sign up
+            - If the user is already signed in, this tab will contain a form allowing them to leave a reviewv
 
 ## Architecture
 
@@ -365,38 +365,42 @@ This project consists of the following 7 Django apps:
 
 ### Languages
 
-- [__HTML5__](https://en.wikipedia.org/wiki/HTML5) - Used to structure and present the website.
-- [__CSS__](https://en.wikipedia.org/wiki/CSS) - Used to style the website.
-- [__JavaScript__](https://en.wikipedia.org/wiki/JavaScript) - Used to collapse navbars and dynamically show the edit comment forms.
-- [__Python__](https://en.wikipedia.org/wiki/Python_(programming_language)) - Used for the backend development.
+- [__HTML5__](https://en.wikipedia.org/wiki/HTML5) - Used to structure and present the website
+- [__CSS__](https://en.wikipedia.org/wiki/CSS) - Used to style the website
+- [__JavaScript__](https://en.wikipedia.org/wiki/JavaScript) - Used to collapse navbars and dynamically show the edit comment forms
+- [__Python__](https://en.wikipedia.org/wiki/Python_(programming_language)) - Used for the backend development
 
 ### Frameworks, Libraries & Programs
 
-- [__Django__](https://www.djangoproject.com/) - Framework used to build the site
-
-- [__Heroku__](https://heroku.com/) - Used to deploy the site.
-
-- [__Stripe__](https://stripe.com/en-gb) - Used to handle payments
-
-- [__PostgreSQL__](https://www.postgresql.org/) - Database used for deployed site
+- [__Bootstrap Framework__](https://getbootstrap.com/docs/4.5/getting-started/introduction/) - Used for the site design, forms, modals, toasts and dropdowns.
 
 - [__Mockflow__](https://www.mockflow.com/) - Used to create the wireframes during the planning stage of the project.
 
-- [__Bootstrap Framework__](https://getbootstrap.com/docs/4.5/getting-started/introduction/) - Used for the site design, forms, modals, toasts and dropdowns.
+- [__Google Fonts__](https://fonts.google.com/) - Used to import the "Bodoni Moda" and "Arimo" fonts used throughout the site
 
-- [__JQuery__](https://jquery.com/) - Used to manipulate HTML and CSS properties.
+- [__Font Awesome__](https://fontawesome.com/) - Used to import the icons used for the watchlists
 
-- [__Google Fonts__](https://fonts.google.com/) - Used to import the "Bodoni Moda" and "Arimo" fonts used throughout the site.
+- [__Favicon__](https://favicon.io/) - Used to created the favicon used on the site
 
-- [__Font Awesome__](https://fontawesome.com/) - Used to import the icons used for the watchlists.
+- [__JQuery__](https://jquery.com/) - Used to manipulate HTML and CSS properties
 
-- [__Favicon__](https://favicon.io/) - Used to created the favicon used on the site. 
+- [__Django__](https://www.djangoproject.com/) - Framework used to build the site
 
-- [__Git__](https://git-scm.com/) - Used for version control.
+- [__Stripe__](https://jquery.com/) - Used to facilitate payments
 
-- [__Github__](https://github.com/) - Used to store all website code once pushed from Git.
+- [__Heroku__](https://heroku.com/) - Used to deploy the site
 
-- [__Google Chrome Developer Tools__](https://developers.google.com/web/tools/chrome-devtools) - Used to inspect page elements, test different CSS styles and debug site issues using the console.
+- [__Heroku__](https://heroku.com/) - Used to deploy the site
+
+- [__SQLite__](https://www.sqlite.org/index.html) - Database used during development
+
+- [__AWS S3__](https://www.sqlite.org/index.html) - Used to store images and static files displayed in the deployed site
+
+- [__Git__](https://git-scm.com/) - Used for version control
+
+- [__Github__](https://github.com/) - Used to store all website code once pushed from Git
+
+- [__Google Chrome Developer Tools__](https://developers.google.com/web/tools/chrome-devtools) - Used to inspect page elements, test different CSS styles and debug site issues using the console
 
 ## Testing
 
@@ -411,6 +415,23 @@ In addition:
 1. The HTML, CSS, Javascript and Python files have been validated using respective online validators.
 
 ### User Stories
+
+| Site Owner Goals                                                                                                       | Testing                                                                                                                                                            |
+|------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Create a visually appealing site with a strong brand identity                                                          | 1. The browse page is accessible from the sticky navbar at all times to both non logged in and logged in users<br><br>2.  On initial entry to the page, all stock  |
+| Add products on the website so I can add new items to my stores                                                        |                                                                                                                                                                    |
+| Edit existing products in my store so I can change product prices, descriptions, iamges and other product information. |                                                                                                                                                                    |
+| Delete products on the website so I can remove items from my store                                                     |                                                                                                                                                                    |
+| Create new blog posts so that I can engage with customers and add new content to the site                              |                                                                                                                                                                    |
+| Edit existing blog posts in case I've made a mistake and what to make a change to it                                   |                                                                                                                                                                    |
+| Delete blog posts if I no longer what them on the site                                                                 |                                                                                                                                                                    |
+|                                                                                                                        |                                                                                                                                                                    |
+|                                                                                                                        |                                                                                                                                                                    |
+|                                                                                                                        |                                                                                                                                                                    |
+|                                                                                                                        |                                                                                                                                                                    |
+|                                                                                                                        |                                                                                                                                                                    |
+|                                                                                                                        |                                                                                                                                                                    |
+|                                                                                                                        |                                                                                                                                                                    |
 
 1. Easily browse available stocks
     1. The browse page is accessible from the sticky navbar at all times to both non logged in and logged in users
