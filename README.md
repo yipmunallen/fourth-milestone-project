@@ -37,7 +37,10 @@ Test card details:
 1. [Testing](#testing)
    1. [Site Goals Testing](#site-goals-testing)
    1. [User Stories Testing](#user-stories-testing)
-   1. [Additional Functionality](#Additional-Functionality)
+   1. [Authorisation and Access](#authorisation-and-access)
+   1. [Toasts](#toasts)
+   1. [Form Validation](#form-validation)   
+   1. [Error Pages](#error-pages)   
    1. [Compatibility](#compatibility)
    1. [Validation](#validation)
 1. [Deployment](#deployment)
@@ -553,27 +556,29 @@ In addition:
     - This feature is only available to logged in users, and if a user is not logged in they will be prompted to either log in or sign up
     - Upon submission of the comment form, the blog page will reload and the user will be able to see their comment in the comment tab
 
-### Additional Testing
+#### Authorisation and Access
+Tests have been conducted to ensure users cannot perform actions or access pages they shouldn't be able to:
 
-  - __Defensive Programming__- Tests have been conducted to ensure users cannot perform actions or access pages they shouldn't be able to:
-    1. If a logged in user:
-        1. Tries to access the sign up page, they will be redirected to their feed and a message "You already have an account" will be shown. 
-        2. Tries to access the log in page, they will be redirected to their feed and a message "You are already logged in" will be shown. 
-    2. If a non logged in user:
-        1. Tries to access a feed, they will be redirected to the index page. 
-        2. Tries to add to a watchlist, they will be prompted to log in or sign up
-    3. A comment cannot be deleted unless the user is logged in and the comment was written by them. If this is attempted using the url, the stock page will reload and no comment is deleted.
+1. If a non logged in user:
+    1. Tries to access the profile page, they will be redirected to the login page. 
+1. If a non admin user:
+    1. Tries to access the product management page, they will either be redirected to the login page or an error toast will appear depending on whether the user is logged in order not
+    1. Tries to edit or delete a product, they will either be redirected to the login page or an error toast will appear depending on whether the user is logged in order not
+    1. Tries to access the blog management page, they will either be redirected to the login page or an error toast will appear depending on whether the user is logged in order not
+    1. Tries to edit or delete a product, they will either be redirected to the login page or an error toast will appear depending on whether the user is logged in order not
 
-  - __Toasts__-  Toast messages are used to confirm actions and convey messages to users. There are successfully shown:
-    1. If a login attempt is unsuccessfull , "Incorrect username and/or password" shows
-    2. If a user tried to sign up with an existing username, "username already exists" shows.
-    3. If a new user signs up, they will be directed to the feed page where "Welcome to Ticker, Username. This feed shows recent comments on stocks" shows.  
-    4. If a user logs in, they will be directed to the feed page where "Welcome, Username" shows.
-    5. If a user creates a new comment, "Comment successfully added" shows.
-    5. If a user edits a comment, "Comment successfully edited" shows.
-    5. If a user deletes a comment, "Comment successfully deleted" shows.
+#### Toasts
+Toast messages are used to confirm actions and convey messages to users. They are successfully shown:
 
-  - __Form Validation__- Form validation has been tested:
+1. If a login attempt is unsuccessfull , "Incorrect username and/or password" shows
+2. If a user tried to sign up with an existing username, "username already exists" shows.
+3. If a new user signs up, they will be directed to the feed page where "Welcome to Ticker, Username. This feed shows recent comments on stocks" shows.  
+4. If a user logs in, they will be directed to the feed page where "Welcome, Username" shows.
+5. If a user creates a new comment, "Comment successfully added" shows.
+5. If a user edits a comment, "Comment successfully edited" shows.
+5. If a user deletes a comment, "Comment successfully deleted" shows.
+
+#### Form Validation
 
     | Product Management Forms                                        | Testing |
     |-----------------------------------------------------------------|---------|
@@ -616,6 +621,7 @@ In addition:
     | User cannot submit the form (add or edit) without a valid Card Security Code | PASS    |
     | User cannot submit the form (add or edit) without a valid Postcode           | PASS    |
 
+#### Error Pages
 
   - __404 Error__- This has been tested to ensure that the custom 404 error page will show if the error occurs, with a link that redirects to the home page.
 
@@ -640,7 +646,7 @@ In addition:
 
 ## Deployment
 
-This project is hosted by Github and deployed using heroku.
+This project was developed on Github, using Gitpod as IDE. It was deployed on Heroku
 
 ### Clone this project
 
