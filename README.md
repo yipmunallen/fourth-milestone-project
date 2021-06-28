@@ -564,7 +564,7 @@ In addition:
         2. Tries to add to a watchlist, they will be prompted to log in or sign up
     3. A comment cannot be deleted unless the user is logged in and the comment was written by them. If this is attempted using the url, the stock page will reload and no comment is deleted.
 
-  - __Flash Messages__-  Flash messages are used to confirm actions and convey messages to users. There are successfully shown:
+  - __Toasts__-  Toast messages are used to confirm actions and convey messages to users. There are successfully shown:
     1. If a login attempt is unsuccessfull , "Incorrect username and/or password" shows
     2. If a user tried to sign up with an existing username, "username already exists" shows.
     3. If a new user signs up, they will be directed to the feed page where "Welcome to Ticker, Username. This feed shows recent comments on stocks" shows.  
@@ -573,10 +573,49 @@ In addition:
     5. If a user edits a comment, "Comment successfully edited" shows.
     5. If a user deletes a comment, "Comment successfully deleted" shows.
 
-  - __Form Validation__- Form validation has been tested to ensure that:
-    1. If a user attempts to sign up with a username or password that does not conform to the requirements stated on the form, "please match requested format" is shown and the form is not sent.
-    2. If a user attempts to sign up without filling in BOTH the username and password form, they will be prompted to fill out the missing field(s)
-    3. If a user attempts to submit a blank comment on a stocks page, they will be prompted to fill out the missing field
+  - __Form Validation__- Form validation has been tested:
+
+    | Product Management Forms                                        | Testing |
+    |-----------------------------------------------------------------|---------|
+    | User cannot submit the form (add or edit) without a Name        | PASS    |
+    | User cannot submit the form (add or edit) without a Description | PASS    |
+    | User cannot submit the form (add or edit) without a Price       | PASS    |
+    | User cannot submit the form (add or edit) without an Image 1    | PASS    |
+    | User cannot submit the form (add or edit) without an Image 2    | PASS    |
+    | User cannot submit the form (add or edit) if the Price is < 0   | PASS    |
+
+    | Blog Management Forms                                       | Testing |
+    |-------------------------------------------------------------|---------|
+    | User cannot submit the form (add or edit) without a Title   | PASS    |
+    | User cannot submit the form (add or edit) without a Author  | PASS    |
+    | User cannot submit the form (add or edit) without a Summary | PASS    |
+    | User cannot submit the form (add or edit) without Content   | PASS    |
+    | User cannot submit the form (add or edit) without an Image  | PASS    |
+    
+    | Reviews Form                                                         | Testing |
+    |----------------------------------------------------------------------|---------|
+    | If a user is not logged in or signed up, they cannot access the form | PASS    |
+    | Users cannot submit the form without a title                         | PASS    |
+    | Users cannot submit the form without a description                   | PASS    |
+
+    | Comments Form                                                        | Testing |
+    |----------------------------------------------------------------------|---------|
+    | If a user is not logged in or signed up, they cannot access the form | PASS    |
+    | Users cannot submit the form (add or edit) without a comment         | PASS    |
+
+    | Checkout Form                                                                | Testing |
+    |------------------------------------------------------------------------------|---------|
+    | User cannot submit the form (add or edit) without an Email Address           | PASS    |
+    | User cannot submit the form (add or edit) without a Phone Number             | PASS    |
+    | User cannot submit the form (add or edit) without a Full Name                | PASS    |
+    | User cannot submit the form (add or edit) without a Street Address 1         | PASS    |
+    | User cannot submit the form (add or edit) without a Town or City             | PASS    |
+    | User cannot submit the form (add or edit) without a Country                  | PASS    |
+    | User cannot submit the form (add or edit) without a valid Card Number        | PASS    |
+    | User cannot submit the form (add or edit) without a valid Card Expiry Date   | PASS    |
+    | User cannot submit the form (add or edit) without a valid Card Security Code | PASS    |
+    | User cannot submit the form (add or edit) without a valid Postcode           | PASS    |
+
 
   - __404 Error__- This has been tested to ensure that the custom 404 error page will show if the error occurs, with a link that redirects to the home page.
 
