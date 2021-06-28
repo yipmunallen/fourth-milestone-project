@@ -8,10 +8,17 @@ DISCLAIMER: This website is for educational purposes only and uses products and 
 
 The live project can be viewed [here](https://fourth-milestone-project-neat.herokuapp.com/).
 
+Test card details:
+* **credit card:** 4242 4242 4242 4242
+* **expiration date:** 04 / 24
+* **CVC:** 111
+* **ZIP:** 1111
+
 ## Table of Contents
 1. [Ux](#ux)
-    1. [Site Owner Goals](#site-owner-goals)
     1. [User stories](#user-stories)
+        1. [Site Owner Goals](#site-owner-goals)
+        1. [Site User Goals](#site-user-goals)
     1. [Design](#design)
         1. [Wireframes](#wireframes)
         1. [Final Pages](#final-pages)
@@ -39,57 +46,62 @@ the ability to leave reviews and comments.
 
 The site should have a responsive design so that it can be viewed easily on mobile and desktop.
 
-### Site Owner Goals
+### User Stories
+
+- #### Site Owner Goals
 As a site owner I want to be able to:
 
-1. Create a visually appealing site with intuitive navigation.
-1. Add new products to my store
-1. Edit existing products in my store
-1. Delete product in my store
-1. Create new blog posts
-1. Edit exising blog posts
-1. Delete exising blog posts
+1. Create a visually appealing site with a strong brand identity.
+1. Add products on the website so I can add new items to my stores
+1. Edit existing products in my store so I can change product prices, descriptions, iamges and other product information.
+1. Delete products on the website so I can remove items from my store
+1. Create new blog posts so that I can engage with customers and add new content to the site
+1. Edit existing blog posts in case I've made a mistake and what to make a change to it
+1. Delete blog posts if I no longer what them on the site
+1. Have links that direct users to our social sites for further engagement
 
-### User Stories
+- #### Site User Goals
 As a site user I want to be able to:
 
 *Viewing and Navigation*
 
-1. Be able to easily navigate the site
-1. View a list of all products available to purchase
-1. View specific categories of products
-1. View individual product details
-1. See how many items are in my cart
-1. Get feedback on the site when actions are performed
+1. Be able to easily navigate the site so that I can quickly find what I am looking for
+1. View a list of all products available so that I can purchase them
+1. View specific categories of products so that I can filter for products that I'm interested in.
+1. View individual product details so that I can decide if I want to make a purchase
+1. Get feedback on the site when actions are performed so that I know if they have been successful or not
 
 *Sorting and Searching*
 
-1. Search the site
-1. Filter products that I am viewing
+1. Search the site so that I can quickly and easily find what I'm looking for.
+1. Filter products that I am viewing so that I can identify products that fit my budget or that have been recommended
 
 *Registration and User Accounts*
 
-1. Easily sign up, log in and log out of an account
-1. Be able to save and edit default information in my account
-1. See my order history
+1. Easily sign up, log in and log out of an account so that I have a personal account and be able to view my profile
+1. Recover my password if I forget it so that I can regain access to my account
+1. Receive an email confirmation after registering so I can verify my account registration was successful
+1. Have a personalised user profile so that I can view my order history and save default payment information
 
 *Purchasing and Checkout*
 
 1. Select the quantity of a product I want to buy
-1. View the items in my cart
-1. Adjust the quantity of products in my cart
-1. Easily enter my payment information
-1. Get confirmation that my order has been successfull
+1. View the items in my cart so that I can confirm the items that I am purchasing along with the total cost
+1. Adjust the quantity of products in my cart in case i've make a mistake when adding them
+1. Remove an item from my cart if I no longer what to purchase it
+1. Easily enter my payment information so that I can check out quickly
+1. Get an order confirmation after checkout to verify I haven't made any errors
 
 *Reviews*
 
-1. Leave a review on a product
-1. Edit and delete my review
+1. See previous reviews so that I can make an informed purchase
+1. Leave a review on a product so that I can inform other shoppers about whether it was a good purchase or not
+1. Edit my review in case I've made a mistake and what to make a change to it
+1. Delete my review if I no longer want it on the site
 
 *Blog*
 
-1. Leave comments on blog posts
-
+1. Leave comments on blog posts so that I engage with the store owners and other customers
 
 ### Design
 
@@ -421,7 +433,8 @@ In order to set up a database in MongoDB:
 - [Unsplash](https://unsplash.com/@stilclassics) - Some images used on the site are from Unsplash
     1. [STIL](https://unsplash.com/@stilclassics) - Product images
     1. [Jess Bailey](https://unsplash.com/photos/q10VITrVYUM) - Hero image used on home page
-    1. [Joanna Kosinska](https://unsplash.com/photos/RE-8WswW95o) - Background image used on allauth pages
+    1. [Joanna Kosinska](https://unsplash.com/photos/RE-8WswW95o) - Background image used on AllAuth pages
+    1. [Brooke Cagle](https://unsplash.com/photos/g1Kr4Ozfoac) - Image at top of About page
 - [Techsini](https://techsini.com/multi-mockup/index.php) - Used to create the website mockup at the top of the ReadMe file
 
 ### Code
