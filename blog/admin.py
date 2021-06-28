@@ -22,6 +22,7 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = (
         'user',
         'comment',
+        'post',
         'date_added',
     )
 
