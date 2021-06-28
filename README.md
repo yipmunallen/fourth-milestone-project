@@ -115,14 +115,16 @@ As a site user I want to be able to:
 
 - #### Wireframes
 
-  - [Home](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/indexpagewireframe.png)
-  - [Products](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/browsepagewireframe.png)
-  - [Product Detail](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/stockpagewireframe.png)
-  - [Cart](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/stockpagewireframe.png)
-  - [Checkout](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/stockpagewireframe.png)
-  - [Profile](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/stockpagewireframe.png)
-  - [Blog](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/stockpagewireframe.png)
-  - [About](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/stockpagewireframe.png)
+  - [Home](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/homewireframe.png)
+  - [About](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/aboutwireframe.png)
+  - [Products](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/productswireframe.png)
+  - [Product Detail](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/productdetailwireframe.png)
+  - [Cart](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/cartwireframe.png)
+  - [Checkout](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/checkoutwireframe.png)
+  - [Profile](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/profilewireframe.png)
+  - [Product Management](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/productmanagementwireframe.png)
+  - [Blog](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/blogwireframe.png)
+  - [Blog Post](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/blogpostwireframe.png)
 
 - #### Final Pages 
 
@@ -143,8 +145,14 @@ This is a checkout page where users input their payment information
   - [Profile](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/signuppagescreenshot.png) -
 Page where users can see their default information and order history
 
+  - [Product Management](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/signuppagescreenshot.png) -
+Page where users can see their default information and order history
+
   - [Blog](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/feedpagescreenshot.png) -
 Show blog posts
+
+  - [Blog Post](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/feedpagescreenshot.png) -
+Show blog post
 
   - [Amount](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/feedpagescreenshot.png) -
 Shows information about the site
