@@ -43,18 +43,18 @@
                 </p>
             </div>
             <div class="col-lg-6 d-flex justify-content-lg-end" >             
-              <ul class="list-inline d-flex justify-content-lg-end" >
-                <li class="list-inline-item" id="products-sorting">
-                  <select class="sort-selector">
-                    <option value="default" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name: A-Z</option>
-                    <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name: Z-A</option>      
-                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price: Low to High</option>
-                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price: High to Low</option>                          
-                    <option value="recommend_percentage_desc" {% if current_sorting == 'recommend_percentage_desc' %}selected{% endif %}>Recommended</option>
-                  </select>
-                </li>
-              </ul>
+                <ul class="list-inline d-flex justify-content-lg-end" >
+                  <li class="list-inline-item" id="products-sorting">
+                      <select class="sort-selector">
+                        <option value="default" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name: A-Z</option>
+                        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name: Z-A</option>      
+                        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price: Low to High</option>
+                        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price: High to Low</option>                          
+                        <option value="recommend_percentage_desc" {% if current_sorting == 'recommend_percentage_desc' %}selected{% endif %}>Recommended</option>
+                      </select>
+                  </li>
+                </ul>
             </div>
         </div>
         <div class="row">
@@ -73,14 +73,12 @@
                         </div>
                         <a href="{% url 'product_detail' product.id %}"><h4 class="product-name">{{ product.name }}</h4></a>
                         <p>£{{ product.price }}</p>
-                        </a>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div> 
 </section>
-           
 {% endblock %}
 
 {% block postloadjs %}
