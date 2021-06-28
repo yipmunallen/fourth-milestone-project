@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+{% block extra_title %}
+    About
+{% endblock %}
+
+{% block content %}
+<section id="about-section">
+    <div class="container about-header-image main-content">
+        <div class="row page-banner align-items-center">
+            <div class="col-lg-6">
+                <h1>About</h1>
+            </div> 
+        </div>
+    </div>
+</section>
+<section id="about-section">
+    <div class="container px-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <h1 class="index-header">How it began...</h1>
+                    <h4>
+                        Neat was founded in 2014 by two friends, Jane Smith and Wanda Taylor after meeting at university
+                        where they studied psychology. They wanted to create a brand that would not only empower people 
+                        to be their best, organized selves but would become a staple in someone's everyday life.                        
+                    </h4>
+                </div>
+            </div>            
+            <div class="col-lg-6">
+                <div class="p-5 index-about-image-div text-center">
+                    <img src="/media/about2.jpg" alt="Someone writing in a journal" class="index-about-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="about-section-2">
+    <div class="container px-5 about-container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="p-5 index-about-image-div text-center">
+                    <img src="/media/about.jpg" alt="Items on a desk" class="index-about-image">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <h1 class="index-header">Products with purpose...</h1>
+                    <h4>
+                        Materials and design matter. At Neat we are obsessed with finding the best materials and crafting 
+                        them into both elegant and functional organizational tools for your everyday life. What you get in 
+                        the mail will feel elevated and thoughtful and we make sure that every product gets the love and 
+                        attention it deserves. We want every item to have a meaningful purpose in your life.
+                        By choosing our products you are not only getting organized but you are joining a community of people
+                        who are sharing all the ways they are staying organized and what helps them be and feel successful.
+                    </h4>
+                </div>
+            </div>               
+        </div>
+    </div>
+</section>
+{% endblock %}
