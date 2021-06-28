@@ -45,7 +45,7 @@
                 {% endif %}                                
                 <h1 class="product-information">{{ product.name }}</h1>
                 <h3 class="product-information">£{{ product.price}}</h3>
-                {% if product.recommend_percentage != None %}
+                {% if product.recommend_percentage != 0 %}
                     <h5 class="product-information product-recommendation"><i class="fas fa-thumbs-up"></i> {{ product.recommend_percentage }}% of reviewers recommended this</h5>
                 {% endif %}                  
                 <h5 class="product-information product-description">{{ product.description }}</h5>
