@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Review
+from .models import Review, Comment
 
 
 class ReviewAdmin(admin.ModelAdmin):
@@ -13,4 +13,15 @@ class ReviewAdmin(admin.ModelAdmin):
     )
 
 
+class CommentAdmin(admin.ModelAdmin):
+
+    list_display = (
+        'user',
+        'comment',
+        'post',
+        'date_added',
+    )
+
+
 admin.site.register(Review, ReviewAdmin)
+admin.site.register(Comment, CommentAdmin)
