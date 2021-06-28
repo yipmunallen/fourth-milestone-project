@@ -125,40 +125,47 @@ As a site user I want to be able to:
   - [Product Management](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/productmanagementwireframe.png)
   - [Blog](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/blogwireframe.png)
   - [Blog Post](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/blogpostwireframe.png)
+  - [Login / Register / Signout](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/authorisationwireframe.png)
 
 - #### Final Pages 
 
-  - [Home](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/indexpagescreenshot.png)
+  - [Home](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/homescreenshot.png)
 
-  - [Products](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/browsepagescreenshot.png) -
+  - [About](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/aboutscreenshot.png)
+
+  - [Products](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/productsscreenshot.png) -
 Shows list of products
 
-  - [Product Detail](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/resultspagescreenshot.png) -
-Shows details about an individual product
+  - [Product Detail](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/productdetailscreenshot.png) -
+Shows details about an individual product, including a button that allows the user to add the product to the cart. There is also a
+reviews section at the bottom, showing product reviews and including the review form for logged in users.
 
-  - [Cart](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/stockpagescreenshot.png) -
-This is a page that shows users all of the products in their cart
+  - [Cart](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/cartscreenshot.png) -
+Shows users all of the products in their cart, as well as their cart total
 
-  - [Checkout](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/loginpagescreenshot.png) -
-This is a checkout page where users input their payment information
+  - [Checkout](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/checkoutscreenshot.png) -
+Page where users input their payment information, place their order and can see an order summary
 
-  - [Profile](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/signuppagescreenshot.png) -
+  - [Profile](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/profilescreenshot.png) -
 Page where users can see their default information and order history
 
-  - [Product Management](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/signuppagescreenshot.png) -
-Page where users can see their default information and order history
+  - [Product Management](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/productmanagementscreenshot.png) -
+Contains form where site owners can add a product
 
-  - [Blog](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/feedpagescreenshot.png) -
-Show blog posts
+  - [Blog](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/blogscreenshot.png) -
+Show all blog posts
 
-  - [Blog Post](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/feedpagescreenshot.png) -
-Show blog post
+  - [Blog Post](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/blogpostscreenshot.png) -
+Show individual blog post
 
-  - [Amount](https://github.com/yipmunallen/Third-Milestone-Project/blob/master/static/images/readme/feedpagescreenshot.png) -
-Shows information about the site
+  - [Blog Management](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/blogmanagementscreenshot.png) -
+Contains form where site owners can add a blog post
+
+  - [Login / Register / Signout](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/authenticationscreenshot.png) -
+Pages for user authentication and profile creation
 
 -  #### Colour Scheme
-    -   The colour scheme for this site rendered on [__Coolor__](https://coolors.co/) and can be seen below:
+    -   The colour scheme for this site was rendered on [__Coolor__](https://coolors.co/) and can be seen below:
 
     ![alt text](https://github.com/yipmunallen/Fourth-Milestone-Project/blob/master/static/images/readme/colour-scheme.png "Colour Scheme")
 
