@@ -35,8 +35,8 @@ Test card details:
    1. [Languages](#languages)
    1. [Frameworks, Libraries & Programs](#frameworks-libraries-programs)
 1. [Testing](#testing)
-    1. [Site Goals](#site-goals)
-   1. [User stories](#user-stories)
+   1. [Site Goals Testing](#site-goals-testing)
+   1. [User Stories Testing](#user-stories-testing)
    1. [Additional Functionality](#Additional-Functionality)
    1. [Compatibility](#compatibility)
    1. [Validation](#validation)
@@ -67,6 +67,7 @@ As a site owner I want to be able to:
 1. Edit existing products in my store so I can change product prices, descriptions, iamges and other product information.
 1. Delete products on the website so I can remove items from my store
 1. Create new blog posts so that I can engage with customers and add new content to the site
+1. Be able to create draft blog posts which users can't see so that I can make updates and publish posts at chosen times
 1. Edit existing blog posts in case I've made a mistake and what to make a change to it
 1. Delete blog posts if I no longer what them on the site
 1. Have links that direct users to our social sites for further engagement
@@ -112,6 +113,7 @@ As a site user I want to be able to:
 
 *Blog*
 
+1. See previous comments on blog posts so that I can see other user's thoughts
 1. Leave comments on blog posts so that I engage with the store owners and other customers
 
 ### Design
@@ -273,7 +275,7 @@ This project consists of the following 7 Django apps:
         sku = models.CharField(max_length=150, null=True, blank=True)
         name = models.CharField(max_length=254)
         description = models.TextField()
-        price = models.DecimalField(max_digits=6, decimal_places=2)
+        price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(0.00)])
         recommend_percentage = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=0, null=True, blank=True)
         image = models.ImageField(default='')
         image_2 = models.ImageField(default='')
@@ -416,49 +418,139 @@ In addition:
 
 ### User Stories
 
-| Site Owner Goals                                                                                                       | Testing                                                                                                                                                            |
-|------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Create a visually appealing site with a strong brand identity                                                          | 1. The browse page is accessible from the sticky navbar at all times to both non logged in and logged in users<br><br>2.  On initial entry to the page, all stock  |
-| Add products on the website so I can add new items to my stores                                                        |                                                                                                                                                                    |
-| Edit existing products in my store so I can change product prices, descriptions, iamges and other product information. |                                                                                                                                                                    |
-| Delete products on the website so I can remove items from my store                                                     |                                                                                                                                                                    |
-| Create new blog posts so that I can engage with customers and add new content to the site                              |                                                                                                                                                                    |
-| Edit existing blog posts in case I've made a mistake and what to make a change to it                                   |                                                                                                                                                                    |
-| Delete blog posts if I no longer what them on the site                                                                 |                                                                                                                                                                    |
-|                                                                                                                        |                                                                                                                                                                    |
-|                                                                                                                        |                                                                                                                                                                    |
-|                                                                                                                        |                                                                                                                                                                    |
-|                                                                                                                        |                                                                                                                                                                    |
-|                                                                                                                        |                                                                                                                                                                    |
-|                                                                                                                        |                                                                                                                                                                    |
-|                                                                                                                        |                                                                                                                                                                    |
+#### Site Owner Goals
 
-1. Easily browse available stocks
-    1. The browse page is accessible from the sticky navbar at all times to both non logged in and logged in users
-    2. On initial entry to the page, all stocks in the stocks collection are successfully shown
-1. Easily search for stocks that I am interested in
-    1. A functioning search bar has been added on the watchlist and browse pages that allows users to refine their search. If there are no search results, then "no results found" will be displayed
-    2. There is also a dropdown filter under the search bar on the browse page that allows users to filter stocks shown, as well as a "Show All" button which removes the filter
-1. Be able to comment on stocks
-    1. A comment form is available to logged in users on the stocks page
-    2. Upon submittion of the form, a new document is added to the comments collection, with it's id added to the corresponding stock's comments array
-    3. The comment form is unavailable to non-logged in users, with a prompt to sign up / login
-1. Be able to edit comments I have submitted
-    1. The edit comment button is shown if the logged in user is the one that submitted the comment
-    2. Once the edit button is clicked, a form opens up allowing the user to either edit their comment, or cancel the form
-    3. Once the comment is submitted, the comment in the comments collection is updated
-1. Be able to delete comments I have submitted
-    1. The delete comment button is shown if the logged in user is the one that submitted the comment
-    2. Once the delete button is pressed, the comment is removed from the comments collection as well as it's id removed from the stock's comments array
-1. Build my own watchlist so that I can have easy access to my favourite stocks
-    1. Watchlist functionality is available to logged in users only, who can access their watchlist from the sticky navbar at all times
-    2. Users can see easily add stocks to their watchlist from the browse and stock pages. 
-1. Be able to remove stocks from my watchlist
-    1. Users can remove stocks from their watchlist on the watchlist, browse and stock pages. 
-1. Be able to see comments across a range stocks
-    1. A feed page is available to logged in users and can be accessed from the sticky navbar at all times
-    2. The page displays the most recent 100 comments across all stocks.
-    3. There is a toggle button that allows users to only see comments on their watched stocks. 
+1. Create a visually appealing site with a strong brand identity
+    - 
+1. Add products on the website so I can add new items to my stores
+    - Admin users can access the "add product" form from the "Product Management" selection in the navbar at all times
+    - Mandatory fields are marked with a *
+    - The cancel button redirects the user back to the "all products" view
+    - When the "Add Product" button is clicked, the user is redirected to the newly created product detail page
+        and the new product will show on the all products page, and under it's relevant category.
+1. Edit existing products in my store so I can change product prices, descriptions, images and other product information.
+    - Admin users can click the edit button on any product detail page to edit the product
+    - This button is not shown or available to non-admin users or non logged-in users
+    - Upon click, the admin user will be redirect to the "Edit Product" form for that product which is already completed with the current product details
+    - Mandatory fields are marked with a *, and a product cannot be edited if any of those fields are missing
+    - When the "Add Product" button is clicked, the user is redirected back to the newly updated product detail page   
+1. Delete products on the website so I can remove items from my store
+    - Admin users can click the delete button on any product detail page to delete the product
+    - Upon click, an modal will appear, confirming with the user whether they want to delete the product
+        - If cancel is clicked, the modal will close and the product will not be deleted
+        - If delete is clicked, the product will be deleted from all product pages and the database
+1. Create new blog posts so that I can engage with customers and add new content to the site
+    - Admin users can access the "add post" form from the "Blog Management" selection in the navbar at all times
+    - Mandatory fields are marked with a *
+    - The cancel button redirects the user back to the main Blog page
+    - When the "Add Post" button is clicked, the user is redirected to the newly created blog post page
+        and the new post will show on the main blog page.    
+1. Be able to create draft blog posts which users can't see so that I can make updates and publish posts at chosen times
+    - Admin users can set the status of their blog posts to "Draft" or "Publish" in the add post and edit post forms.
+    - Draft posts are marked with a "draft" badge in both the main blog page, and individual blog pages
+    - Draft posts cannot be seen or accessed by non-admin users
+    - When the status of a blog post is changed from "Draft" to "Publish" it can be seen by all users and all "Draft" badges are removed
+1. Edit existing blog posts in case I've made a mistake and what to make a change to it
+    - Admin users can click the edit button on any blog post page to edit the post
+    - This button is not shown or available to non-admin users or non logged-in users
+    - Upon click, the admin user will be redirect to the "Edit Post" form for that post which is already completed with the current post details
+    - Mandatory fields are marked with a *, and a post cannot be edited if any of those fields are missing
+    - When the "Add Product" button is clicked, the user is redirected back to the newly updated product detail page 
+1. Delete blog posts if I no longer what them on the site
+    - Admin users can click the delete button on any blog post page to delete the product
+    - Upon click, an modal will appear, confirming with the user whether they want to delete the post
+        - If cancel is clicked, the modal will close and the post will not be deleted
+        - If delete is clicked, the post will be deleted from the blog page
+1. Have links that direct users to our social sites for further engagement
+    - Links are available in the footer of the site at all times. These currently direct to the homepage of that site in a new tab.
+
+#### Site User Goals
+
+*Viewing and Navigation*
+
+1. Be able to easily navigate the site so that I can quickly find what I am looking for
+    - The navigation bar is positioned at the top of the screen and is fixed when the site is being scrolled so users can
+        access site pages at all times
+1. View a list of all products available so that I can purchase them
+    - A view of all products can be seen by selecting "All Products" from the Shop dropdown in the navigation bar at all times
+1. View specific categories of products so that I can filter for products that I'm interested in.
+    - Available categories can selected from the Shop dropdown in the navigation bar at all times
+1. View individual product details so that I can decide if I want to make a purchase
+    - Product details are displayed on all individual product pages, including product name, price and description
+1. Get feedback on the site when actions are performed so that I know if they have been successful or not
+    - Toasts have been used to display feedback to user across the site, showing at the top of the screen (see further information in [Additional Testing](#additional-testing))
+
+*Sorting and Searching*
+
+1. Search the site so that I can quickly and easily find what I'm looking for.
+    - A search form is available from the navigation bar at all times by clickly on the search icon
+1. Sort products that I am viewing so that I can identify products that fit my budget or that have been recommended
+    - A "Sort By" selector is available on all product pages allowing users to order by price (low/high), name(a/z) and recommended
+
+*Registration and User Accounts*
+
+1. Easily sign up, log in and log out of an account so that I have a personal account and be able to view my profile
+    - Users can sign up for the site at all times by selecting "Sign Up" from the User icon dropdown in the navigation bar
+    - Users can sign up for the site at all times by selecting "Log In" from the User icon dropdown in the navigation bar
+    - Signed in users can log out of the site at all times by selecting "Log Out" from the User icon dropdown in the navigation bar
+1. Recover my password if I forget it so that I can regain access to my account
+1. Receive an email confirmation after registering so I can verify my account registration was successful
+1. Have a personalised user profile so that I can view my order history and save default payment information
+    - All users that sign up to the site have a user profile created for them
+    - The User Profile can be accessed at all times by selecting "My Profile" from the User icon dropdown in the navigation bar
+    - The User Profile page allows users to set a default delivery address and also view their order history
+    - Clicking on an order number will show them the full details of their order
+
+*Purchasing and Checkout*
+
+1. Select the quantity of a product I want to buy
+    - There is a quantity selector shown on all individual product pages, as well as on the Cart page for each product in the cart
+1. View the items in my cart so that I can confirm the items that I am purchasing along with the total cost
+    - When users add an item to their cart, a toast will show the current items in their cart
+    - When users have items in their cart, the number of product will appear next to the cart icon in the navigation bar at all times
+    - Users can see full detail of all items in their cart, as well as a cart total by clicking on the cart icon in the navigation bar which will redirect them
+        to the cart page
+1. Adjust the quantity of products in my cart in case i've make a mistake when adding them
+    - Users can update the quantity of products in their cart by changing the quantity and clicking "update"
+1. Remove an item from my cart if I no longer what to purchase it
+    - Users can remove a product from their cart by clicking the trash icon at the end of the product row in the cart
+1. Easily enter my payment information so that I can check out quickly
+    - Users can input their payment information in the checkout page
+    - Logged in users that have set default information in the "My Profile" page will have this information filled in for them automatically
+1. Get an order confirmation after checkout to verify I haven't made any errors
+    - When an order has successfully been received, the user will be redirected to an order confirmation page
+    - The order confirmation page will show all the product purchased, as well as the delivery information that has been inputted
+
+*Reviews*
+
+1. See previous reviews so that I can make an informed purchase
+    - All previous product reviews can be seen at the bottom of each product page
+    - If users recommend a product, the "I recommend this product" badge will show on their review
+    - In addition, the percentage of reviewers that have recommended a product are displayed along with the product details at the top
+        of individual product detail pages (unless the percentage is 0) allowing users to see at a glance how popular the product is
+    - Users can see the number of reviews that have been left for a product by the number next to the "reviews" tab in brackets
+1. Leave a review on a product so that I can inform other shoppers about whether it was a good purchase or not
+    - Users can leave a review using the "Write a review" tab at the bottom of each product page
+    - This feature is only available to logged in users, and if a user is not logged in they will be prompted to either log in or sign up
+    - Upon submission of the review form, the product page will reload and the user will be able to see their review in the reviews tab
+1. Edit my review in case I've made a mistake and what to make a change to it
+    - If a user has left a review, then an ellipsis button will appear in the right corner of their review. Clicking it will give them the option to edit their review
+        and open up an "edit review" modal on the current page
+    - The current review details will be filled into the form already, and once they make their change and submit, the page will reload with their updated review
+1. Delete my review if I no longer want it on the site
+    - If a user has left a review, then an ellipsis button will appear in the right corner of their review. Clicking it will give them the option to delete their review.
+    - When the delete review button is clicked, a modal will appear confirming to the user whether they want to delete their review. If "cancel" is clicked, the review will not
+        be deleted. If "Delete" is clicked, the review will be deleted and the page will reload, removing their review from the reviews section
+
+*Blog*
+
+1. See previous comments on blog posts so that I can see other user's thoughts
+    - All previous blog post comments can be seen at the bottom of each blog page
+    - Users can see the number of comment that have been left for a post by the number next to the "comments" tab in brackets
+1. Leave comments on blog posts so that I engage with the store owners and other customers
+    - Users can leave a comment using the "Write a comment" tab at the bottom of each product page
+    - This feature is only available to logged in users, and if a user is not logged in they will be prompted to either log in or sign up
+    - Upon submission of the comment form, the blog page will reload and the user will be able to see their comment in the comment tab
 
 ### Additional Testing
 
