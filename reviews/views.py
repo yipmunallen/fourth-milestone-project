@@ -30,7 +30,7 @@ def add_review(request, product_id):
         if product_reviews_recommended > 0:
             product.recommend_percentage = int(product_reviews_recommended / product_reviews) * 100
         else:
-            product.recommend_percentage = None
+            product.recommend_percentage = 0
 
         product.save()
         
@@ -63,7 +63,7 @@ def edit_review(request, review_id):
         if product_reviews_recommended > 0:
             product.recommend_percentage = int(product_reviews_recommended / product_reviews) * 100
         else:
-            product.recommend_percentage = None
+            product.recommend_percentage = 0
 
         product.save()     
 
