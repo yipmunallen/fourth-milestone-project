@@ -15,6 +15,7 @@ Test card details:
 * **ZIP:** 1111
 
 ## Table of Contents
+1. [Project Summary](#project-summary)
 1. [Ux](#ux)
     1. [User stories](#user-stories)
         1. [Site Owner Goals](#site-owner-goals)
@@ -39,12 +40,19 @@ Test card details:
 1. [Deployment](#deployment)
 1. [Credits](#credits)
 
-## UX
+## Project Summary
 
-The purpose of this project is to create an e-commerce site where customers can purchase items and user engagement is encouraged through blog posts and
+This project is my fourth and final milestone project (Full Stack Frameworks With Django) for the Code Institute Diploma in Software Development. 
+
+The purpose of the project is to build a full-stack site based around business logic used to control a centrally-owned dataset
+, setting up an authentication mechanism and providing paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service.
+
+I have created an e-commerce site where customers can purchase items and user engagement is encouraged through blog posts and
 the ability to leave reviews and comments.
 
-The site should have a responsive design so that it can be viewed easily on mobile and desktop.
+The site has a responsive design so that it can be viewed easily on mobile and desktop.
+
+## UX
 
 ### User Stories
 
