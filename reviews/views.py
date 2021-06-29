@@ -52,11 +52,11 @@ def edit_review(request, review_id):
 
     review = get_object_or_404(Review, pk=review_id)
     review_form = ReviewForm(request.POST, request.FILES, instance=review)
+    product = get_object_or_404(Product, pk=review.product.pk)
 
     if review_form.is_valid():
         review.save()
 
-        product = get_object_or_404(Product, pk=review.product.pk)
         product_reviews = Review.objects.filter(product=review.product.pk).count()
         product_reviews_recommended = Review.objects.filter(product=review.product.pk, would_recommend=True).count()
 
@@ -81,10 +81,19 @@ def delete_review(request, review_id):
     """ Allows users to delete their review """
 
     review = get_object_or_404(Review, pk=review_id)
-    product = Product.objects.get(name=review.product)
+    product = get_object_or_404(Product, pk=review.product.pk)
 
     try:
         review.delete()
+        
+        product_reviews = Review.objects.filter(product=review.product.pk).count()
+        product_reviews_recommended = Review.objects.filter(product=review.product.pk, would_recommend=True).count()
+
+        if product_reviews_recommended > 0:
+            product.recommend_percentage = int(product_reviews_recommended / product_reviews) * 100
+        else:
+            product.recommend_percentage = 0
+
         product.save()
 
         messages.success(request, 'Your review has been successfully deleted')
