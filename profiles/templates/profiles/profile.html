@@ -11,7 +11,7 @@
 
 {% block content %}
 <section id="checkout-hero">
-    <div class="container ">
+    <div class="container">
         <div class="row main-content page-banner">
             <div class="col-lg-6">
                 <h1>Profile</h1>
@@ -19,7 +19,9 @@
         </div>
         <div class="row my-5">
             <div class="col-12 col-lg-6 mt-3">
+                <hr>
                 <p class="upper-text">Default Information</p>
+                <hr>
                 <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
@@ -27,7 +29,9 @@
                 </form>
             </div>
             <div class="col-12 col-lg-6 mt-3">
+                <hr>
                 <p class="upper-text">Order History</p>
+                <hr>
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
                         <thead>
@@ -44,14 +48,14 @@
                                     <td>
                                         <a href="{% url 'order_history' order.order_number %}"
                                             title="{{ order.order_number }}" class="order-link">
-                                            {{ order.order_number|truncatechars:6 }}
+                                            {{ order.order_number|truncatechars:10 }}
                                         </a>
                                     </td>
                                     <td>{{ order.date }}</td>
                                     <td>
                                         <ul class="list-unstyled">
                                             {% for item in order.lineitems.all %}
-                                                <li class="small">
+                                                <li>
                                                     {{ item.product.name }} x{{ item.quantity }}
                                                 </li>
                                             {% endfor %}
@@ -64,7 +68,15 @@
                     </table>
                 </div>
             </div>
-        </div>        
+        </div>    
+        <div class="row my-5">
+            <div class="col-12 col-lg-6 mt-3">
+                <hr>
+                <p class="upper-text mt-2">Account</p>
+                <hr class="mb-4">
+                <a href="{% url 'account_change_password' %}" class="brown-btn">Change Password</a>
+            </div>
+        </div>     
     </div>
 </section>     
 {% endblock %}
