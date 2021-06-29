@@ -9,17 +9,16 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+from pathlib import Path
+
 import os
 import dj_database_url
 
 if os.path.exists("env.py"):
     import env
 
-from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -29,10 +28,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
-# DEBUG = 'TRUE'
 
 ALLOWED_HOSTS = ['fourth-milestone-project-neat.herokuapp.com', 'localhost']
-
 
 # Application definition
 
@@ -56,7 +53,7 @@ INSTALLED_APPS = [
     'blog',
 
     'crispy_forms',
-    'storages'   
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -92,7 +89,7 @@ TEMPLATES = [
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
                 'crispy_forms.templatetags.crispy_forms_field',
-            ]            
+            ]
         },
     },
 ]
