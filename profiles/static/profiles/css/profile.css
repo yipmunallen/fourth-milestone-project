@@ -18,3 +18,11 @@
     font-size: 1.3rem;
     color: #aab7c4;
 }
+
+.order-link{
+    color: #433E3F;
+}
+
+.order-link:hover{
+    color: #CDB7C4;
+}
