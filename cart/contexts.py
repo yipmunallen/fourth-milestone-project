@@ -22,14 +22,15 @@ def cart_contents(request):
         })
 
     if subtotal < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = subtotal * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+        delivery = (
+            subtotal * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100))
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - subtotal
     else:
         delivery = 0
         free_delivery_delta = 0
-    
+
     total = delivery + subtotal
-    
+
     context = {
         'cart_items': cart_items,
         'subtotal': subtotal,

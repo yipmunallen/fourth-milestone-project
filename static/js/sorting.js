@@ -1,7 +1,6 @@
 $('.sort-selector').change(function () {
     var selector = $(this);
     var currentUrl = new URL(window.location);
-    console.log("here erjekrjekrj");
 
     var selectedVal = selector.val();
     if (selectedVal != "default" ) {
@@ -17,7 +16,6 @@ $('.sort-selector').change(function () {
             window.location.replace(currentUrl);
         }
         else {
-            console.log("I'M HERE INSTEAD");
             var sort = selectedVal.split("_")[0];
             var direction = selectedVal.split("_")[1];
 

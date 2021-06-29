@@ -34,7 +34,7 @@ def post_detail(request, slug):
         post = get_object_or_404(Post, slug=slug)
     else:
         post = get_object_or_404(Post, slug=slug, status=1)
-   
+
     comment_raw = post.comments.all()
     comments = comment_raw.order_by('-date_added')
 
@@ -80,7 +80,9 @@ def add_post(request):
             messages.success(request, 'Successfully added a blog post!')
             return redirect(reverse('post_detail', args=[post.slug]))
         else:
-            messages.error(request, 'Failed to add the blog post. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to add the blog post.'
+                           'Please ensure the form is valid.')
     else:
         form = PostForm()
 
@@ -109,7 +111,9 @@ def edit_post(request, slug):
             messages.success(request, 'Successfully updated blog post!')
             return redirect(reverse('post_detail', args=[post.slug]))
         else:
-            messages.error(request, 'Failed to update blog post. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to update blog post.'
+                           'Please ensure the form is valid.')
     else:
         form = PostForm(instance=post)
         messages.info(request, f'You are editing {post.title}')

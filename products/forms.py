@@ -11,8 +11,12 @@ class ProductForm(forms.ModelForm):
         model = Product
         exclude = ('recommend_percentage',)
 
-    image = forms.ImageField(label='Image 1', required=True, widget=CustomClearableFileInput)
-    image_2 = forms.ImageField(label='Image 2', required=True, widget=CustomClearableFileInput2)
+    image = forms.ImageField(label='Image 1',
+                             required=True,
+                             widget=CustomClearableFileInput)
+    image_2 = forms.ImageField(label='Image 2',
+                               required=True,
+                               widget=CustomClearableFileInput2)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

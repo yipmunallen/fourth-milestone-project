@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -19,23 +19,27 @@ def add_review(request, product_id):
     if review_form.is_valid():
         review = review_form.save(commit=False)
         review.user = user
-        review.product = product 
+        review.product = product
         review.title = request.POST["title"]
         review.description = request.POST["description"]
         review.save()
 
         product_reviews = Review.objects.filter(product=product_id).count()
-        product_reviews_recommended = Review.objects.filter(product=product_id, would_recommend=True).count()
+        product_reviews_recommended = Review.objects.filter(
+                                        product=product_id,
+                                        would_recommend=True
+                                        ).count()
 
         if product_reviews_recommended > 0:
-            product.recommend_percentage = int(product_reviews_recommended / product_reviews) * 100
+            product.recommend_percentage = int(
+                product_reviews_recommended / product_reviews) * 100
         else:
             product.recommend_percentage = 0
 
         product.save()
-        
+
         messages.success(request, 'Successfully added review!')
-        
+
         return redirect(reverse('product_detail', args=[product.id]))
 
     else:
@@ -57,15 +61,20 @@ def edit_review(request, review_id):
     if review_form.is_valid():
         review.save()
 
-        product_reviews = Review.objects.filter(product=review.product.pk).count()
-        product_reviews_recommended = Review.objects.filter(product=review.product.pk, would_recommend=True).count()
+        product_reviews = Review.objects.filter(
+                           product=review.product.pk).count()
+        product_reviews_recommended = Review.objects.filter(
+                                      product=review.product.pk,
+                                      would_recommend=True
+                                      ).count()
 
         if product_reviews_recommended > 0:
-            product.recommend_percentage = int(product_reviews_recommended / product_reviews) * 100
+            product.recommend_percentage = int(
+                product_reviews_recommended / product_reviews) * 100
         else:
             product.recommend_percentage = 0
 
-        product.save()     
+        product.save()
 
         messages.success(request, 'Your review has been successfully edited')
     else:
@@ -85,12 +94,17 @@ def delete_review(request, review_id):
 
     try:
         review.delete()
-        
-        product_reviews = Review.objects.filter(product=review.product.pk).count()
-        product_reviews_recommended = Review.objects.filter(product=review.product.pk, would_recommend=True).count()
+
+        product_reviews = Review.objects.filter(
+                          product=review.product.pk
+                          ).count()
+        product_reviews_recommended = Review.objects.filter(
+                                      product=review.product.pk,
+                                      would_recommend=True).count()
 
         if product_reviews_recommended > 0:
-            product.recommend_percentage = int(product_reviews_recommended / product_reviews) * 100
+            product.recommend_percentage = int(
+                product_reviews_recommended / product_reviews) * 100
         else:
             product.recommend_percentage = 0
 
@@ -99,7 +113,8 @@ def delete_review(request, review_id):
         messages.success(request, 'Your review has been successfully deleted')
 
     except Exception as e:
-        messages.error(request, "An error occured whilst trying to delete your review: "
-                                f" error:{e}. Please try again later.")
+        messages.error(request,
+                       "An error occured whilst trying to delete your review: "
+                       f" error:{e}. Please try again later.")
 
     return redirect(reverse('product_detail', args=(review.product.id,)))

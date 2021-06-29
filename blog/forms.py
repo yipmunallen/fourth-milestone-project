@@ -12,11 +12,13 @@ class PostForm(forms.ModelForm):
         model = Post
         exclude = ('slug',)
 
-    image = forms.ImageField(label='Image', required=True, widget=CustomClearableFileInput)
+    image = forms.ImageField(label='Image',
+                             required=True,
+                             widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-  
+
         self.fields['title'].widget.attrs['autofocus'] = True
 
 
@@ -30,4 +32,5 @@ class CommentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.fields['comment'].widget.attrs['placeholder'] = 'Write your comment here...'
+        self.fields['comment'].widget.attrs['placeholder'] = (
+            'Write your comment here...')

@@ -14,7 +14,9 @@ class Review(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     description = models.TextField()
-    would_recommend = models.BooleanField(default=False, null=False, blank=False)
+    would_recommend = models.BooleanField(default=False,
+                                          null=False,
+                                          blank=False)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

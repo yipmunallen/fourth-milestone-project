@@ -18,6 +18,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='recommend_percentage',
-            field=models.IntegerField(blank=True, default=0, null=True, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(100)]),
+            field=models.IntegerField(
+                blank=True,
+                default=0,
+                null=True,
+                validators=[
+                            django.core.validators.MinValueValidator(0),
+                            django.core.validators.MaxValueValidator(100)]),
         ),
     ]

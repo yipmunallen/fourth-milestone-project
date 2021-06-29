@@ -16,16 +16,23 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Post',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                                           primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
                 ('title', models.CharField(max_length=100, unique=True)),
                 ('slug', models.SlugField(max_length=200, unique=True)),
                 ('author', models.CharField(max_length=60)),
                 ('updated_on', models.DateTimeField(auto_now=True)),
                 ('content', models.TextField()),
                 ('summary', models.TextField(max_length=300)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='')),
+                ('image', models.ImageField(blank=True,
+                                            null=True,
+                                            upload_to='')),
                 ('created_on', models.DateTimeField(auto_now_add=True)),
-                ('status', models.IntegerField(choices=[(0, 'Draft'), (1, 'Publish')], default=0)),
+                ('status', models.IntegerField(choices=[(0, 'Draft'),
+                                                        (1, 'Publish')],
+                                                        default=0)),
             ],
             options={
                 'ordering': ['-created_on'],
@@ -34,11 +41,18 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Comment',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                                           primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
                 ('comment', models.TextField()),
                 ('date_added', models.DateTimeField(auto_now_add=True)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='blog.post')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='profiles.userprofile')),
+                ('post', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='comments', to='blog.post')),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    to='profiles.userprofile')),
             ],
             options={
                 'ordering': ['date_added'],
