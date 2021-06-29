@@ -139,16 +139,15 @@
     <script src="{% static 'js/quantity_input_script.js' %}"></script>
     <script type="text/javascript">
         // Update quantity on click
-        $('.update-cart').click(function(e) {
+        $('.update-cart').click(function(e) {s
             var form = $(this).prev('.update-form');
             form.submit();
-        })
+        });
 
         // Remove item and reload on click
         $('.remove-item').click(function(e) {
             var csrfToken = "{{ csrf_token }}";
             var itemId = $(this).attr('id').split('remove_')[1];
-            // variables like "product_size" should be consistent with views
             var url = `/cart/remove/${itemId}/`;
             var data = {'csrfmiddlewaretoken': csrfToken};
 
@@ -156,6 +155,6 @@
              .done(function() {
                  location.reload();
              });
-        })
+        });
     </script>    
 {% endblock %}
