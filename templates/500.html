@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}
+    405 Error
+{% endblock %}
+
+{% block content %}
+<div class="allauth-hero">
+    <div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="col-md-6 col-12 mx-auto">
+                <div class="jumbotron allauth-form-inner-content">
+                    <h1>500 Error</h1>
+                    <h4>There is an issue with the page you are looking for</h4>
+                    <a class="brown-btn" href="{% url 'home' %}">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
