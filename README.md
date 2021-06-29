@@ -44,6 +44,8 @@ Test card details:
    1. [Compatibility](#compatibility)
    1. [Validation](#validation)
 1. [Deployment](#deployment)
+   1. [Requirements](#requirements)
+   1. [Local Deployment](#local-deployment)
 1. [Credits](#credits)
 
 ## Project Summary
@@ -580,46 +582,45 @@ Toast messages are used to confirm actions and convey messages to users. They ar
 
 #### Form Validation
 
-    | Product Management Forms                                        | Testing |
-    |-----------------------------------------------------------------|---------|
-    | User cannot submit the form (add or edit) without a Name        | PASS    |
-    | User cannot submit the form (add or edit) without a Description | PASS    |
-    | User cannot submit the form (add or edit) without a Price       | PASS    |
-    | User cannot submit the form (add or edit) without an Image 1    | PASS    |
-    | User cannot submit the form (add or edit) without an Image 2    | PASS    |
-    | User cannot submit the form (add or edit) if the Price is < 0   | PASS    |
+| Product Management Forms                                        | Testing |
+|-----------------------------------------------------------------|---------|
+| User cannot submit the form (add or edit) without a Name        | PASS    |
+| User cannot submit the form (add or edit) without a Description | PASS    |
+| User cannot submit the form (add or edit) without a Price       | PASS    |
+| User cannot submit the form (add or edit) without an Image 1    | PASS    |
+| User cannot submit the form (add or edit) without an Image 2    | PASS    |
+| User cannot submit the form (add or edit) if the Price is < 0   | PASS    |
 
-    | Blog Management Forms                                       | Testing |
-    |-------------------------------------------------------------|---------|
-    | User cannot submit the form (add or edit) without a Title   | PASS    |
-    | User cannot submit the form (add or edit) without a Author  | PASS    |
-    | User cannot submit the form (add or edit) without a Summary | PASS    |
-    | User cannot submit the form (add or edit) without Content   | PASS    |
-    | User cannot submit the form (add or edit) without an Image  | PASS    |
-    
-    | Reviews Form                                                         | Testing |
-    |----------------------------------------------------------------------|---------|
-    | If a user is not logged in or signed up, they cannot access the form | PASS    |
-    | Users cannot submit the form without a title                         | PASS    |
-    | Users cannot submit the form without a description                   | PASS    |
+| Blog Management Forms                                       | Testing |
+|-------------------------------------------------------------|---------|
+| User cannot submit the form (add or edit) without a Title   | PASS    |
+| User cannot submit the form (add or edit) without a Author  | PASS    |
+| User cannot submit the form (add or edit) without a Summary | PASS    |
+| User cannot submit the form (add or edit) without Content   | PASS    |
+| User cannot submit the form (add or edit) without an Image  | PASS    |
 
-    | Comments Form                                                        | Testing |
-    |----------------------------------------------------------------------|---------|
-    | If a user is not logged in or signed up, they cannot access the form | PASS    |
-    | Users cannot submit the form (add or edit) without a comment         | PASS    |
+| Reviews Form                                                         | Testing |
+|----------------------------------------------------------------------|---------|
+| If a user is not logged in or signed up, they cannot access the form | PASS    |
+| Users cannot submit the form without a title                         | PASS    |
+| Users cannot submit the form without a description                   | PASS    |
+| Comments Form                                                        | Testing |
+|----------------------------------------------------------------------|---------|
+| If a user is not logged in or signed up, they cannot access the form | PASS    |
+| Users cannot submit the form (add or edit) without a comment         | PASS    |
 
-    | Checkout Form                                                                | Testing |
-    |------------------------------------------------------------------------------|---------|
-    | User cannot submit the form (add or edit) without an Email Address           | PASS    |
-    | User cannot submit the form (add or edit) without a Phone Number             | PASS    |
-    | User cannot submit the form (add or edit) without a Full Name                | PASS    |
-    | User cannot submit the form (add or edit) without a Street Address 1         | PASS    |
-    | User cannot submit the form (add or edit) without a Town or City             | PASS    |
-    | User cannot submit the form (add or edit) without a Country                  | PASS    |
-    | User cannot submit the form (add or edit) without a valid Card Number        | PASS    |
-    | User cannot submit the form (add or edit) without a valid Card Expiry Date   | PASS    |
-    | User cannot submit the form (add or edit) without a valid Card Security Code | PASS    |
-    | User cannot submit the form (add or edit) without a valid Postcode           | PASS    |
+| Checkout Form                                                                | Testing |
+|------------------------------------------------------------------------------|---------|
+| User cannot submit the form (add or edit) without an Email Address           | PASS    |
+| User cannot submit the form (add or edit) without a Phone Number             | PASS    |
+| User cannot submit the form (add or edit) without a Full Name                | PASS    |
+| User cannot submit the form (add or edit) without a Street Address 1         | PASS    |
+| User cannot submit the form (add or edit) without a Town or City             | PASS    |
+| User cannot submit the form (add or edit) without a Country                  | PASS    |
+| User cannot submit the form (add or edit) without a valid Card Number        | PASS    |
+| User cannot submit the form (add or edit) without a valid Card Expiry Date   | PASS    |
+| User cannot submit the form (add or edit) without a valid Card Security Code | PASS    |
+| User cannot submit the form (add or edit) without a valid Postcode           | PASS    |
 
 #### Error Pages
 
@@ -646,15 +647,69 @@ Toast messages are used to confirm actions and convey messages to users. They ar
 
 ## Deployment
 
-This project was developed on Github, using Gitpod as IDE. It was deployed on Heroku
+This project was developed on Github, using Gitpod as IDE. It was deployed on Heroku.
 
-### Clone this project
+### Requirements
 
-In order to clone this project:
+You will need the following:
 
-1. Log in to Github and find the Github Repository.
+1. IDE of your choice (Gitpod, Visual Studio Code etc.)
+1. Install [Git](https://jshint.com/) - Used for version control
+1. Install [Python3](https://www.python.org/downloads/) - Used to write code
+1. Install [PIP](https://pip.pypa.io/en/stable/installing/) - Used to install packages
+
+You will need accounts with the following:
+
+1. [Gmail](https://gmail.com) - Used to send emails
+1. [Stripe](https://stripe.com/en-gb) - Handles payments
+1. [AWS S3](https://aws.amazon.com/) - Hosts image files
+1. [Heroku]](https://www.heroku.com) - Used for deployment
+
+### Local Deployment
+
+**Clone this repository:**
+
+1. Go to the project [repo](https://github.com/yipmunallen/fourth-milestone-project)
 2. Click the "code" button and copy the HTTPS link
 3. Open Git terminal and type ```git clone``` followed by the link and hit "enter".
+
+**Set up environment variables:**
+
+1. Create an ```env.py``` file
+2. Ensure that ```env.py``` is in your ```.gitignore``` file in the root directory
+3. Add the following variables to your ```env.py``` file:
+    ```
+        os.environ["DEVELOPMENT"] = "True"
+        os.environ["SECRET_KEY"] = "<Insert here>"
+        os.environ["STRIPE_PUBLIC_KEY"] = "<Insert here>"
+        os.environ["STRIPE_SECRET_KEY"] = "<Insert here>"
+        os.environ["STRIPE_WH_SECRET"] = "<Insert here>"
+    ```
+
+**Add all module requirements to ```requirements.txt``` file:**
+
+1. Run the following in the command line: ```pip3 install -r requirements.txt```
+
+**Database setup**
+
+Use the following commands to load the fixtures data (in this order):
+
+1. ```python3 manage.py loaddata categories```
+2. ```python3 manage.py loaddata products```
+
+**Create admin user**
+
+Use the following commands to create a superuser:
+
+1. ```python3 manage.py createsuperuser```
+2. Enter an e-mail, username and password for the superuser
+
+**Run the application**
+
+Run the following in the command line
+
+1. ```python3 manage.py runserver```
+
 
 ### Setting up a database
 
