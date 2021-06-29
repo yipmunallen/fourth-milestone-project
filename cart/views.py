@@ -36,6 +36,11 @@ def adjust_cart(request, item_id):
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
 
+    if quantity > 20:
+        quantity = 20
+    if quantity < 0:
+        quantity = 0
+
     if quantity > 0:
         cart[item_id] = quantity
         messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
