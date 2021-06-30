@@ -612,6 +612,8 @@ Tests have been conducted to ensure users cannot perform actions or access pages
     1. Tries to edit or delete a product, they will either be redirected to the login page or an error toast will appear depending on whether the user is logged in order not
     1. Tries to access the blog management page, they will either be redirected to the login page or an error toast will appear depending on whether the user is logged in order not
     1. Tries to edit or delete a product, they will either be redirected to the login page or an error toast will appear depending on whether the user is logged in order not
+1. If a logged in user:
+    1. Tries to access the login or sign up page, they will be redirected to the home page
 
 #### Form Validation
 
