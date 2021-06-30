@@ -11,8 +11,8 @@ The live project can be viewed [here](https://fourth-milestone-project-neat.hero
 Test card details:
 * **Card Number:** 4242 4242 4242 4242
 * **Expiration Date:** 04 / 24
-* **CVC:** 111
-* **ZIP:** 1111
+* **CVC:** 424
+* **ZIP:** 42424
 
 ## Table of Contents
 1. [Project Summary](#project-summary)
