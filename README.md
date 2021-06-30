@@ -917,9 +917,9 @@ Run the following in the command line
         | USE_AWS                | True                                 |
 
 10. Go to the app "Deploy" tab and click on the "Github" option
-7. Connect your Github account and input your Github repo name
-8. Click on "Enable Automatic Deploys" and then "Deploy Branch"
-9. You can view your deployed site by clicking on "Open App"
+11. Connect your Github account and input your Github repo name
+12. Click on "Enable Automatic Deploys" and then "Deploy Branch"
+13. You can view your deployed site by clicking on "Open App"
 
 ## Credits
 
