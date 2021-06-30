@@ -47,6 +47,7 @@ Test card details:
 1. [Deployment](#deployment)
    1. [Requirements](#requirements)
    1. [Local Deployment](#local-deployment)
+   1. [Deploy to Heroku](#deploy-to-heroku)
 1. [Credits](#credits)
 
 ## Project Summary
@@ -526,7 +527,7 @@ In addition:
 1. View individual product details so that I can decide if I want to make a purchase
     - Product details are displayed on all individual product pages, including product name, price and description
 1. Get feedback on the site when actions are performed so that I know if they have been successful or not
-    - Toasts have been used to display feedback to user across the site, showing at the top of the screen (see further information in [Additional Testing](#additional-testing))
+    - Toasts have been used to display feedback to user across the site, showing at the top of the screen
 
 *Sorting and Searching*
 
@@ -856,41 +857,69 @@ Run the following in the command line
         - Click through to the end and "Create User"
         - Download the CSV file - This contains your AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY variables.
 
+**Set up gmail**
+
+1. Go to [Gmail](http://www.gmail.com)
+2. Either log in if you already have an account, or sign up
+3. Go the account settings in the uppser right, and click "accounts and import" and then "other google account settings"
+4. Go to the security tab and under "signing into google" turn on "2-step verification"
+5. Click "Get started", enter your password and have them send you a verification code
+6. Once you are verified, turn on two step verification
+7. Go back to the security tab, and you should see a heading called "App Passwords", click that and enter password again if needed
+8. Under the "Select app" dropdown, select "Mail"
+9. Under the "Select app" dropdown, select other and type "Django"
+10. Save the "Generated App Password" as this will be used as your EMAIL_HOST_PASS config variable in Heroku
+
 **Deployment**
 
-1. Install unicorn, which will act as our webserver
-    - ```pip3 install gunicorn```
-2. Freeze requirements file
-    - ```pip3 > freeze requirements.txt```
-3. Create a Procfile in the root directory
-    - Add ```web: gunicorn <YOUR APP NAME>.wsgi:application```
-4. Set up Postgres in Heroku
+1. Set up Postgres in Heroku
     - Go to the resources tab in Heroku
     - Search for "Heroku Postgres"
     - Select the "Hobby Dev" free plan
-5. Set up config variables in Heroku
+2. Comment out the 'SQLite and Postgres databases' section in your ```settings.py``` file 
+    and uncomment 'Postgres Database' section. Add your DATABASE_URL link obtained from Heroku Config Vars
+    ```
+     DATABASES = {
+     'default': dj_database_url.parse('your-url-goes-here')
+    }
+    ```
+3. Migrate your models to Postgres by inputting this in your command line:
+    ```python3 manage.py migrate```
+4. Import your fixtures to the new database inputting this in your command line:
+    ```
+    python3 manage.py loaddata categories
+    python3 manage.py loaddata products
+    ```
+5. Create a new superuser account inputting this in your command line and then adding an email and password:
+    ```
+    python3 manage.py createsuperuser
+    ```
+6. Install unicorn, which will act as our webserver
+    - ```pip3 install gunicorn```
+7. Freeze requirements file
+    - ```pip3 > freeze requirements.txt```
+8. Create a Procfile in the root directory
+    - Add ```web: gunicorn <YOUR APP NAME>.wsgi:application```
+9. Set up config variables in Heroku
     - Go to your app "Settings", and click "Reveal config vars"
     - Add the following:
-        | Key                    | Value            |
-        |------------------------|------------------|
-        | AWS_ACCESS_KEY_ID      | < Insert >       |
-        | AWS_SECRET_ACCESS_KEY  | < Insert >       |
-        | DATABASE_URL           | < Insert >       |
-        | EMAIL_HOST_PASS        | < Insert >       |
-        | EMAIL_HOST_USER        | < Insert >       |
-        | SECRET_KEY             | < Insert >       |
-        | STRIPE_PUBLIC_KEY      | < Insert >       |
-        | STRIPE_SECRET_KEY      | < Insert >       |
-        | STRIPE_WH_SECRET       | < Insert >       |
-        | USE_AWS                | True             |
+        | Key                    | Value                                |
+        |------------------------|--------------------------------------|
+        | AWS_ACCESS_KEY_ID      | < Insert from the aws csv >          |
+        | AWS_SECRET_ACCESS_KEY  | < Insert from the aws csv>           |
+        | DATABASE_URL           | < Insert the postgres url >          |
+        | EMAIL_HOST_PASS        | < Insert the gmail password >        |
+        | EMAIL_HOST_USER        | < Insert your email address>         |
+        | SECRET_KEY             | < Insert secret key >                |
+        | STRIPE_PUBLIC_KEY      | < Insert stripe public key >         |
+        | STRIPE_SECRET_KEY      | < Insert stripe secret key >         |
+        | STRIPE_WH_SECRET       | < Insert stripe webhook secret>      |
+        | USE_AWS                | True                                 |
 
-
-
-3. Connect to Github
-    1. Click on the "Deploy" tab and "Connect to GitHub"
-    2. Enter the name of your Github repository and click "Connect"
-    3. Go to the "Settings" tab and create config vars based on variables created in env.py previously
-    4. Once all your Github files are pushed, navigate back to the "Deploy" tab, select "Enable automatic deploys" and deploy branch to Heroku
+10. Go to the app "Deploy" tab and click on the "Github" option
+7. Connect your Github account and input your Github repo name
+8. Click on "Enable Automatic Deploys" and then "Deploy Branch"
+9. You can view your deployed site by clicking on "Open App"
 
 ## Credits
 
