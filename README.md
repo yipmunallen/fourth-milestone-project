@@ -16,6 +16,7 @@ Test card details:
 
 ## Table of Contents
 1. [Project Summary](#project-summary)
+    1. [Site Purpose](#site-purpose)
 1. [Ux](#ux)
     1. [User stories](#user-stories)
         1. [Site Owner Goals](#site-owner-goals)
@@ -55,10 +56,13 @@ This project is my fourth and final milestone project (Full Stack Frameworks Wit
 The purpose of the project is to build a full-stack site based around business logic used to control a centrally-owned dataset
 , setting up an authentication mechanism and providing paid access to the site's data and/or other activities based on the dataset, such as the purchase of a product/service.
 
-I have created an e-commerce site where customers can purchase items and user engagement is encouraged through blog posts and
-the ability to leave reviews and comments.
+### Site purpose
 
-The site has a responsive design so that it can be viewed easily on mobile and desktop.
+The purpose of the site is to sell products for a brand (NEAT) that create planners and other organisational products.
+Customers can purchase items and user engagement is encouraged through blog posts, the ability to leave reviews and comments and to create unique user profiles.
+
+The site is intented to be visually appealing, and have a strong brand presence and consistent colour scheme that emotes a positive response in it's users.
+It has a responsive design so that it can be viewed easily on mobile and desktop.
 
 ## UX
 
@@ -208,9 +212,13 @@ Pages for user authentication and profile creation
 - **Admin** - Features that are only available to admin accounts
     - Admin's have two additional options available from the user icon dropdown in the navigation bar:
         - Product Management (used to add a product to the site)
-        - Blog Management (user to add a blog post to the site) 
-    - On individual product pages, buttons to edit and delete a product from the UI appear for admin users only
-    - On individual blog pages, buttons to edit and delete a blog from the UI appear for admin users only
+        - Blog Management (used to add a blog post to the site) 
+    - On individual product detail pages, buttons to edit and delete a product from the UI appear for admin users only
+        - The edit button will open a form containing the current product information
+        - The delete button will open a modal, confirming with the user if they want to delete the product
+    - On individual blog post pages, buttons to edit and delete a blog from the UI appear for admin users only
+        - The edit button will open a form containing the current blog post information
+        - The delete button will open a modal, confirming with the user if they want to delete the post    
     - Access to all the following are available via the Django admin site:
         - User Profiles
         - Product categories
@@ -252,7 +260,41 @@ Pages for user authentication and profile creation
             "I recommend this product", if the user selected that option when leaving their review
         - Write a review
             - If the site user is not signed in, they will be prompted to log in or sign up
-            - If the user is already signed in, this tab will contain a form allowing them to leave a reviewv
+            - If the user is already signed in, this tab will contain a form allowing them to leave a review
+
+- **Cart Page**
+    - Users can see all of the items that are in their cart
+    - The quantity of an item in the cart can be updated by updating the quantity and then clicking the "Update quanitty" button. This will reload the
+        page, and update the cart totals
+    - An item can be deleted from the cart by clicking the "Delete Product" button
+    - There is a cart summary card which shows the Subtotal, Delivery and Total Amount. The delivery charge is automatically populated as 10%
+        of the order charge. If the cart total is above the delivery threshold of "£40" then the delivery charge is set to 0. If the cart total
+        is below the delivery threshold, the user is informed of how much more they need to spend to reach it. 
+    - If the cart is empty, the "Secure Checkout" button and "Cart Total" card is removed
+    
+- **Checkout Page**
+    - This page contains a form where users can enter their personal, delivery and card information
+    - A summary of the order is shown so that users are reminded of what they are purchasing
+    - Signed in users have the option to "Set default delivery information"
+    - Non-signed in users have the option to "Sign In" or "Log In" in order to "Set default delivery information"
+    - At the bottom of the screen are two buttons allowing the user to either "Adjust cart" or "Place Order"
+    - Underneath the "Place Order" button, the user is reminded that their card will be charged £[ Order Amount ]
+
+- **User Profile Page**
+    - Users can use the "Default Information" form to submit default delivery information that will be autofilled next time they check out
+    - The "Order History" section provides users with a last of their past orders. Clicking on the order number will direct the user to the
+        order confirmation of that order so that they can see the order details in full
+    - The "Account" section has a button that allows users to change their password
+
+- **Blog Post Page**
+    - The blog post details are shown
+    - The comment section at the bottom of the page has two tabs:
+        - Comments 
+            - Shows the number of comments that have been left as well as the comment themselves
+            - Each review shows the date created, username of commenter, and the comment
+        - Write a comment
+            - If the site user is not signed in, they will be prompted to log in or sign up
+            - If the user is already signed in, this tab will contain a form allowing them to leave a comment
 
 ## Architecture
 
@@ -569,17 +611,6 @@ Tests have been conducted to ensure users cannot perform actions or access pages
     1. Tries to access the blog management page, they will either be redirected to the login page or an error toast will appear depending on whether the user is logged in order not
     1. Tries to edit or delete a product, they will either be redirected to the login page or an error toast will appear depending on whether the user is logged in order not
 
-#### Toasts
-Toast messages are used to confirm actions and convey messages to users. They are successfully shown:
-
-1. If a login attempt is unsuccessfull , "Incorrect username and/or password" shows
-2. If a user tried to sign up with an existing username, "username already exists" shows.
-3. If a new user signs up, they will be directed to the feed page where "Welcome to Ticker, Username. This feed shows recent comments on stocks" shows.  
-4. If a user logs in, they will be directed to the feed page where "Welcome, Username" shows.
-5. If a user creates a new comment, "Comment successfully added" shows.
-5. If a user edits a comment, "Comment successfully edited" shows.
-5. If a user deletes a comment, "Comment successfully deleted" shows.
-
 #### Form Validation
 
 | Product Management Forms                                        | Testing |
@@ -604,6 +635,7 @@ Toast messages are used to confirm actions and convey messages to users. They ar
 | If a user is not logged in or signed up, they cannot access the form | PASS    |
 | Users cannot submit the form without a title                         | PASS    |
 | Users cannot submit the form without a description                   | PASS    |
+
 | Comments Form                                                        | Testing |
 |----------------------------------------------------------------------|---------|
 | If a user is not logged in or signed up, they cannot access the form | PASS    |
@@ -638,11 +670,39 @@ Toast messages are used to confirm actions and convey messages to users. They ar
 
   - __CSS__ - Validated using [Jigsaw](https://jigsaw.w3.org/css-validator/#validate_by_input) with no errors found.
 
-  - __HTML__ - Validated using [W3C](https://validator.w3.org/#validate_by_input). Other than errors related to the user of the Jinja templating language, no errors found.
+    | Page         | Test |
+    |--------------|------|
+    | base.css     | PASS |
+    | checkout.css | PASS |
+    | home.css     | PASS |
+    | blog.css     | PASS |
+    | profile.css  | PASS |
+
+  - __HTML__ - Validated using [W3C](https://validator.w3.org/#validate_by_input).
+
+    | Page                  | Test |
+    |-----------------------|------|
+    | index.html            | PASS |
+    | about.html            | PASS |
+    | add_product.html      | PASS |
+    | edit_product.html     | PASS |
+    | product_detail.html   | PASS |
+    | products.html         | PASS |
+    | profile.html          | PASS |
+    | reviews.html          | PASS |
+    | checkout.html         | PASS |
+    | checkout_success.html | PASS |
+    | cart.html             | PASS |
+    | add_blog.html         | PASS |
+    | edit_blog.html        | PASS |
+    | blog.html             | PASS |
+    | blog_detail.html      | PASS |
 
   - __Javascript__ - Validated using [JSHint Validator](https://jshint.com/) with no errors found.
 
-  - __Python__ - Validated using [PEP 8](https://jshint.com/) with no errors found.
+  - __Python__ - Validated using [PEP 8](http://pep8online.com/) with no errors found with one exception:
+          - ```settings.py``` (the Django settings file has a known issue, but is acceptable to not force a line break)
+          - line too long (> 79 characters) - ```AUTH_PASSWORD_VALIDATORS = [{}]``` x 4
   
 
 ## Deployment
@@ -662,8 +722,8 @@ You will need accounts with the following:
 
 1. [Gmail](https://gmail.com) - Used to send emails
 1. [Stripe](https://stripe.com/en-gb) - Handles payments
-1. [AWS S3](https://aws.amazon.com/) - Hosts image files
-1. [Heroku]](https://www.heroku.com) - Used for deployment
+1. [AWS S3](https://aws.amazon.com/) - Hosts image files. Register with a free account (you may need to enter card details but will not be charged)
+1. [Heroku](https://www.heroku.com) - Used for deployment
 
 ### Local Deployment
 
@@ -710,26 +770,122 @@ Run the following in the command line
 
 1. ```python3 manage.py runserver```
 
-
-### Setting up a database
-
-In order to set up a database in MongoDB:
-
-1. Signup or login to MongoDB
-2. Create a cluster as well as a database.
-3. Create three collections within your database following this [data structure](#data-structure)
-
 ### Deploy to Heroku
 
-1. Add an env.py file to your workspace containing the following variables:
-    1. ``` os.environ["PORT"] = "5000"```
-    2. ``` os.environ["IP"] = "0.0.0.0"```
-    3. ``` os.environ["SECRET_KEY"] = "YOUR_SECRET_KEY"``` 
-    4. ```os.environ["MONGO_URI"] = "YOUR_MONGODB_URI"``` 
-    5. ```os.environ["MONGO_DBNAME"]= "DATABASE_NAME" ```
-2. Create an application:
-    1. Log in or sign up to [__Heroku__](https://heroku.com/)
-    2. Click on the "New" button and "Create new app"
+**Set up heroku account**
+
+1. Create a new app
+    - Click on "New" > "Create new app"
+    - Enter a name
+    - Select the region closest to you
+
+**Set up AWS account**
+
+1. Sign in as "Root User" 
+2. Search for "S3" at the top of the site and click it to open
+3. Click on "Create bucket"
+    - Fill in the name (this should match your Heroku app name)
+    - Set the region closest to you
+    - Deselect "Block all public access"
+    - Click "Create Bucket"
+4. Enable static website hosting in the properties tab
+    - Select "Use this bucket to host a website"
+    - For Index Document, input "index.html"
+    - For Error Document, input "index.html"
+    - Click "save"
+5. Go to the permission tab
+    - In "CORS configuration", paste the following to set up the required access between the Heroku app and this S3 bucket:
+        ```
+        [
+            {
+                "AllowedHeaders": [
+                    "Authorization"
+                ],
+                "AllowedMethods": [
+                    "GET"
+                ],
+                "AllowedOrigins": [
+                    "*"
+                ],
+                "ExposeHeaders": []
+            }
+        ]
+        ```
+    - In "Bucket Policy", select policy generator
+        - Select "Type of Policy" should be "S3 Buckey Policy"
+        - Type ```*``` in the "Principal" field
+        - Select "get object" from the "Actions" dropdown
+        - Input your ARN from the previous tab into the "ARN" field
+        - Click "Add statement"
+        - Click "Generate Policy" and copy
+        - Paste policy into the bucket policy editor back on the "Bucket Policy" tab, adding ```/*``` onto the end of the resource key
+        - Click save
+    - Setting up IAM
+        - Go back to the services menu at the top of the screen, and open IAM
+        - Click on "User Groups" in the site bar and create a new group by inputting a group name
+        - Check "Next Step" and then "Create Group"
+        - Click on "Policies" in teh side bar in then "Create policy"
+        - Select the "JSON" tab, and "Import managed policy"
+        - In the search bar, search for "s3" and then import the "s3 full acccess policy"
+        - We only want full access to our Bucket, go back to copy your ARNs from before and add it within the resource brackets
+          ```
+            {
+              "Version": "2012-10-17",
+              "Statement": [
+                  {
+                      "Effect": "Allow",
+                      "Action": "s3:*",
+                      "Resource": [
+                          "[INSERT ARN HERE]",
+                          "[INSERT ARN HERE]/*"
+                      ]
+                  }
+              ]
+            }
+            ```
+        - Click "Review Policy"
+        - Add a Name and Description
+        - Click "Create policy"
+        - Go back to "Groups" in the sidebar, and click your new group
+        - Click "Attach policy"
+        - Search for the policy you just created and select it
+        - Click "Attach Policy"
+        - Go to "Users" in the sidebar, and click "Add User"
+        - Create a user named reponame-staticfiles-user, and select "programmatic access"
+        - Click "Next", and select the group to add the user to
+        - Click through to the end and "Create User"
+        - Download the CSV file - This contains your AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY variables.
+
+**Deployment**
+
+1. Install unicorn, which will act as our webserver
+    - ```pip3 install gunicorn```
+2. Freeze requirements file
+    - ```pip3 > freeze requirements.txt```
+3. Create a Procfile in the root directory
+    - Add ```web: gunicorn <YOUR APP NAME>.wsgi:application```
+4. Set up Postgres in Heroku
+    - Go to the resources tab in Heroku
+    - Search for "Heroku Postgres"
+    - Select the "Hobby Dev" free plan
+5. Set up config variables in Heroku
+    - Go to your app "Settings", and click "Reveal config vars"
+    - Add the following:
+        | Key                    | Value            |
+        |------------------------|------------------|
+        | AWS_ACCESS_KEY_ID      | < Insert >       |
+        | AWS_SECRET_ACCESS_KEY  | < Insert >       |
+        | DATABASE_URL           | < Insert >       |
+        | EMAIL_HOST_PASS        | < Insert >       |
+        | EMAIL_HOST_USER        | < Insert >       |
+        | SECRET_KEY             | < Insert >       |
+        | STRIPE_PUBLIC_KEY      | < Insert >       |
+        | STRIPE_SECRET_KEY      | < Insert >       |
+        | STRIPE_WH_SECRET       | < Insert >       |
+        | USE_AWS                | True             |
+
+
+
 3. Connect to Github
     1. Click on the "Deploy" tab and "Connect to GitHub"
     2. Enter the name of your Github repository and click "Connect"
