@@ -39,7 +39,6 @@ Test card details:
    1. [Site Goals Testing](#site-goals-testing)
    1. [User Stories Testing](#user-stories-testing)
    1. [Authorisation and Access](#authorisation-and-access)
-   1. [Toasts](#toasts)
    1. [Form Validation](#form-validation)   
    1. [Error Pages](#error-pages)   
    1. [Compatibility](#compatibility)
