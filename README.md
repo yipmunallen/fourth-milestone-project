@@ -439,11 +439,13 @@ This project consists of the following 7 Django apps:
 
 - [__Heroku__](https://heroku.com/) - Used to deploy the site
 
-- [__Heroku__](https://heroku.com/) - Used to deploy the site
-
 - [__SQLite__](https://www.sqlite.org/index.html) - Database used during development
 
+- [__PostgreSQL__](https://www.postgresql.org/) - Database used for deployed site
+
 - [__AWS S3__](https://www.sqlite.org/index.html) - Used to store images and static files displayed in the deployed site
+
+- [__GMail__](https://gmail.com) - Used to send out emails
 
 - [__Git__](https://git-scm.com/) - Used for version control
 
